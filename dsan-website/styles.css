@@ -74,3 +74,9 @@ tr{
 img:hover {
   opacity: .6;
 }
+
+ol{
+    display:block;
+    position: static;
+    margin-bottom: 150px;
+}
