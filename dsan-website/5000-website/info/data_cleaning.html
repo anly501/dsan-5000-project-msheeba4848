@@ -82,26 +82,40 @@ The cleaning of both textual and quantitative as no simple solution as each data
 
 Using the FREDAPI, the data has been extracted. The data that has been extracted from FredAPI had certain missing values in them that was imputed by mean value imputation. I would eventually like to explore Bayensian Missing Value Imputation but as a first step of cleaning, I have used mean. Except missing value handing, not much was done except merging the dataset. The data pre-processing took quite some time wherein, different data points had to be merged through outer-join into a singular dataframe for 'India'. <br>
 <br>
-This is how the merging had been done.
+This is how the merging had been done. <br> <br>
 
-<img src="../images/headfred.png" width="400" height="100" alt="Libraries Imported">
+<div style="text-align: center;"> 
+<img src="../images/headfred.png" width="400" height="400" alt="Libraries Imported">
 <br>
 <br>
+</div>
 The data is then merged to create a comparible dataset
-<br>
+<br> <br>
+<div style="text-align: center;"> 
 <img src="../images/mergefred.png" width="800" height="300" alt="Libraries Imported">
 <br>
 <br>
+</div>
 The data is then seen for information and missing values
 <br>
 <br>
+<div style="text-align: center;"> 
 <img src="../images/missingfred.png" width="800" height="300" alt="Libraries Imported">
 <br>
 <br>
-And then for data summary 
+</div>
+And then for data summary <br> <br>
+<div style="text-align: center;"> 
+<img src="../images/fredinfo.png" width="800" height="300" alt="Libraries Imported">
+<br> <br>
+</div>
+After missing value imputation , the data looks like this.
+<br> <br>
+<div style="text-align: center;"> <div style="text-align: center;"> 
 <img src="../images/fredinfo.png" width="800" height="300" alt="Libraries Imported">
 <br>
-
+<br>
+</div>
 To access to code: Click <cite><a href="https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website/codes">here</a></cite>. <br>
 To access the raw data: Click <cite><a href="https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website/data">here</a></cite>.
 
@@ -109,21 +123,27 @@ To access the raw data: Click <cite><a href="https://github.com/anly501/dsan-500
 
 <h2> QUANTITATIVE DATA: wbstats API - R </h2>
 
-Using the FREDAPI, the data has been extracted. <br>
+Using the FREDAPI, the data has been extracted. The data that has been extracted from wbstats had certain missing values in them that was imputed by mean value imputation. Except missing value handing, not much was done except merging the dataset. The data pre-processing took quite some time wherein, different data points had to be merged through outer-join into a singular dataframe for 'Bangladesh'. <br>
 <br>
+<br>
+This is how the merging had been done.<br> <br>
 
-<img src="../images/libr.png" width="400" height="100" alt="Libraries Imported">
+<img src="../images/headr.png" width="100" height="100" alt="Libraries Imported">
 <br>
 <br>
-Next the data has been obtained using the following series id. These have been obtained by looking at the wbstats API under 'India' category.<br>
+The data is then merged to create a comparible dataset
 <br>
-<img src="../images/seriesr.png" width="800" height="300" alt="Libraries Imported">
-<br>
-<br>
-The final output of the data is shown below.
+<img src="../images/merger.png" width="800" height="300" alt="Libraries Imported">
 <br>
 <br>
-<img src="../images/datar.png" width="800" height="300" alt="Libraries Imported">
+The data is then seen for information and missing values
+<br>
+<br>
+<img src="../images/missingr.png" width="500" height="200" alt="Libraries Imported">
+<br>
+<br>
+And then for data summary <br> <br>
+<img src="../images/fredinfo.png" width="800" height="300" alt="Libraries Imported">
 <br>
 <br>
 
@@ -133,35 +153,25 @@ To access the raw data: Click <cite><a href="https://github.com/anly501/dsan-500
 
 <h2> TEXT DATA: NEWSAPI - Python </h2>
 
-Using the NEWSAPI, the textual data has been extracted. We see the import of libraries with the relevent API key. <br>
+For NEWSAPI cleaning, the data was extracted and dumped in json format, which was again made changes to. For data cleaning, just to check if there are any lower cases, the followed dictionary was cleaned.
+
 <br>
 
-<img src="../images/textlib.png" width="600" height="100" alt="Libraries Imported">
+<img src="../images/deftext.png" width="600" height="100" alt="Libraries Imported">
 <br>
 <br>
-After the textual data has been extracted, the topics of 'Macroeconomic' and 'Fiscal Policy' have been chosen. The code is shown below.<br>
+After the text's case has been lowered, we used the CountVectoriser, that takes a collection of texts to convert it into a numerical feature matrix. The following is the code.
 <br>
-<img src="../images/codet.png" width="600" height="300" alt="Libraries Imported">
-<br>
-<br>
-Before pre-processing, the data looks like this in json format.
+<img src="../images/vectorcode.png" width="600" height="300" alt="Libraries Imported">
 <br>
 <br>
-<img src="../images/jsonfisraw.png" width="600" height="200" alt="Libraries Imported">
+The final vectorised data looks like this
 <br>
 <br>
-<img src="../images/macrofisraw.png" width="600" height="200" alt="Libraries Imported">
+<img src="../images/newscorpus.png" width="600" height="200" alt="Libraries Imported">
 <br>
 <br>
-The final data looks like this
-<br>
-<br>
-<img src="../images/fisheadraw.png" width="600" height="200" alt="Libraries Imported">
-<br>
-<br>
-<img src="../images/macroheadraw.png" width="600" height="200" alt="Libraries Imported">
-<br>
-<br/>
+
 To access to code: Click <cite><a href="https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website/codes">here</a></cite>. <br>
 To access the raw data: Click <cite><a href="https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website/data">here</a></cite>.
 
