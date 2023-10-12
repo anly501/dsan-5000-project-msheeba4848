@@ -200,3 +200,16 @@ merged_df= pd.merge(merged_df, annual_engagedwork_i, how= 'outer', on= 'Year' )
 merged_df= pd.merge(merged_df, annual_privatefinalcon_i, how= 'outer', on= 'Year' )
 merged_df= pd.merge(merged_df, annual_govt_lendingborrow_i, how= 'outer', on= 'Year')
 merged_df = merged_df.set_index('Year')
+
+
+missing = merged_df.isna().sum()
+print(missing)
+
+merged_df = merged_df.fillna(merged_df.mean()) # Did using mean value imputation 
+
+# Finding the nature of the data
+#merged_df['Year']=pd.to_datetime(merged_df['Year'])
+
+merged_df.info()
+
+merged_df.head(20)
