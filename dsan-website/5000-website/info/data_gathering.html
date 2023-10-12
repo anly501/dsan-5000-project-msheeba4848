@@ -76,21 +76,154 @@
     <!-----content -->
 
     <h1> Data Gathering </h1>
-    Since my problem statement focuses upon the impact of fiscal policy on macroeconomic variables, the data naturally consists of numerical or quantitative data based on time. For this topic, the most reliable websites for data collection were either to physically search for the data 
-    <h2> Problem Statement </h2>
+    Since my problem statement focuses upon the impact of fiscal policy on macroeconomic variables, the data naturally consists of numerical or quantitative data based on time. For this topic, the most reliable websites for data collection were either to physically search for the data or through the usage of APIs (Application Programming Interface). 
+    <h2> Data Source </h2>
+    Since one of the questions mainly attempts to compare the impacts of fiscal policies between Bangladesh which is an underdeveloped economic and India which is a developing economy, India's data was retrieved from FRED API. The FRED® API is a web service that allows developers to create programmes and construct apps that retrieve statistical information about the economy from the FRED® and ALFRED® websites hosted by the Federal Reserve Bank of St. Louis' Economic Research Division using Python <cite><a href="https://fred.stlouisfed.org/docs/api/fred/">(FRED API, n.d)</a></cite>. <br>
+    <br>
+    On the other hand, the data for Bangladesh has been retrived from 'wbstats' API which is an R-based interface, that is used for searching and downloading data from World Bank <cite><a href="https://cran.r-project.org/web/packages/wbstats/vignettes/wbstats.html#:~:text=wbstats%3A%20An%20R%20package%20for,from%20the%20World%20Bank%20API.">(wbstats, n.d)</a></cite>.
+    <h2> Data Description </h2>
 
-        <!-- </ul> -->
-  <!-- </div> -->
+    The data has been collected from 2000-2023. 
 
-   <!-- footer -->
-   <footer>
-    <p>
-      Moghal Sheeba  |  Washington DC  | GU Net ID: sm3924 |
- 
-      <a href="mailto:sm3924@georgetown.edu"> Mail</a>
-       |
-    </p>
-  </footer>
+    <!--table-->
 
-</body>
-</html>
+    <table>
+        <tr>
+          <th>S.No</th>
+          <th>Data</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>Gross Domestic Product</td>
+          <td>It quantifies a nation's economic performance by summing the value of all goods and services produced.</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Gross Government Debt</td>
+          <td>It reflects a government's cumulative financial obligations, encompassing loans, bonds, and other indebtedness.</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>Consumer Price Index</td>
+            <td>It is a key measure used to track changes in the average prices of goods and services.</td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>Import Rates</td>
+            <td>It refers to the tariffs or duties imposed on goods and services when they are brought into a country.</td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td>Inflation Rate</td>
+            <td>It quantifies the percentage increase in general price levels within an economy over a specified period.
+            </td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td>Gross National Income</td>
+            <td>It calculates a nation's total income, including earnings from abroad and minus foreign entities' income earned locally.</td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td>Employment Population</td>
+            <td> It represents the ratio of employed individuals to the total working-age population, indicating labor force participation./td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td>Unemployment Rate</td>
+            <td>It measures the percentage of people who are actively seeking employment but currently without a job in the labor force.</td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td>Infant Mortality Rate</td>
+            <td>It quantifies the number of infant deaths within the first year per 1,000 live births.</td>
+          </tr>
+          <tr>
+            <th>9</th>
+            <td>Life Expectancy Rate</td>
+            <td>It indicates the average number of years a person can expect to live, typically at birth, within a specific population.</td>
+          </tr>
+          <tr>
+            <th>10</th>
+            <td>Engaged Workers</td>
+            <td>It represents the number of people engaged in work out of the overall population.</td>
+          </tr>
+          <tr>
+            <th>11</th>
+            <td>Private Final Consumption</td>
+            <td>It represents the total expenditure by households and nonprofit institutions serving households (NPISH) on goods and services for their own use. </td>
+          </tr>
+          
+      </table>
+
+<h2> QUANTITATIVE DATA: FRED API - Python </h2>
+
+Using the FREDAPI, the data has been extracted. <br>
+<br>
+
+<img src="../images/importpy.png" width="400" height="100" alt="Libraries Imported">
+<br>
+<br>
+Next the data has been obtained using the following series id. These have been obtained by looking at the FRED website under 'India' category.<br>
+<br>
+<img src="../images/seriespy.png" width="800" height="300" alt="Libraries Imported">
+<br>
+<br>
+The final output of the data is shown below.
+<br>
+<br>
+<img src="../images/datapy.png" width="800" height="300" alt="Libraries Imported">
+<br>
+<br>
+
+<h2> QUANTITATIVE DATA: wbstats API - R </h2>
+
+Using the FREDAPI, the data has been extracted. <br>
+<br>
+
+<img src="../images/libr.png" width="400" height="100" alt="Libraries Imported">
+<br>
+<br>
+Next the data has been obtained using the following series id. These have been obtained by looking at the wbstats API under 'India' category.<br>
+<br>
+<img src="../images/seriesr.png" width="800" height="300" alt="Libraries Imported">
+<br>
+<br>
+The final output of the data is shown below.
+<br>
+<br>
+<img src="../images/datar.png" width="800" height="300" alt="Libraries Imported">
+<br>
+<br>
+
+<h2> TEXT DATA: NEWSAPI - Python </h2>
+
+Using the NEWSAPI, the textual data has been extracted. We see the import of libraries with the relevent API key. <br>
+<br>
+
+<img src="../images/libt.png" width="600" height="100" alt="Libraries Imported">
+<br>
+<br>
+After the textual data has been extracted, it is shown in json format as shown below.<br>
+<br>
+<img src="../images/dict.png" width="600" height="300" alt="Libraries Imported">
+<br>
+<br>
+After pre-processing, the data looks like this in dictionary format.
+<br>
+<br>
+<img src="../images/headt.png" width="600" height="200" alt="Libraries Imported">
+<br>
+<br>
+The final data looks like this
+<br>
+<br>
+<img src="../images/tablet.png" width="800" height="400" alt="Libraries Imported">
+<br>
+<br>
+
+
+
+
+
