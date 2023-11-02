@@ -7,14 +7,34 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: clustering/clustering.qmd
-        text: Clustering
-      - href: eda/eda.ipynb
+      - href: info/introduction.qmd
+        text: Introduction
+        icon: Introduction
+      - href: info/code.qmd
+        text: Code
+      - href: info/data.qmd
+        text: Data
+      - href: info/introduction.qmd
+        text: Introduction
+      - href: info/data_gathering.qmd
+        text: Data Gathering 
+      - href: info/data_cleaning.qmd
+        text: Data Cleaning 
+      - href: info/data_exploration.qmd
         text: Data Exploration
+      - href: info/clustering.qmd
+        text: Clustering
+      - href: info/dimensionality_reduction.qmd
+        text: Dimensionality Reduction
+    background: white
+    foreground: black
+    body-footer: footer.qmd
+
 format:
   html:
-    theme: cosmo
+    theme: morph
     toc: true
+
 
 
 

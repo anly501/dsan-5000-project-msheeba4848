@@ -1,0 +1,65 @@
+---
+title: "Introduction"
+backgroundcolor: white
+mainfont: Georgia
+theme: morph
+---
+
+## Problem Statement 
+
+As an economics student, international economics and geopolitics has been an area of interest to me. The book by "Silk Roads" by Franklin Frankopan is one of the most interesting books I've read. Researchers K. Laug and S. Rance argued that the introduction of the Silk Road drove countries to seek similar interests as a result of European countries' lack of collaboration. Fascism's growth mirrored a shift in the economic balance of power. Frankopan correctly identifies the limitations of liberal democracy in the changing economic and political structures of Western countries. (cite: https://reinventionjournal.org/index.php/reinvention/article/view/617/481)
+
+ This led me to explore and think about the complex dynamics of gepolitics and the powerplay of the hegemonic nations. The hegemonic nations are defined as those with the strongest military, greatest superpower and is a developed economy. Yet, the emerging nations have always been a threat to the global superpowers, due to their rapidly increasing growth, increase in exports and an increased in the overall quality of life. For instance, India was not like how it was 15 years ago. Frankopan's proclamation is a perceptive and comprehensive examination of global power dynamics and economics that is conspicuously absent from mainstream Western discourses and media landscapes.
+
+The term BRICS was first coined by a Goldman Chief Economist named Jim O'Neill in a research paper that underlined the growth potential of Brazil, Russia, India and China. (cite: https://www.reuters.com/world/what-is-brics-who-are-its-members-2023-08-21/). The bloc was founded as an informal club in 2009 to challenge the hegemonic domination of the US and it's western allies. The leaders of the governments and states of the member countries meet once a year, with each country having a one-year alternating presidency of the group.
+
+This got me interested to understand the cross-country comparison of BRICS in terms it's fiscal and macroeconomic policies. 
+
+{mention the reserach}
+
+## Research Questions
+
+1. How has the GDP growth rate varied among the BRICS countries over the past decade, and what are the key drivers of this growth?
+
+2. What is the inflation rate in each BRICS country, and how have their central banks managed monetary policy to control inflation?
+
+3. How do interest rates differ among BRICS nations, and how do these rates affect investment and economic growth?
+
+4. What are the levels of public debt in the BRICS countries, and how do these debts impact fiscal policies and economic stability?
+
+5. How have exchange rates fluctuated in the BRICS nations, and what is the role of currency exchange in international trade and finance?
+
+6. Are there significant disparities in unemployment rates among the BRICS countries, and what policies have been implemented to address unemployment?
+
+7. What is the balance of trade in each BRICS nation, and how do these trade balances impact foreign exchange reserves and economic stability?
+
+8. How have foreign direct investments (FDI) evolved in the BRICS nations, and what is their role in economic development?
+
+9. What are the major industry sectors contributing to GDP in each BRICS country, and how have these sectors evolved over time?
+
+10. How do the BRICS countries compare in terms of income distribution and poverty reduction efforts?
+    
+11. What are the trends in foreign exchange reserves in BRICS countries, and how do these reserves impact their exchange rate stability and financial security?
+
+12. How do government policies and regulations in each BRICS nation impact foreign direct investment (FDI) inflows and outflows?
+
+13. Can we identify any commonalities or differences in fiscal policy approaches among the BRICS countries, and how have these policies evolved over time?
+
+14. How do energy prices and consumption patterns in the BRICS nations affect their economic performance and energy security?
+
+15. What is the level of economic inequality within each BRICS country, and what strategies have been employed to address income inequality?
+
+16. How have trade agreements and trade diversification efforts impacted the balance of trade in the BRICS countries?
+
+17. What role do international financial institutions (e.g., IMF, World Bank) play in the economic policies and stability of the BRICS nations?
+
+18. Are there regional economic disparities within each BRICS country, and how are governments addressing these disparities?
+
+19. What impact have recent global economic events (e.g., financial crises, pandemics) had on the macroeconomic variables of the BRICS nations?
+
+20. How do each of the BRICS countries manage their foreign debt, and what strategies do they employ to ensure debt sustainability?
+
+
+
+
+

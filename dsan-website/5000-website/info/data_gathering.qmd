@@ -1,0 +1,33 @@
+---
+title: "Data Gathering"
+backgroundcolor: white
+mainfont: Georgia
+theme: morph
+body-footer: 
+---
+
+Since the entire nature of the data is focused on purely data that is quantitative in nature as we are attempting to understand the macro-economic nature of the BRICS, we need data that is retreived from a data bank consisting of a lot of columns. For this topic, the most reliable websites for data collection were either to physically search for the data or through the usage of APIs (Application Programming Interface).
+
+## Data Source
+
+For this project, the data is that is majorly required is numerical data. I am retrieving data through API's and by downloading data from World Bank.
+
+### Quantitative Data
+
+The data required for this project is a culmunation of macroeconomic and fiscal indicators of all the five emerging economics for which individual data has to be retrived using various sources.
+
+##### Python API 
+
+The Python API used for this project is the FRED API. The FRED-API is a web service that allows developers to create programmes and construct apps that retrieve statistical information about the economy from the FRED and ALFRED websites hosted by the Federal Reserve Bank of St. Louis' Economic Research Division using Python. 
+
+
+
+##### R API 
+
+
+##### Record Data 
+
+
+### Textual Data
+
+#### Python API 
