@@ -20,10 +20,82 @@ The data required for this project is a culmunation of macroeconomic and fiscal 
 
 The Python API used for this project is the FRED API. The FRED-API is a web service that allows developers to create programmes and construct apps that retrieve statistical information about the economy from the FRED and ALFRED websites hosted by the Federal Reserve Bank of St. Louis' Economic Research Division using Python. 
 
+Since we are using data of the 5 countries, it can be interesting to compare it with a hegemonic and the most powerful country in the world, The United States of America so using the FRED-API, you can clone few macroeconomic indicators from here. 
 
+```{python}
+
+#pip install fredapi
+from fredapi import Fred
+import pandas as pd
+fred = Fred(api_key='10fbe66f8f62ad7f44097cca867bf01f')
+```
+
+```{python}
+series_id_1 = 'GDP' # for GDP US
+series_id_2='GDPC1' # for Real Gross GDP
+series_id_3='W207RC1Q156SBEA' # Adjusted Saving (% of GNI)
+series_id_4='USAB6BLTT02STSAQ' # Current account balance (% of GDP)
+series_id_5='A019RE1Q156NBEA' # Export of Goods and Services as percentage of GDP
+series_id_6='MKTGNIUSA646NWDB' # GNI
+start_date = '1973'
+end_date = '2023'
+```
+
+```{python}
+
+# Fetch the data
+gdp_u = fred.get_series(series_id_1, start_date, end_date)
+realgdp_u = fred.get_series(series_id_2, start_date, end_date)
+adjsavings_u = fred.get_series(series_id_3, start_date, end_date)
+currentaccbalance_u = fred.get_series(series_id_4, start_date, end_date)
+exportsofgoods_u = fred.get_series(series_id_5, start_date, end_date)
+gni_u= fred.get_series(series_id_6, start_date, end_date)
+
+```
+
+<img src="/images/fred1.png" alt="Alt Text" width="200" height="300" />
+
+<img src="/images/fred2.png" alt="Alt Text" width="150" height="250" />
+
+<img src="/images/fred3.png" width= "500" height="300" />
+
+To access the code: Click here
+To access the files: Click here
 
 ##### R API 
 
+For R API, to retrieve more data about the US, R API, wbstats() API has been used. 
+
+```{r}
+
+#install.packages("wbstats")
+library(wbstats)
+library(dplyr)
+
+```
+
+```{r}
+# Specify the indicators you want to fetch
+indicator_b= ("NY.GDP.MKTP.CD") # GDP (current US$)
+#indicator_c= ("GC.DOD.TOTL.CN") # General government gross debt (current LCU)
+indicator_d= ("FP.CPI.TOTL.ZG") # For CPI
+indicator_e= ("NE.IMP.GNFS.CD") # Import 
+indicator_f= ("FP.CPI.TOTL") # For Inflation
+indicator_g= ("NY.GNP.MKTP.CD") # For GNI
+indicator_h= ("SL.EMP.TOTL.SP.ZS") # For Employement Population
+indicator_i= ("SL.UEM.TOTL.ZS") # For Unemployment 
+indicator_j= ("SH.DYN.MORT") # For Infant Mortality Rate
+indicator_k= ("SP.DYN.LE00.IN") # For Life Expectancy 
+indicator_l= ("SL.EMP.VULN.ZS") # For Engaged Workers
+indicator_m= ("NE.CON.PRVT.CD") # For Private Final Consumption 
+
+```
+
+```{r}
+
+
+
+```
 
 ##### Record Data 
 

@@ -93,3 +93,14 @@ class(merged_df$date) # It is date.
 print(merged_df)
 
 merged_df=subset(merged_df, select= -date)
+
+# Specify the indicators you want to fetch
+indicator_a=("BN.KLT.DINV.CD") # FDI Current Exp
+indicator_b= ("NY.GDP.PCAP.KD.ZG") # GDP per capita growth
+indicator_c= ("NE.CON.GOVT.ZS") # Government Final Consumption Expenditure 
+indicator_d= ("NE.EXP.GNFS.ZS") # Imports of Goods and Services as a Percentage of GDP 
+indicator_e= ("FP.CPI.TOTL.ZG") # Inflation (consumer prices)
+indicator_f= ("FR.INR.RINR") # Real Interest Rate
+indicator_g= ("GC.DOD.TOTL.GD.ZS") # Central Government Debt
+indicator_h= ("SL.UEM.TOTL.ZS") # Unemployement
+indicator_i= ("MS.MIL.XPND.GD.ZS") # Military Expenditure
