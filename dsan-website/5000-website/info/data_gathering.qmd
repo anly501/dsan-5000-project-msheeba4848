@@ -31,6 +31,7 @@ fred = Fred(api_key='10fbe66f8f62ad7f44097cca867bf01f')
 ```
 
 ```{python}
+
 series_id_1 = 'GDP' # for GDP US
 series_id_2='GDPC1' # for Real Gross GDP
 series_id_3='W207RC1Q156SBEA' # Adjusted Saving (% of GNI)
@@ -76,18 +77,16 @@ library(dplyr)
 
 ```{r}
 # Specify the indicators you want to fetch
-indicator_b= ("NY.GDP.MKTP.CD") # GDP (current US$)
-#indicator_c= ("GC.DOD.TOTL.CN") # General government gross debt (current LCU)
-indicator_d= ("FP.CPI.TOTL.ZG") # For CPI
-indicator_e= ("NE.IMP.GNFS.CD") # Import 
-indicator_f= ("FP.CPI.TOTL") # For Inflation
-indicator_g= ("NY.GNP.MKTP.CD") # For GNI
-indicator_h= ("SL.EMP.TOTL.SP.ZS") # For Employement Population
-indicator_i= ("SL.UEM.TOTL.ZS") # For Unemployment 
-indicator_j= ("SH.DYN.MORT") # For Infant Mortality Rate
-indicator_k= ("SP.DYN.LE00.IN") # For Life Expectancy 
-indicator_l= ("SL.EMP.VULN.ZS") # For Engaged Workers
-indicator_m= ("NE.CON.PRVT.CD") # For Private Final Consumption 
+indicator_a= ("BN.KLT.DINV.CD") #FDI Current Expenditure for the United States
+indicator_b= ("NY.GDP.PCAP.KD.ZG") # GDP per capita growth for the United States
+indicator_c= ("NE.CON.GOVT.ZS") # Government Final Consumption Expenditure for the United States
+indicator_d= ("NE.EXP.GNFS.ZS") # Imports of Goods and Services as a Percentage of GDP for the United States
+indicator_e= ("FP.CPI.TOTL.ZG") # Inflation (consumer prices) for the United States
+indicator_f= ("FR.INR.RINR") # Real Interest Rate for the United States
+indicator_g= ("GC.DOD.TOTL.GD.ZS") # Central Government Debt Total (% of GDP) for the United States
+indicator_h= ("SL.UEM.TOTL.ZS")  # Unemployment Rate for the United States
+indicator_i= ("MS.MIL.XPND.GD.ZS") # Military Expenditure for the United States
+
 
 ```
 
