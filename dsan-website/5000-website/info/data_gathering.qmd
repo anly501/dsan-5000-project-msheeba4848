@@ -22,6 +22,8 @@ The Python API used for this project is the FRED API. The FRED-API is a web serv
 
 Since we are using data of the 5 countries, it can be interesting to compare it with a hegemonic and the most powerful country in the world, The United States of America so using the FRED-API, you can clone few macroeconomic indicators from here. 
 
+The FRED API has been called and the series IDs have been added to the data.
+
 ```{python}
 
 #pip install fredapi
@@ -42,6 +44,8 @@ start_date = '1973'
 end_date = '2023'
 ```
 
+The data has been fetched using the 'fred.get_series' function.
+
 ```{python}
 
 # Fetch the data
@@ -56,9 +60,15 @@ gni_u= fred.get_series(series_id_6, start_date, end_date)
 
 <img src="/images/fred1.png" alt="Alt Text" width="200" height="300" />
 
+The image shown above, that was how the individual data had been called.
+
 <img src="/images/fred2.png" alt="Alt Text" width="150" height="250" />
 
+After regrouping the data, this is how the final data of each dataframe looks like.
+
 <img src="/images/fred3.png" width= "500" height="300" />
+
+This is the final view after merging the entire dataset.
 
 To access the code: Click here
 To access the files: Click here
@@ -66,6 +76,8 @@ To access the files: Click here
 ##### R API 
 
 For R API, to retrieve more data about the US, R API, wbstats() API has been used. 
+
+After the 'wbstats' library has been called, the series IDs are inserted and then the final data is merged. The data is being collected from 1974 to 2023
 
 ```{r}
 
@@ -87,18 +99,88 @@ indicator_g= ("GC.DOD.TOTL.GD.ZS") # Central Government Debt Total (% of GDP) fo
 indicator_h= ("SL.UEM.TOTL.ZS")  # Unemployment Rate for the United States
 indicator_i= ("MS.MIL.XPND.GD.ZS") # Military Expenditure for the United States
 
-
 ```
 
 ```{r}
-
-
+data1 <- wb(indicator = indicator_a, country = "US", startdate = 1973, enddate = 2023)
+data2 <- wb(indicator = indicator_b, country = "US", startdate = 1973, enddate = 2023)
+data3 <- wb(indicator = indicator_c, country = "US", startdate = 1973, enddate = 2023)
+data4 <- wb(indicator = indicator_d, country = "US", startdate = 1973, enddate = 2023)
+data5<- wb(indicator = indicator_e, country = "US", startdate = 1973, enddate = 2023)
+data6 <- wb(indicator = indicator_f, country = "US", startdate = 1973, enddate = 2023)
+data7 <- wb(indicator = indicator_g, country = "US", startdate = 1973, enddate = 2023)
+data8 <- wb(indicator = indicator_h, country = "US", startdate = 1973, enddate = 2023)
+data9 <- wb(indicator = indicator_i, country = "US", startdate = 1973, enddate = 2023)
 
 ```
 
-##### Record Data 
 
+<img src="/images/wbstats.1.png" width= "500" height="300" />
+
+The following is the final snapshot of the data.
 
 ### Textual Data
 
 #### Python API 
+
+Understanding the perspective of people on the emergence of BRICS is just as crucial, hence we need to ensure that the public opinions have also been catered and taken into consideration. For this, the REDDIT API for the subreddits have been used. REDDIT API with limited access helps us extract the subreddits for that specific day with the ragin subreddits. The Python PRAW has been used to retrieve the data. 
+
+```{python}
+
+#!pip install spacy
+#!python -m spacy download en_core_web_sm
+#nltk.download('wordnet')
+#nltk.download('omw-1.4')
+from pprint import pprint
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+import nltk
+from sklearn.feature_extraction.text import CountVectorizer
+
+```
+
+```{python}
+
+import praw
+from praw.models import MoreComments
+
+user_agent='Sheeba_Economic'
+reddit= praw.Reddit(
+    client_id="rszab0dBkcT7NdZr6MftpQ",
+    client_secret="mBFjTSN3YXoSimkU7eZ1H0SoD-f2Yw",
+    user_agent=user_agent)
+```
+
+```{python}
+
+posts = []
+for submission in reddit.subreddit("Brics").top("all"):
+    for top_level_comment in submission.comments:
+        if isinstance(top_level_comment, praw.models.MoreComments):
+            continue
+        posts.append(top_level_comment.body)
+
+```
+
+<img src="/images/reddit1.png" width= "500" height="300" />
+
+This is how the data looks.
+
+##### Record Data 
+
+The record data which is the gist or the main skeleton of my project focuses on understanding individual data points of all entire data. It has been retrieved using almost 152 columns in hand which are important for the EDA. The EDA for my project is a never-ending process and will become better at time. Since for my regression, I'm predicting GDP, having a holistic understanding of current and constant sources of data is just as important. The way economic data is wired is completely different to how the other data works, which is why, it has to be worked with caution. 
+
+The data collected is in 5 parts.
+
+1. INDIA
+2. BRAZIL
+3. CHINA
+4. RUSSIA
+5. SOUTH AFRICA
+
+This is how the gist of one of the datasets looks like:
+
+<img src="/images/record1.png" width= "500" height="300" />
+

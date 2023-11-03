@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DSAN-5000: Project - Data Cleaning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSAN-5000: Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/introduction.html" rel="" target=""><i class="bi bi-Introduction" role="img">
+</i> 
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/code.html" rel="" target="">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/data.html" rel="" target="">
+ <span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/introduction.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/data_gathering.html" rel="" target="">
+ <span class="menu-text">Data Gathering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../info/data_cleaning.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Data Cleaning</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datqua-exploration" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Datqua Exploration</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-datqua-exploration">    
+        <li>
+    <a class="dropdown-item" href="../info/data_exploration.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../info/data_exploration.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../info/clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/dimensionality_reduction.html" rel="" target="">
+ <span class="menu-text">Dimensionality Reduction</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quantitative-data" id="toc-quantitative-data" class="nav-link active" data-scroll-target="#quantitative-data">Quantitative Data</a></li>
+  <li><a href="#textual-data" id="toc-textual-data" class="nav-link" data-scroll-target="#textual-data">Textual Data</a></li>
+  <li><a href="#record-data" id="toc-record-data" class="nav-link" data-scroll-target="#record-data">Record Data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Cleaning</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The cleaning of both textual and quantitative as no simple solution as each dataset has to be treated separately. Hence, the data will be tackled separately.</p>
+<section id="quantitative-data" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-data">Quantitative Data</h3>
+<p>For the quantitative data, the way you clean is completely dependent on the nature of the text. Sometimes, cleaning can take a very small period of time and sometimes, it can get a bit too much. As a data scientist, caution has to be taken to ensure each dataset is handled separately. Using the Python and R API, since we have pulled in the US data, this is show it looks.</p>
+<section id="python-api" class="level6">
+<h6 class="anchored" data-anchor-id="python-api">Python API</h6>
+<p>For the Python API, where the data had been retrieved from FREDAPI, there was not a lot of cleaning that was required. After merging the data, there was one missing value that was imputed using the Mean Value Imputation. While the MVA is not a recommended method for dealing with missing values, and usually for economic data, missing values are not imputed for the data as it combats the purpose of analysis. If our main gist is to analyse the data and their trends across the nations, the imputing could give us biased estimates. Yet, since the amount of missing values are really less, MVA seems like a better option.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fredapi <span class="im">import</span> Fred</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>fred <span class="op">=</span> Fred(api_key<span class="op">=</span><span class="st">'10fbe66f8f62ad7f44097cca867bf01f'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>series_id_1 <span class="op">=</span> <span class="st">'GDP'</span> <span class="co"># for GDP US</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>series_id_2<span class="op">=</span><span class="st">'GDPC1'</span> <span class="co"># for Real Gross GDP</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>series_id_3<span class="op">=</span><span class="st">'W207RC1Q156SBEA'</span> <span class="co"># Adjusted Saving (% of GNI)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>series_id_4<span class="op">=</span><span class="st">'USAB6BLTT02STSAQ'</span> <span class="co"># Current account balance (% of GDP)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>series_id_5<span class="op">=</span><span class="st">'A019RE1Q156NBEA'</span> <span class="co"># Export of Goods and Services as percentage of GDP</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>series_id_6<span class="op">=</span><span class="st">'MKTGNIUSA646NWDB'</span> <span class="co"># GNI</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the start and end dates where I need data from 1990 to 2023</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> <span class="st">'1973'</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>end_date <span class="op">=</span> <span class="st">'2023'</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch the data</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>gdp_u <span class="op">=</span> fred.get_series(series_id_1, start_date, end_date)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>realgdp_u <span class="op">=</span> fred.get_series(series_id_2, start_date, end_date)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>adjsavings_u <span class="op">=</span> fred.get_series(series_id_3, start_date, end_date)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>currentaccbalance_u <span class="op">=</span> fred.get_series(series_id_4, start_date, end_date)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>exportsofgoods_u <span class="op">=</span> fred.get_series(series_id_5, start_date, end_date)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>gni_u<span class="op">=</span> fred.get_series(series_id_6, start_date, end_date)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># for GDP</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df1<span class="op">=</span> gdp_u.to_frame(name<span class="op">=</span>(<span class="st">'GDP'</span>))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>annual_gdp_u <span class="op">=</span> df1.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>annual_gdp_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_gdp_u.index.year</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>annual_gdp_u<span class="op">=</span>annual_gdp_u[[<span class="st">'Year'</span>, <span class="st">'GDP'</span>]]</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>annual_gdp_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(annual_gdp_u.head(<span class="dv">5</span>))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Real GDP</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span> realgdp_u.to_frame(name<span class="op">=</span>(<span class="st">'Real GDP'</span>))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u <span class="op">=</span> df2.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_realgdp_u.index.year</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u.head(<span class="dv">16</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjusted Savings</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>df3<span class="op">=</span> adjsavings_u.to_frame(name<span class="op">=</span>(<span class="st">'Adjusted Savings'</span>))</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u <span class="op">=</span> df3.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_adjsavings_u.index.year</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u.head(<span class="dv">2</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Current Account Balance % of GDP</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>df4<span class="op">=</span> currentaccbalance_u.to_frame(name<span class="op">=</span>(<span class="st">'Current Account Balance'</span>))</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u <span class="op">=</span> df4.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_currentaccbalance_u.index.year</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u.head(<span class="dv">2</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Current Account Balance % of GDP</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>df5<span class="op">=</span> exportsofgoods_u.to_frame(name<span class="op">=</span>(<span class="st">'Exports of Goods and Services'</span>))</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u <span class="op">=</span> df5.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_exportsofgoods_u.index.year</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u.head(<span class="dv">2</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co"># GNI</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>df6<span class="op">=</span> gni_u.to_frame(name<span class="op">=</span>(<span class="st">'GNI'</span>))</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>annual_gni_u <span class="op">=</span> df6.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>annual_gni_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_gni_u.index.year</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>annual_gni_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>annual_gni_u.head(<span class="dv">10</span>)</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(annual_gdp_u, annual_realgdp_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_adjsavings_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span>)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_currentaccbalance_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_exportsofgoods_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_gni_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Year        GDP
+0  1973  1425.3760
+1  1974  1545.2425
+2  1975  1684.9050
+3  1976  1873.4125
+4  1977  2081.8250</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(annual_gdp_u, annual_realgdp_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_adjsavings_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_currentaccbalance_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_exportsofgoods_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_gni_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>merged_df.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>Year                             0
+GDP                              0
+Real GDP                         0
+Adjusted Savings                 0
+Current Account Balance          0
+Exports of Goods and Services    0
+GNI                              1
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>merged_df[<span class="st">'GNI'</span>] <span class="op">=</span> merged_df[<span class="st">'GNI'</span>].fillna(merged_df[<span class="st">'GNI'</span>].mean())</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>merged_df.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>Year                             0
+GDP                              0
+Real GDP                         0
+Adjusted Savings                 0
+Current Account Balance          0
+Exports of Goods and Services    0
+GNI                              0
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>merged_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">GDP</th>
+<th data-quarto-table-cell-role="th">Real GDP</th>
+<th data-quarto-table-cell-role="th">Adjusted Savings</th>
+<th data-quarto-table-cell-role="th">Current Account Balance</th>
+<th data-quarto-table-cell-role="th">Exports of Goods and Services</th>
+<th data-quarto-table-cell-role="th">GNI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1973</td>
+<td>1425.37600</td>
+<td>6106.37050</td>
+<td>10.925</td>
+<td>0.492313</td>
+<td>0.275</td>
+<td>1.431848e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1974</td>
+<td>1545.24250</td>
+<td>6073.36275</td>
+<td>9.200</td>
+<td>0.129574</td>
+<td>-0.050</td>
+<td>1.553300e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1975</td>
+<td>1684.90500</td>
+<td>6060.87525</td>
+<td>6.500</td>
+<td>1.075657</td>
+<td>0.950</td>
+<td>1.684554e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1976</td>
+<td>1873.41250</td>
+<td>6387.43650</td>
+<td>7.450</td>
+<td>0.233895</td>
+<td>-0.050</td>
+<td>1.869603e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1977</td>
+<td>2081.82500</td>
+<td>6682.80450</td>
+<td>8.125</td>
+<td>-0.683540</td>
+<td>-1.125</td>
+<td>2.082670e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1978</td>
+<td>2351.59875</td>
+<td>7052.71125</td>
+<td>9.375</td>
+<td>-0.661201</td>
+<td>-1.125</td>
+<td>2.349856e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>1979</td>
+<td>2627.32625</td>
+<td>7275.99925</td>
+<td>9.200</td>
+<td>-0.012445</td>
+<td>-0.875</td>
+<td>2.614202e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>1980</td>
+<td>2857.30850</td>
+<td>7257.31650</td>
+<td>7.050</td>
+<td>0.073883</td>
+<td>-0.450</td>
+<td>2.847055e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>1981</td>
+<td>3207.04125</td>
+<td>7441.48500</td>
+<td>8.000</td>
+<td>0.156610</td>
+<td>-0.375</td>
+<td>3.201886e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>1982</td>
+<td>3343.78925</td>
+<td>7307.31400</td>
+<td>5.625</td>
+<td>-0.161860</td>
+<td>-0.600</td>
+<td>3.371448e+12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="r-api" class="level6">
+<h6 class="anchored" data-anchor-id="r-api">R API</h6>
+<p>For the R API, a similar aspect is seen. When a set of macroeconomic and fiscal variables have been pulled from python, few were also pulled from R using the ‘wbstats’ API.</p>
+<p>Similar to the Python API, the data retrieved from here also didn’t have a lot of data cleaning steps.</p>
+<p><img src="../images/wbstats.2.png" width="500" height="300"></p>
+<p>Here you can see the amount of missing values wherein, we similarly cleaned it through missing value imputation through mean.</p>
+<pre class="{markdown}"><code>
+# Using mean value imputation 
+for (x in names(merged_df)) {
+  mean &lt;- mean(merged_df[[x], na.rm = TRUE)  # Calculate column mean ignoring NA
+  merged_df[[x]][is.na(merged_df[[x]])] &lt;- mean    # Replace NA with column mean
+}
+</code></pre>
+<p>Here is no missing of the data</p>
+<p><img src="../images/wbstats.3.png" width="500" height="300"></p>
+<p>The final representation of the data</p>
+<p><img src="../images/wbstats.4.png" width="500" height="300"></p>
+</section>
+</section>
+<section id="textual-data" class="level3">
+<h3 class="anchored" data-anchor-id="textual-data">Textual Data</h3>
+<section id="python-api-1" class="level5">
+<h5 class="anchored" data-anchor-id="python-api-1">Python API</h5>
+<p>For the textual data, the python wrapper of PRAW has been used. This is how the output looks</p>
+<p><img src="../images/reddit2.png" width="500" height="300"></p>
+<p>This was used to clean and vectorise the data.</p>
+<pre class="{markdown}"><code>
+import string
+import re
+from nltk.corpus import stopwords
+import nltk
+from nltk.stem import WordNetLemmatizer
+
+#nltk.download('punkt')
+#nltk.download('stopwords')
+
+def clean_string(text):
+    # lowercase the text
+    text = text.lower()
+    
+    # replace with regular quotations, added this since there were few texts that weren't cleaned
+    text = text.replace('’', "'")
+    
+    # remove emojis, saw a list of them online so just added them.
+    emoji_pattern = re.compile("["
+                           u"\U0001F600-\U0001F64F"  # emoticons
+                           u"\U0001F300-\U0001F5FF"  # symbols &amp; pictographs
+                           u"\U0001F680-\U0001F6FF"  # transport &amp; map symbols
+                           u"\U0001F700-\U0001F77F"  # alchemical symbols
+                           u"\U0001F780-\U0001F7FF"  # Geometric Shapes Extended
+                           u"\U0001F800-\U0001F8FF"  # Supplemental Arrows-C
+                           u"\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
+                           u"\U0001FA00-\U0001FA6F"  # Chess Symbols
+                           u"\U0001FA70-\U0001FAFF"  # Symbols and Pictographs Extended-A
+                           u"\U0001F004-\U0001F0CF"  # Miscellaneous Symbols and Pictographs
+                           u"\U0001F0D0-\U0001F0FF"  # Emoticons
+                           u"\U0001F1E0-\U0001F1FF"  # Regional Indicator Symbols
+                           u"\U0001F200-\U0001F251"  # Enclosed Ideographic Supplement
+                           "]+", flags=re.UNICODE)
+    text = emoji_pattern.sub(r'', text)  # Remove emojis
+    
+    # line breaks removal
+    text = text.replace('\n', ' ')
+    
+    #  punctuation removal
+    text = ''.join([char for char in text if char not in string.punctuation])
+    
+    #  tokenize the text
+    words = nltk.word_tokenize(text)
+    
+    # remove stopwords
+    words = [word for word in words if word not in stopwords.words('english')]
+    
+    # rejoin the words into a cleaned string
+    cleaned_text = ' '.join(words)
+    
+    return cleaned_text
+</code></pre>
+<p>Then apply the clean string in addition.</p>
+<pre class="{markdown}"><code>
+df['cleaned_tweets'] = df['body'].apply(clean_string)
+</code></pre>
+<p><img src="../images/reddit3.png" width="500" height="300"></p>
+<p>We then vectorise the data using the ‘CountVectoriser’ from sklearn</p>
+<pre class="{markdown}"><code>
+from sklearn.feature_extraction.text import CountVectorizer
+vectorizer = CountVectorizer()
+value = [str(element) for element in df2]
+vectorizer=CountVectorizer()
+Xs  =  vectorizer.fit_transform(value)   
+print(type(Xs))
+print("vocabulary = ",vectorizer.vocabulary_)   
+print("stop words =", vectorizer.stop_words)
+col_names=vectorizer.get_feature_names_out()
+print("col_names=",col_names)
+</code></pre>
+<p>This is how the actual output looks like</p>
+<p><img src="../images/reddit4.png" width="500" height="300"></p>
+<p>In addition to that, since we are also looking for perform Naive Bayes next, which is often used for categorical data, we use the SIA, or the Sentiment Intensity Analyser from the NLTK that automatically calculates the polarity scores on basis of the tweets. This is required as the data I retrieved didn’t have any labels to it. This seemed like the best option.</p>
+<pre class="{markdown}"><code>
+sia = SIA()
+results = []
+
+for tweet in df['cleaned_tweets']:  
+    polarity = sia.polarity_scores(tweet)
+    polarity['cleaned_tweets'] = tweet  cores
+    results.append(polarity)
+
+
+sentiment_df = pd.DataFrame(results)
+pprint(sentiment_df.head())
+</code></pre>
+<p><img src="../images/reddit5.png" width="500" height="300"></p>
+</section>
+</section>
+<section id="record-data" class="level3">
+<h3 class="anchored" data-anchor-id="record-data">Record Data</h3>
+<p>For the record data, using the world bank data bank, the data was retrieved. There is a lot of cleaning that was supposed to be done. The entire data as seen under data_gathering section was transposed and had 152 columns. I had to individually transpose.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pip install xlrd</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_excel(<span class="st">'../data/india.xlsx'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

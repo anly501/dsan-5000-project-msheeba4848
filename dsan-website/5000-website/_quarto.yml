@@ -20,8 +20,14 @@ website:
         text: Data Gathering 
       - href: info/data_cleaning.qmd
         text: Data Cleaning 
-      - href: info/data_exploration.qmd
-        text: Data Exploration
+      - href: ""
+        text: Datqua Exploration
+        menu:
+          - href: info/data_exploration.qmd
+            text: Exploratory Data Analysis
+          - href: info/data_exploration.qmd
+            text: Naive Bayes
+
       - href: info/clustering.qmd
         text: Clustering
       - href: info/dimensionality_reduction.qmd
