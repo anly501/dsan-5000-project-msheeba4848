@@ -21,7 +21,7 @@ website:
       - href: info/data_cleaning.qmd
         text: Data Cleaning 
       - href: ""
-        text: Datqua Exploration
+        text: Data Exploration
         menu:
           - href: info/data_exploration.qmd
             text: Exploratory Data Analysis
