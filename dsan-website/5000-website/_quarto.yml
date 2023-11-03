@@ -23,11 +23,10 @@ website:
       - href: ""
         text: Data Exploration
         menu:
-          - href: info/data_exploration.qmd
+          - href: codes/EDA.ipynb
             text: Exploratory Data Analysis
-          - href: info/data_exploration.qmd
+          - href: codes/naivebayes.ipynb
             text: Naive Bayes
-
       - href: info/clustering.qmd
         text: Clustering
       - href: info/dimensionality_reduction.qmd
@@ -35,7 +34,6 @@ website:
     background: white
     foreground: black
     body-footer: footer.qmd
-
 format:
   html:
     theme: morph
