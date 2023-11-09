@@ -31,6 +31,15 @@ website:
         text: Clustering
       - href: info/dimensionality_reduction.qmd
         text: Dimensionality Reduction
+      - href: ""
+        text: Decision Trees
+        menu:
+          - href: info/classification.qmd
+            text: Classification
+          - href: info/regression.qmd
+            text: Regression
+      - href: info/conclusion.qmd
+        text: Conclusion
     background: white
     foreground: black
     body-footer: footer.qmd

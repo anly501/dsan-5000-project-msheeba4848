@@ -273,7 +273,7 @@ pprint(sentiment_df.head())
 
 ### Record Data
 
-For the record data, using the world bank data bank, the data was retrieved. There is a lot of cleaning that was supposed to be done. The entire data as seen under data_gathering section was transposed and had 152 columns. I had to individually transpose. 
+For the record data, using the world bank data bank, the data was retrieved. There is a lot of cleaning that was supposed to be done. The entire data as seen under data_gathering section was transposed and had 152 columns. I had to individually transpose. Below, a similar method was imposed to clean all the 5 individual datasets.
 
 ```{python}
 
@@ -283,13 +283,175 @@ import numpy as np
 
 #pip install xlrd
 df=pd.read_excel('../data/india.xlsx')
+df.head(10)
+
+```
+
+I had to transpose the data.
+
+```{python}
+
+df = df.T
+df.columns = df.iloc[0]
+
+```
+
+The tranposed data is shown below.
+
+```{python}
+
+df.head()
+
 
 ```
 
 ```{python}
 
+df = df.iloc[4:]
+df.head()
 
+```
+
+
+```{python}
+
+df = df.iloc[1:]
+df.head()
+
+```
+
+
+
+```{python}
+
+print(df.isnull().sum())
+
+```
+
+In the dataset, there was a problem of the dataframe having row indexes and column indexes and hence, I worked on it drop the index and create a yearly column from scratch.
+
+```{python}
+
+# creating a new index rather than treating it
+new_index = range(1979, 2022)
+
+# Reset the index with the new range
+df = df.reset_index(drop=True)
+df.index = new_index
+df.index.name = "year"
+
+df.shape
+
+```
+
+I renamed all the columns
+
+```{python}
+
+cols= ['adj_NNI_g', 'adj_NNI_c', 'adj_savings_fix_cap_GNI', 'adj_savings_edu_GNI', 'adj_NNS_GNI',
+                    'curr_acc_bal', 'ex_imp_gdp', 'ex_imp_growth', 'ex_debt_shocks', 'final_consump_exp_gdp',
+                    'final_consump_exp_growth', 'fdi_net_inflows', 'fdi_net_outflows', 'gdp_growth', 'gdp_per_capita_growth',
+                    'gener_govt_fin_consump_exp', 'gni_growth', 'goods_exp_bop','goods_imp_bop', 'imports_goods_services_gdp', 'imports_goods_services_growth','services_gdp', 'services_growth', 
+                       'short_term_debt_tot_reserves','trade_gdp', 'cpi', 'inflation','real_interest_rate','lending_interest_rate','life_exp_birth','expense_gdp','interest_payments', 'military expenditure']
+
+df.columns = cols
+df.head(5)
+
+```
+
+Used mean value imputation for missing value imputation.
+
+```{python}
+
+value_to_replace = ".."
+for col in df.columns:
+    df[col] = df[col].replace(value_to_replace, np.nan)
+
+missing= df.isnull().sum()
 
 
 ```
 
+
+```{python}
+
+missing_vals = pd.DataFrame({'Missing Values': missing.index, 'Missing Values Sum': missing.values})
+missing_vals = missing_vals.sort_values(by='Missing Values Sum', ascending=False)
+
+print(missing_vals)
+
+```
+
+
+```{python}
+
+for cols in df.columns:
+    mean = df[cols].mean()
+    df[cols] = df[cols].fillna(mean)
+
+```
+
+
+```{python}
+
+print(df.isnull().sum())
+
+```
+
+
+```{python}
+
+df.info()
+
+```
+
+
+```{python}
+
+df['year'] = df.index
+
+```
+
+Next for the purpose of Naive Bayes, binning has to be done for which I looked at the maximum and minimum values of the gdp growth and binned them accordingly.
+
+```{python}
+
+df["gdp_growth"].min()
+
+```
+
+
+```{python}
+
+df["gdp_growth"].max()
+
+```
+
+
+```{python}
+
+bins = [0, 2, 5, 7, float('inf')]
+
+```
+
+
+```{python}
+
+labels = ['Low Growth', 'Moderate Growth', 'High Growth', 'Very High Growth']
+
+```
+
+
+```{python}
+
+df['labels'] = pd.cut(df['gdp_growth'], bins=bins, labels=labels)
+
+```
+
+This is the final cleaned df
+
+```{python}
+
+df.head(10)
+
+```
