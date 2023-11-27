@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DSAN-5000: Project - Exploratory Data Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSAN-5000: Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/introduction.html" rel="" target=""><i class="bi bi-Introduction" role="img">
+</i> 
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/code.html" rel="" target="">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/data.html" rel="" target="">
+ <span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/introduction.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/data_gathering.html" rel="" target="">
+ <span class="menu-text">Data Gathering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/data_cleaning.html" rel="" target="">
+ <span class="menu-text">Data Cleaning</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-exploration" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Exploration</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-exploration">    
+        <li>
+    <a class="dropdown-item" href="../codes/EDA.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../codes/naivebayes.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../info/clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/dimensionality_reduction.html" rel="" target="">
+ <span class="menu-text">Dimensionality Reduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../codes/dimensionalityreduction.html" rel="" target="">
+ <span class="menu-text">Decision Trees</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/conclusion.html" rel="" target="">
+ <span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#visual-data-representation" id="toc-visual-data-representation" class="nav-link active" data-scroll-target="#visual-data-representation">Visual Data Representation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploratory Data Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In BRICS countries, exploratory data analysis (EDA) is a critical procedure for analysing economic data. It assists academics and policymakers in learning about economic trends, inequities, and anomalies. EDA allows for the comparison of economic indicators across different countries, assisting in the assessment of their relative economic performance. It provides vital information for informed decision-making in sectors such as trade, investment, and policy formulation by exposing hidden links and correlations. Additionally, it is critical in a dynamic economic landscape for understanding the complexities of economic data, guiding strategies, and encouraging sustainable growth and collaboration among the BRICS members.</p>
+<p>For my data, EDA is the only method to uncover the hidden insights within the dataset that will help me explore the data in comparison to all the nations at hand.</p>
+<div class="cell" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span>  pandas  <span class="im">as</span>  pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> msno</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>india<span class="op">=</span>pd.read_csv(<span class="st">'../data/india.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>russia<span class="op">=</span>pd.read_csv(<span class="st">'../data/russia.csv'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>china<span class="op">=</span>pd.read_csv(<span class="st">'../data/china.csv'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>brazil<span class="op">=</span>pd.read_csv(<span class="st">'../data/brazil.csv'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>southafrica<span class="op">=</span>pd.read_csv(<span class="st">'../data/southafrica.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I created and treated five separate datasets. In terms of India, you see that there is a greater variation in Exports and Imports as a % of GDP and in Trade GDP. This is due to the developing nature of India, being one of the fastest growing economies of the world.</p>
+<div class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>india.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="109">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">ex_debt_shocks</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">trade_gdp</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>4.300000e+01</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>...</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+<td>43.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>2000.000000</td>
+<td>5.842249</td>
+<td>9.089853e+11</td>
+<td>10.100195</td>
+<td>3.177411</td>
+<td>16.975547</td>
+<td>-1.348015</td>
+<td>14.313641</td>
+<td>9.439492</td>
+<td>20.750216</td>
+<td>...</td>
+<td>30.948268</td>
+<td>73.732095</td>
+<td>7.656467</td>
+<td>5.631990</td>
+<td>13.114440</td>
+<td>62.858024</td>
+<td>14.942512</td>
+<td>27.081472</td>
+<td>2.901476</td>
+<td>2000.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>12.556539</td>
+<td>3.928440</td>
+<td>6.357574e+11</td>
+<td>0.737280</td>
+<td>0.360385</td>
+<td>6.502949</td>
+<td>1.209384</td>
+<td>6.769738</td>
+<td>9.631641</td>
+<td>4.938651</td>
+<td>...</td>
+<td>14.657456</td>
+<td>58.271793</td>
+<td>3.027370</td>
+<td>2.572440</td>
+<td>3.092273</td>
+<td>5.115946</td>
+<td>1.271353</td>
+<td>6.641309</td>
+<td>0.439018</td>
+<td>12.556539</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1979.000000</td>
+<td>-6.952693</td>
+<td>2.413109e+11</td>
+<td>8.055168</td>
+<td>2.600000</td>
+<td>6.418183</td>
+<td>-5.004890</td>
+<td>5.196222</td>
+<td>-9.135286</td>
+<td>11.096107</td>
+<td>...</td>
+<td>12.219272</td>
+<td>9.737409</td>
+<td>3.328173</td>
+<td>-1.983859</td>
+<td>8.333350</td>
+<td>53.611000</td>
+<td>11.376034</td>
+<td>13.780033</td>
+<td>2.424285</td>
+<td>1979.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1989.500000</td>
+<td>4.152437</td>
+<td>3.949670e+11</td>
+<td>9.733032</td>
+<td>3.080000</td>
+<td>11.701860</td>
+<td>-1.902352</td>
+<td>7.773796</td>
+<td>4.728976</td>
+<td>17.849354</td>
+<td>...</td>
+<td>16.246994</td>
+<td>24.540550</td>
+<td>4.927595</td>
+<td>4.406809</td>
+<td>10.270833</td>
+<td>58.853500</td>
+<td>14.600384</td>
+<td>23.190785</td>
+<td>2.563654</td>
+<td>1989.500000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2000.000000</td>
+<td>5.842249</td>
+<td>6.759609e+11</td>
+<td>10.347631</td>
+<td>3.080000</td>
+<td>17.400965</td>
+<td>-1.339509</td>
+<td>12.997236</td>
+<td>7.792389</td>
+<td>20.201660</td>
+<td>...</td>
+<td>26.900923</td>
+<td>56.391926</td>
+<td>7.164252</td>
+<td>5.814777</td>
+<td>12.541667</td>
+<td>62.858024</td>
+<td>15.145108</td>
+<td>27.081472</td>
+<td>2.812528</td>
+<td>2000.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2010.500000</td>
+<td>8.350734</td>
+<td>1.284807e+12</td>
+<td>10.621234</td>
+<td>3.210531</td>
+<td>22.549359</td>
+<td>-0.800226</td>
+<td>20.164174</td>
+<td>14.331228</td>
+<td>22.921025</td>
+<td>...</td>
+<td>44.642326</td>
+<td>114.073666</td>
+<td>9.748438</td>
+<td>7.597561</td>
+<td>16.500000</td>
+<td>67.074500</td>
+<td>15.561610</td>
+<td>31.898042</td>
+<td>3.131583</td>
+<td>2010.500000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2021.000000</td>
+<td>12.397011</td>
+<td>2.367047e+12</td>
+<td>11.088283</td>
+<td>4.290000</td>
+<td>26.670888</td>
+<td>1.443561</td>
+<td>25.430861</td>
+<td>31.396073</td>
+<td>33.157433</td>
+<td>...</td>
+<td>55.793722</td>
+<td>205.266241</td>
+<td>13.870246</td>
+<td>9.191247</td>
+<td>18.916667</td>
+<td>70.910000</td>
+<td>17.227670</td>
+<td>40.936291</td>
+<td>4.231318</td>
+<td>2021.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 35 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>india.info() <span class="co"># the data is in correct format except year since it will later be dropped but we need it for analysis now.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 43 entries, 0 to 42
+Data columns (total 36 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   year                           43 non-null     int64  
+ 1   adj_NNI_g                      43 non-null     float64
+ 2   adj_NNI_c                      43 non-null     float64
+ 3   adj_savings_fix_cap_GNI        43 non-null     float64
+ 4   adj_savings_edu_GNI            43 non-null     float64
+ 5   adj_NNS_GNI                    43 non-null     float64
+ 6   curr_acc_bal                   43 non-null     float64
+ 7   ex_imp_gdp                     43 non-null     float64
+ 8   ex_imp_growth                  43 non-null     float64
+ 9   ex_debt_shocks                 43 non-null     float64
+ 10  final_consump_exp_gdp          43 non-null     float64
+ 11  final_consump_exp_growth       43 non-null     float64
+ 12  fdi_net_inflows                43 non-null     float64
+ 13  fdi_net_outflows               43 non-null     float64
+ 14  gdp_growth                     43 non-null     float64
+ 15  gdp_per_capita_growth          43 non-null     float64
+ 16  gener_govt_fin_consump_exp     43 non-null     float64
+ 17  gni_growth                     43 non-null     float64
+ 18  goods_exp_bop                  43 non-null     float64
+ 19  goods_imp_bop                  43 non-null     float64
+ 20  imports_goods_services_gdp     43 non-null     float64
+ 21  imports_goods_services_growth  43 non-null     float64
+ 22  services_gdp                   43 non-null     float64
+ 23  services_growth                43 non-null     float64
+ 24  short_term_debt_tot_reserves   43 non-null     float64
+ 25  trade_gdp                      43 non-null     float64
+ 26  cpi                            43 non-null     float64
+ 27  inflation                      43 non-null     float64
+ 28  real_interest_rate             43 non-null     float64
+ 29  lending_interest_rate          43 non-null     float64
+ 30  life_exp_birth                 43 non-null     float64
+ 31  expense_gdp                    43 non-null     float64
+ 32  interest_payments              43 non-null     float64
+ 33  military expenditure           43 non-null     float64
+ 34  year.1                         43 non-null     int64  
+ 35  labels                         42 non-null     object 
+dtypes: float64(33), int64(2), object(1)
+memory usage: 12.2+ KB</code></pre>
+</div>
+</div>
+<p>For Russia, if you see, there were periods in Russia where they were in deficit to the times they in surplus showcasing their evolultion as a nature with the economic and geopolitical wars Russia engages in. In terms of the Adjusted Savings as a % of GNI, you also see the huge difference and a huge variation in the dataset. It talks a reduction in their education expenses due to which they have it as a savings in their GNI% category. Inflation, Lending Interest Rate are also shown to be extremely volatile in nature, thus showcasing their non-linear nature of spending habits and the state of their economy.</p>
+<div class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>russia.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">ex_debt_shocks</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">trade_gdp</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>2.900000e+01</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>...</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+<td>29.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>2008.000000</td>
+<td>3.861741</td>
+<td>8.291734e+11</td>
+<td>3.927901</td>
+<td>17.793590</td>
+<td>3.720208</td>
+<td>28.294512</td>
+<td>10.513962</td>
+<td>5.655151</td>
+<td>30.589212</td>
+<td>...</td>
+<td>52.635377</td>
+<td>2.534344</td>
+<td>35.634946</td>
+<td>52.396738</td>
+<td>87.843702</td>
+<td>32.123031</td>
+<td>0.120247</td>
+<td>68.190967</td>
+<td>3.758945</td>
+<td>2008.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>8.514693</td>
+<td>10.236271</td>
+<td>2.921181e+11</td>
+<td>10.384020</td>
+<td>10.665802</td>
+<td>0.299095</td>
+<td>3.452955</td>
+<td>11.810984</td>
+<td>4.118602</td>
+<td>4.933515</td>
+<td>...</td>
+<td>2.821579</td>
+<td>5.021355</td>
+<td>36.505148</td>
+<td>6.405027</td>
+<td>61.438903</td>
+<td>64.958295</td>
+<td>8.320392</td>
+<td>2.703291</td>
+<td>0.557789</td>
+<td>8.514693</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1994.000000</td>
+<td>-20.796923</td>
+<td>3.281460e+11</td>
+<td>-20.769775</td>
+<td>9.545284</td>
+<td>3.544344</td>
+<td>20.202553</td>
+<td>-19.694782</td>
+<td>-0.206268</td>
+<td>24.729842</td>
+<td>...</td>
+<td>44.832608</td>
+<td>-10.125699</td>
+<td>10.364800</td>
+<td>43.774114</td>
+<td>2.128943</td>
+<td>2.878297</td>
+<td>-18.951553</td>
+<td>64.467073</td>
+<td>2.732649</td>
+<td>1994.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>2001.000000</td>
+<td>-1.349856</td>
+<td>5.790573e+11</td>
+<td>-1.485800</td>
+<td>11.784852</td>
+<td>3.549808</td>
+<td>27.117473</td>
+<td>10.513962</td>
+<td>2.369115</td>
+<td>27.111097</td>
+<td>...</td>
+<td>50.658271</td>
+<td>-0.636282</td>
+<td>13.365498</td>
+<td>47.801341</td>
+<td>37.365785</td>
+<td>6.849392</td>
+<td>-4.078692</td>
+<td>65.529756</td>
+<td>3.331237</td>
+<td>2001.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2008.000000</td>
+<td>3.861741</td>
+<td>9.051567e+11</td>
+<td>3.927901</td>
+<td>13.503027</td>
+<td>3.557456</td>
+<td>28.294512</td>
+<td>14.094360</td>
+<td>4.754527</td>
+<td>29.215561</td>
+<td>...</td>
+<td>53.428806</td>
+<td>2.447491</td>
+<td>16.480539</td>
+<td>50.557744</td>
+<td>83.826166</td>
+<td>11.647330</td>
+<td>0.120247</td>
+<td>67.949268</td>
+<td>3.720451</td>
+<td>2008.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2015.000000</td>
+<td>10.726779</td>
+<td>1.097922e+12</td>
+<td>11.149953</td>
+<td>17.793590</td>
+<td>3.720208</td>
+<td>29.714409</td>
+<td>17.784660</td>
+<td>7.952329</td>
+<td>33.730475</td>
+<td>...</td>
+<td>54.172944</td>
+<td>5.539901</td>
+<td>38.844163</td>
+<td>55.772253</td>
+<td>131.155273</td>
+<td>20.798761</td>
+<td>4.945604</td>
+<td>70.578780</td>
+<td>4.039809</td>
+<td>2015.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2022.000000</td>
+<td>22.534768</td>
+<td>1.157478e+12</td>
+<td>23.051254</td>
+<td>48.011109</td>
+<td>4.413240</td>
+<td>37.116967</td>
+<td>22.081369</td>
+<td>17.474242</td>
+<td>44.060441</td>
+<td>...</td>
+<td>57.012325</td>
+<td>13.621542</td>
+<td>136.909949</td>
+<td>69.393281</td>
+<td>199.372063</td>
+<td>307.722636</td>
+<td>19.616081</td>
+<td>73.083902</td>
+<td>5.425148</td>
+<td>2022.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 35 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>russia.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 29 entries, 0 to 28
+Data columns (total 36 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   year                           29 non-null     int64  
+ 1   adj_NNI_g                      29 non-null     float64
+ 2   adj_NNI_c                      29 non-null     float64
+ 3   adj_savings_fix_cap_GNI        29 non-null     float64
+ 4   adj_savings_edu_GNI            29 non-null     float64
+ 5   adj_NNS_GNI                    29 non-null     float64
+ 6   curr_acc_bal                   29 non-null     float64
+ 7   ex_imp_gdp                     29 non-null     float64
+ 8   ex_imp_growth                  29 non-null     float64
+ 9   ex_debt_shocks                 29 non-null     float64
+ 10  final_consump_exp_gdp          29 non-null     float64
+ 11  final_consump_exp_growth       29 non-null     float64
+ 12  fdi_net_inflows                29 non-null     float64
+ 13  fdi_net_outflows               29 non-null     float64
+ 14  gdp_growth                     29 non-null     float64
+ 15  gdp_per_capita_growth          29 non-null     float64
+ 16  gener_govt_fin_consump_exp     29 non-null     float64
+ 17  gni_growth                     29 non-null     float64
+ 18  goods_exp_bop                  29 non-null     float64
+ 19  goods_imp_bop                  29 non-null     float64
+ 20  imports_goods_services_gdp     29 non-null     float64
+ 21  imports_goods_services_growth  29 non-null     float64
+ 22  services_gdp                   29 non-null     float64
+ 23  services_growth                29 non-null     float64
+ 24  short_term_debt_tot_reserves   29 non-null     float64
+ 25  trade_gdp                      29 non-null     float64
+ 26  cpi                            29 non-null     float64
+ 27  inflation                      29 non-null     float64
+ 28  real_interest_rate             29 non-null     float64
+ 29  lending_interest_rate          29 non-null     float64
+ 30  life_exp_birth                 29 non-null     float64
+ 31  expense_gdp                    29 non-null     float64
+ 32  interest_payments              29 non-null     float64
+ 33  military expenditure           29 non-null     float64
+ 34  year.1                         29 non-null     int64  
+ 35  labels                         28 non-null     object 
+dtypes: float64(33), int64(2), object(1)
+memory usage: 8.3+ KB</code></pre>
+</div>
+</div>
+<p>China, personally has been one of the most interesting nations to learn about as most of the data that China shares with people is also the data it “chooses” to share. The book of Silk Route has shows China in from a fascinating point of view. If you look at China, there is not much of volatile relations to be seen in China. The way they function being a manufacturing nation has been non-volatile primarily depending on their masses as it is a labour-intensive nation that is now emerging to steer towards knowledge management. One of my most favorite nations from an economics lens.</p>
+<div class="cell" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>china.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="113">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">ex_debt_shocks</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">trade_gdp</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>3.400000e+01</td>
+<td>34.000000</td>
+<td>3.400000e+01</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>...</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+<td>34.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>2005.500000</td>
+<td>9.020550</td>
+<td>5.132355e+12</td>
+<td>16.290555</td>
+<td>1.013829e+12</td>
+<td>1.774727</td>
+<td>43.537202</td>
+<td>27.237859</td>
+<td>2.643568</td>
+<td>21.768803</td>
+<td>...</td>
+<td>42.792335</td>
+<td>9.143661</td>
+<td>25.335231</td>
+<td>40.718724</td>
+<td>90.500166</td>
+<td>4.287894</td>
+<td>1.955882</td>
+<td>73.560848</td>
+<td>9.693714</td>
+<td>2005.500000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>9.958246</td>
+<td>3.063379</td>
+<td>2.753216e+12</td>
+<td>5.047229</td>
+<td>1.176837e+12</td>
+<td>0.098320</td>
+<td>4.676922</td>
+<td>4.451970</td>
+<td>2.597303</td>
+<td>6.628568</td>
+<td>...</td>
+<td>7.114816</td>
+<td>2.918800</td>
+<td>11.593431</td>
+<td>11.671459</td>
+<td>26.687641</td>
+<td>5.787973</td>
+<td>3.226872</td>
+<td>3.291144</td>
+<td>3.867794</td>
+<td>9.958246</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1989.000000</td>
+<td>0.043030</td>
+<td>1.227478e+12</td>
+<td>9.402707</td>
+<td>3.274752e+10</td>
+<td>1.500000</td>
+<td>35.858594</td>
+<td>18.788405</td>
+<td>-2.610340</td>
+<td>9.027345</td>
+<td>...</td>
+<td>32.382773</td>
+<td>1.947122</td>
+<td>7.615140</td>
+<td>19.134707</td>
+<td>39.242469</td>
+<td>-1.401473</td>
+<td>-7.989744</td>
+<td>67.838000</td>
+<td>4.772260</td>
+<td>1989.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1997.250000</td>
+<td>7.953956</td>
+<td>2.787246e+12</td>
+<td>12.756853</td>
+<td>1.233250e+11</td>
+<td>1.787135</td>
+<td>39.537538</td>
+<td>24.090842</td>
+<td>1.507681</td>
+<td>18.359073</td>
+<td>...</td>
+<td>35.927687</td>
+<td>8.277122</td>
+<td>18.020955</td>
+<td>34.340981</td>
+<td>80.755872</td>
+<td>1.476052</td>
+<td>-0.117685</td>
+<td>70.797000</td>
+<td>5.973111</td>
+<td>1997.250000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2005.500000</td>
+<td>9.020550</td>
+<td>5.132355e+12</td>
+<td>14.564874</td>
+<td>3.661130e+11</td>
+<td>1.790000</td>
+<td>43.716609</td>
+<td>27.359017</td>
+<td>2.108668</td>
+<td>20.128060</td>
+<td>...</td>
+<td>42.138080</td>
+<td>9.368637</td>
+<td>23.923220</td>
+<td>37.888116</td>
+<td>87.222774</td>
+<td>2.519473</td>
+<td>2.579420</td>
+<td>73.929500</td>
+<td>10.208033</td>
+<td>2005.500000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2013.750000</td>
+<td>10.723327</td>
+<td>6.609833e+12</td>
+<td>20.891664</td>
+<td>1.725745e+12</td>
+<td>1.790000</td>
+<td>47.236811</td>
+<td>30.986592</td>
+<td>3.427569</td>
+<td>25.306856</td>
+<td>...</td>
+<td>47.923306</td>
+<td>10.388286</td>
+<td>30.183370</td>
+<td>47.886736</td>
+<td>112.760046</td>
+<td>4.568735</td>
+<td>3.748206</td>
+<td>76.387000</td>
+<td>13.169320</td>
+<td>2013.750000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2022.000000</td>
+<td>15.198015</td>
+<td>1.049563e+13</td>
+<td>26.143102</td>
+<td>3.816893e+12</td>
+<td>2.035901</td>
+<td>51.547499</td>
+<td>35.188528</td>
+<td>9.947890</td>
+<td>36.035026</td>
+<td>...</td>
+<td>54.458536</td>
+<td>16.071495</td>
+<td>55.930751</td>
+<td>64.478884</td>
+<td>131.919357</td>
+<td>24.256990</td>
+<td>7.356478</td>
+<td>78.211000</td>
+<td>16.867626</td>
+<td>2022.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 35 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>china.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 34 entries, 0 to 33
+Data columns (total 36 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   year                           34 non-null     int64  
+ 1   adj_NNI_g                      34 non-null     float64
+ 2   adj_NNI_c                      34 non-null     float64
+ 3   adj_savings_fix_cap_GNI        34 non-null     float64
+ 4   adj_savings_edu_GNI            34 non-null     float64
+ 5   adj_NNS_GNI                    34 non-null     float64
+ 6   curr_acc_bal                   34 non-null     float64
+ 7   ex_imp_gdp                     34 non-null     float64
+ 8   ex_imp_growth                  34 non-null     float64
+ 9   ex_debt_shocks                 34 non-null     float64
+ 10  final_consump_exp_gdp          0 non-null      float64
+ 11  final_consump_exp_growth       34 non-null     float64
+ 12  fdi_net_inflows                34 non-null     float64
+ 13  fdi_net_outflows               34 non-null     float64
+ 14  gdp_growth                     34 non-null     float64
+ 15  gdp_per_capita_growth          34 non-null     float64
+ 16  gener_govt_fin_consump_exp     34 non-null     float64
+ 17  gni_growth                     34 non-null     float64
+ 18  goods_exp_bop                  34 non-null     float64
+ 19  goods_imp_bop                  0 non-null      float64
+ 20  imports_goods_services_gdp     34 non-null     float64
+ 21  imports_goods_services_growth  34 non-null     float64
+ 22  services_gdp                   34 non-null     float64
+ 23  services_growth                34 non-null     float64
+ 24  short_term_debt_tot_reserves   0 non-null      float64
+ 25  trade_gdp                      34 non-null     float64
+ 26  cpi                            34 non-null     float64
+ 27  inflation                      34 non-null     float64
+ 28  real_interest_rate             34 non-null     float64
+ 29  lending_interest_rate          34 non-null     float64
+ 30  life_exp_birth                 34 non-null     float64
+ 31  expense_gdp                    34 non-null     float64
+ 32  interest_payments              34 non-null     float64
+ 33  military expenditure           34 non-null     float64
+ 34  year.1                         34 non-null     int64  
+ 35  labels                         34 non-null     object 
+dtypes: float64(33), int64(2), object(1)
+memory usage: 9.7+ KB</code></pre>
+</div>
+</div>
+<p>South Africa has been a country with intense socio-political changes. Due to which the deviations seen from this nation can be quite altering. The inflation and the lending interest rates show us the economy has always been in recession most of the time, often asking for foreign aid from other developed nations. Yet, South Africa, due to this labour and natural capital is now emerging to be one of the competing nations.</p>
+<div class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>southafrica.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="115">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">ex_debt_shocks</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">trade_gdp</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>50.00000</td>
+<td>50.000000</td>
+<td>5.000000e+01</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>...</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>1997.50000</td>
+<td>2.944993</td>
+<td>1.726618e+11</td>
+<td>1.019058</td>
+<td>14.617378</td>
+<td>5.340494</td>
+<td>19.599354</td>
+<td>4.980877</td>
+<td>-0.977091</td>
+<td>25.449196</td>
+<td>...</td>
+<td>57.961911</td>
+<td>2.920324</td>
+<td>119.946081</td>
+<td>48.797300</td>
+<td>62.701001</td>
+<td>8.937808</td>
+<td>3.317721</td>
+<td>60.457939</td>
+<td>2.295429</td>
+<td>1997.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>14.57738</td>
+<td>4.186829</td>
+<td>7.426311e+10</td>
+<td>4.208455</td>
+<td>1.600373</td>
+<td>0.483089</td>
+<td>5.516894</td>
+<td>5.373903</td>
+<td>2.918324</td>
+<td>3.539869</td>
+<td>...</td>
+<td>5.748344</td>
+<td>2.180185</td>
+<td>61.294859</td>
+<td>7.353538</td>
+<td>53.653821</td>
+<td>4.429910</td>
+<td>4.321426</td>
+<td>3.316655</td>
+<td>1.372066</td>
+<td>14.57738</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1973.00000</td>
+<td>-6.105116</td>
+<td>8.169750e+10</td>
+<td>-8.844539</td>
+<td>12.005429</td>
+<td>4.600000</td>
+<td>13.810482</td>
+<td>-0.595410</td>
+<td>-5.586817</td>
+<td>18.955147</td>
+<td>...</td>
+<td>46.894611</td>
+<td>-4.398186</td>
+<td>60.145736</td>
+<td>34.321353</td>
+<td>2.896167</td>
+<td>-0.692030</td>
+<td>-11.009011</td>
+<td>53.980000</td>
+<td>0.739894</td>
+<td>1973.00000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1985.25000</td>
+<td>0.866885</td>
+<td>1.031776e+11</td>
+<td>-0.602860</td>
+<td>13.568121</td>
+<td>5.039765</td>
+<td>15.241517</td>
+<td>1.154841</td>
+<td>-2.950219</td>
+<td>22.578834</td>
+<td>...</td>
+<td>52.237073</td>
+<td>1.572643</td>
+<td>87.004999</td>
+<td>43.553642</td>
+<td>13.055219</td>
+<td>5.424068</td>
+<td>1.939067</td>
+<td>58.122000</td>
+<td>1.035020</td>
+<td>1985.25000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>1997.50000</td>
+<td>2.923929</td>
+<td>1.612442e+11</td>
+<td>0.828012</td>
+<td>14.160999</td>
+<td>5.130000</td>
+<td>17.501936</td>
+<td>3.362576</td>
+<td>-1.163550</td>
+<td>25.792956</td>
+<td>...</td>
+<td>60.182314</td>
+<td>2.983437</td>
+<td>119.946081</td>
+<td>48.838556</td>
+<td>52.323241</td>
+<td>8.639113</td>
+<td>3.610582</td>
+<td>60.869000</td>
+<td>1.555722</td>
+<td>1997.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2009.75000</td>
+<td>4.908132</td>
+<td>2.438179e+11</td>
+<td>3.076031</td>
+<td>15.655139</td>
+<td>5.614009</td>
+<td>22.769737</td>
+<td>5.869842</td>
+<td>1.181907</td>
+<td>27.709766</td>
+<td>...</td>
+<td>63.379119</td>
+<td>4.425018</td>
+<td>119.946081</td>
+<td>54.093948</td>
+<td>99.017739</td>
+<td>12.660460</td>
+<td>4.930434</td>
+<td>63.044000</td>
+<td>3.632120</td>
+<td>2009.75000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2022.00000</td>
+<td>15.909859</td>
+<td>2.991770e+11</td>
+<td>13.825588</td>
+<td>18.693445</td>
+<td>6.600000</td>
+<td>33.709562</td>
+<td>21.039421</td>
+<td>5.287891</td>
+<td>33.443871</td>
+<td>...</td>
+<td>64.716759</td>
+<td>6.939034</td>
+<td>462.705392</td>
+<td>65.974524</td>
+<td>183.682744</td>
+<td>18.654919</td>
+<td>12.691034</td>
+<td>66.175000</td>
+<td>5.263335</td>
+<td>2022.00000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 35 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="116">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>southafrica.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 50 entries, 0 to 49
+Data columns (total 36 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   year                           50 non-null     int64  
+ 1   adj_NNI_g                      50 non-null     float64
+ 2   adj_NNI_c                      50 non-null     float64
+ 3   adj_savings_fix_cap_GNI        50 non-null     float64
+ 4   adj_savings_edu_GNI            50 non-null     float64
+ 5   adj_NNS_GNI                    50 non-null     float64
+ 6   curr_acc_bal                   50 non-null     float64
+ 7   ex_imp_gdp                     50 non-null     float64
+ 8   ex_imp_growth                  50 non-null     float64
+ 9   ex_debt_shocks                 50 non-null     float64
+ 10  final_consump_exp_gdp          50 non-null     float64
+ 11  final_consump_exp_growth       50 non-null     float64
+ 12  fdi_net_inflows                50 non-null     float64
+ 13  fdi_net_outflows               50 non-null     float64
+ 14  gdp_growth                     50 non-null     float64
+ 15  gdp_per_capita_growth          50 non-null     float64
+ 16  gener_govt_fin_consump_exp     50 non-null     float64
+ 17  gni_growth                     50 non-null     float64
+ 18  goods_exp_bop                  50 non-null     float64
+ 19  goods_imp_bop                  50 non-null     float64
+ 20  imports_goods_services_gdp     50 non-null     float64
+ 21  imports_goods_services_growth  50 non-null     float64
+ 22  services_gdp                   50 non-null     float64
+ 23  services_growth                50 non-null     float64
+ 24  short_term_debt_tot_reserves   50 non-null     float64
+ 25  trade_gdp                      50 non-null     float64
+ 26  cpi                            50 non-null     float64
+ 27  inflation                      50 non-null     float64
+ 28  real_interest_rate             50 non-null     float64
+ 29  lending_interest_rate          50 non-null     float64
+ 30  life_exp_birth                 50 non-null     float64
+ 31  expense_gdp                    50 non-null     float64
+ 32  interest_payments              50 non-null     float64
+ 33  military expenditure           50 non-null     float64
+ 34  year.1                         50 non-null     int64  
+ 35  labels                         41 non-null     object 
+dtypes: float64(33), int64(2), object(1)
+memory usage: 14.2+ KB</code></pre>
+</div>
+</div>
+<p>Brazil’s economic context various in accordance to the time, with periods of normal growth and periods of high growth, that also states the nature of it’s geo-political reign. If you look at the indicators, the Adjusted Savings for Fixed Capital and Trade GDP are interesting to look at.</p>
+<div class="cell" data-execution_count="117">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>brazil.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="117">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">ex_debt_shocks</th>
+<th data-quarto-table-cell-role="th">final_consump_exp_gdp</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">trade_gdp</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>50.000000</td>
+<td>5.000000e+01</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>...</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>5.000000e+01</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>2.858273</td>
+<td>9.927705e+11</td>
+<td>1.270081</td>
+<td>10.750257</td>
+<td>4.457679</td>
+<td>17.787293</td>
+<td>7.006470</td>
+<td>-2.259920</td>
+<td>11.170290</td>
+<td>6.063046</td>
+<td>...</td>
+<td>53.893826</td>
+<td>3.464068</td>
+<td>84.382637</td>
+<td>22.197876</td>
+<td>6.731385e+01</td>
+<td>280.265403</td>
+<td>38.892255</td>
+<td>68.136286</td>
+<td>1.596424</td>
+<td>1997.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>5.537414</td>
+<td>3.618374e+11</td>
+<td>5.374688</td>
+<td>0.495756</td>
+<td>0.988642</td>
+<td>3.798667</td>
+<td>3.663059</td>
+<td>2.017774</td>
+<td>3.329268</td>
+<td>7.934414</td>
+<td>...</td>
+<td>9.139374</td>
+<td>3.591394</td>
+<td>86.860088</td>
+<td>5.873609</td>
+<td>5.793798e+01</td>
+<td>591.724093</td>
+<td>10.483542</td>
+<td>5.049809</td>
+<td>0.337717</td>
+<td>14.57738</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>-13.457070</td>
+<td>4.678463e+11</td>
+<td>-15.009283</td>
+<td>9.925297</td>
+<td>2.800000</td>
+<td>11.179231</td>
+<td>0.949568</td>
+<td>-6.014062</td>
+<td>6.692986</td>
+<td>-10.574251</td>
+<td>...</td>
+<td>38.714484</td>
+<td>-3.738107</td>
+<td>8.731629</td>
+<td>14.390878</td>
+<td>3.572040e-10</td>
+<td>3.195076</td>
+<td>16.728245</td>
+<td>58.472000</td>
+<td>1.053422</td>
+<td>1973.00000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>0.329104</td>
+<td>6.674528e+11</td>
+<td>-1.043909</td>
+<td>10.453263</td>
+<td>3.806250</td>
+<td>14.939308</td>
+<td>4.276090</td>
+<td>-3.729127</td>
+<td>8.317338</td>
+<td>0.483849</td>
+<td>...</td>
+<td>43.356767</td>
+<td>1.590630</td>
+<td>21.868827</td>
+<td>16.658106</td>
+<td>2.911174e-01</td>
+<td>6.235493</td>
+<td>35.108576</td>
+<td>64.308500</td>
+<td>1.368802</td>
+<td>1985.25000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2.888449</td>
+<td>9.484250e+11</td>
+<td>1.270081</td>
+<td>10.624243</td>
+<td>4.345000</td>
+<td>18.026720</td>
+<td>7.006470</td>
+<td>-2.545527</td>
+<td>10.866948</td>
+<td>5.625319</td>
+<td>...</td>
+<td>57.590546</td>
+<td>3.012630</td>
+<td>61.252703</td>
+<td>21.441260</td>
+<td>6.731385e+01</td>
+<td>11.997513</td>
+<td>38.892255</td>
+<td>68.611000</td>
+<td>1.521730</td>
+<td>1997.50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>5.450817</td>
+<td>1.315305e+12</td>
+<td>3.548577</td>
+<td>10.981732</td>
+<td>5.082500</td>
+<td>19.508526</td>
+<td>8.286224</td>
+<td>-0.394964</td>
+<td>13.232901</td>
+<td>11.656455</td>
+<td>...</td>
+<td>60.452174</td>
+<td>5.030491</td>
+<td>93.389959</td>
+<td>25.977764</td>
+<td>9.880075e+01</td>
+<td>280.265403</td>
+<td>38.892255</td>
+<td>72.741250</td>
+<td>1.832601</td>
+<td>2009.75000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>22.343467</td>
+<td>1.629388e+12</td>
+<td>20.413400</td>
+<td>12.111642</td>
+<td>6.285939</td>
+<td>33.988799</td>
+<td>23.294785</td>
+<td>1.559017</td>
+<td>20.045538</td>
+<td>22.614292</td>
+<td>...</td>
+<td>73.337880</td>
+<td>15.641424</td>
+<td>437.374535</td>
+<td>39.339994</td>
+<td>2.044821e+02</td>
+<td>2947.732772</td>
+<td>77.616838</td>
+<td>75.338000</td>
+<td>2.686250</td>
+<td>2022.00000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 34 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="118">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>brazil.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 50 entries, 0 to 49
+Data columns (total 35 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   adj_NNI_g                      50 non-null     float64
+ 1   adj_NNI_c                      50 non-null     float64
+ 2   adj_savings_fix_cap_GNI        50 non-null     float64
+ 3   adj_savings_edu_GNI            50 non-null     float64
+ 4   adj_NNS_GNI                    50 non-null     float64
+ 5   curr_acc_bal                   50 non-null     float64
+ 6   ex_imp_gdp                     50 non-null     float64
+ 7   ex_imp_growth                  50 non-null     float64
+ 8   ex_debt_shocks                 50 non-null     float64
+ 9   final_consump_exp_gdp          50 non-null     float64
+ 10  final_consump_exp_growth       50 non-null     float64
+ 11  fdi_net_inflows                50 non-null     float64
+ 12  fdi_net_outflows               50 non-null     float64
+ 13  gdp_growth                     50 non-null     float64
+ 14  gdp_per_capita_growth          50 non-null     float64
+ 15  gener_govt_fin_consump_exp     50 non-null     float64
+ 16  gni_growth                     50 non-null     float64
+ 17  goods_exp_bop                  50 non-null     float64
+ 18  goods_imp_bop                  50 non-null     float64
+ 19  imports_goods_services_gdp     50 non-null     float64
+ 20  imports_goods_services_growth  50 non-null     float64
+ 21  services_gdp                   50 non-null     float64
+ 22  services_growth                50 non-null     float64
+ 23  short_term_debt_tot_reserves   50 non-null     float64
+ 24  trade_gdp                      50 non-null     float64
+ 25  cpi                            50 non-null     float64
+ 26  inflation                      50 non-null     float64
+ 27  real_interest_rate             50 non-null     float64
+ 28  lending_interest_rate          50 non-null     float64
+ 29  life_exp_birth                 50 non-null     float64
+ 30  expense_gdp                    50 non-null     float64
+ 31  interest_payments              50 non-null     float64
+ 32  military expenditure           50 non-null     float64
+ 33  year                           50 non-null     int64  
+ 34  labels                         50 non-null     object 
+dtypes: float64(33), int64(1), object(1)
+memory usage: 13.8+ KB</code></pre>
+</div>
+</div>
+<section id="visual-data-representation" class="level3">
+<h3 class="anchored" data-anchor-id="visual-data-representation">Visual Data Representation</h3>
+<section id="histograms" class="level4">
+<h4 class="anchored" data-anchor-id="histograms">Histograms</h4>
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ax.hist(india[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'India'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax.hist(southafrica[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'South Africa'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>ax.hist(brazil[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Brazil'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>ax.hist(russia[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Russia'</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>ax.hist(china[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'China'</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Inflation'</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Percentage'</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'BRICS'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you look at the inflation, you see South Africa and Brazil having higher bouts of inflation than China or India. This tells us about the nature of their economy and the role of their sustainable and geo-political contexts.</p>
+</section>
+<section id="scatterplots" class="level4">
+<h4 class="anchored" data-anchor-id="scatterplots">Scatterplots</h4>
+<div class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">9</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Trade Analysis'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>ax1<span class="op">=</span> fig.add_subplot(<span class="dv">331</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'India'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ax1.plot(india[<span class="st">'year'</span>],</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        india[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">332</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'China'</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>ax2.plot(china[<span class="st">'year'</span>],</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        china[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'brown'</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>ax3<span class="op">=</span> fig.add_subplot(<span class="dv">333</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>ax3.plot(russia[<span class="st">'year'</span>],</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        russia[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'pink'</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>ax4<span class="op">=</span> fig.add_subplot(<span class="dv">334</span>)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>ax4.plot(southafrica[<span class="st">'year'</span>],</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        southafrica[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'pink'</span>)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>ax5<span class="op">=</span> fig.add_subplot(<span class="dv">335</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>ax5.set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>ax5.plot(brazil[<span class="st">'year'</span>],</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        brazil[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'orange'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>In terms of each countries’ Trade GDP, we see Russia performing better than Brazil and South Africa which a linear growth as it is increasing at an increasing rate. In terms of China, it’s trade % of the GDP has been positively rising. India, due to it’s economic crisis and the flush of trade borders opening emphasised on more international trade than it’s other counter-parts during that time. When you look at Brazil, Brazil’s influx of trade was more in the early 1990’s and it casually decreased. In terms of South Africa, you see it’s trade was completely closed in the 1980s due to its dependency on other natures with not have much resources to trade, but over a period of time, that changed.</p>
+<div class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Matplotlib figure and axis</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot for all numerical columns in the DataFrame</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>india.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and a title</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'India'</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you look at India’s boxplot graph, the adjusted Net National Income growth, the percentage of goods and the goods imported’s percentages are the data that has shown high variability, showcasing the importance of data bias and data normalisation. Yet,you also see vast differences in the max and min values between the blot points.</p>
+<div class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>russia.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>It is the same case with russia, but the services GDP % is actually high. If you see, the Imports of Goods and Servies as a % of GDP has greater variability and even the Services as a % of GDP.</p>
+<div class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>china.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'China'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>In terms of, you don’t see a lot of variability in the dataset except the educational expenses, the Imports of Goods and Services as a percentage of Growth, the % of services as a GDP.</p>
+<div class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>southafrica.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>For South Africa, you see how the data shows the variability for similar ones highlighting the importance of data-normalisation.</p>
+<div class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>brazil.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>But the variability is comparitively lesser for Brazil.</p>
+<div class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> india.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you look at the variables that are correlated with each other, and a lot of variables that are negatively correlated with each other. For instance, Ajusted Net National Income in positively correlated with other variables and Final Consumption Expenditure is negatively correlated to the data.</p>
+<div class="cell" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> china.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>For China, interest payments are negatively correlated to most of the variables, so that FDI Net Inflows, and even the General Government Final Expenditure. And majority of the variables are positively correlated to each other too.</p>
+<div class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> russia.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you see for Russia, comparitively, most of the variables are negatively correlated to each other , few of them being Adjusted Savings for Education as a % for GNI, interest payemeets, etc.</p>
+<div class="cell" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> southafrica.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>For Africa to, there are a lot of variables that are highly correlated to each other and the same for Brazil as well.</p>
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> brazil.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>india, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'India'</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>russia, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>china, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'China'</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>brazil, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">3</span>])</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>southafrica, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">4</span>])</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">4</span>].set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you look at the scatterplot to understand the Adjusted Net National Income’s growth, Brazil, India, China and Russia almost show no correlation with the year. It shows that irrespective of the year, they’re parallel to the x axis, showcasing inelasticity.</p>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>india, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'India'</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>russia, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>china, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'China'</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>brazil, ax<span class="op">=</span>axes[<span class="dv">3</span>])</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>southafrica, ax<span class="op">=</span>axes[<span class="dv">4</span>])</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">4</span>].set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_63651/980302243.py:13: UserWarning: FixedFormatter should only be used together with FixedLocator
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The violin plots showcase the association of the GDP labels with the GNI growth. There is greater density and spread in Russia, Brazil and South Africa in comparison to India.</p>
+<p>Links used. 1. https://towardsdatascience.com/data-visualization-using-matplotlib-16f1aae5ce70 2. https://nbviewer.org/github/BadreeshShetty/Data-Visualization-using-Matplotlib/blob/master/%281%29Histograms.ipynb</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
