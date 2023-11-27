@@ -31,7 +31,7 @@ website:
         text: Clustering
       - href: info/dimensionality_reduction.qmd
         text: Dimensionality Reduction
-      - href: ""
+      - href: codes/dimensionalityreduction.ipynb
         text: Decision Trees
         menu:
           - href: info/classification.qmd
