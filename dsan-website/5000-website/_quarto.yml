@@ -27,11 +27,11 @@ website:
             text: Exploratory Data Analysis
           - href: codes/naivebayes.ipynb
             text: Naive Bayes
-      - href: info/clustering.qmd
+      - href: codes/clustering.ipynb
         text: Clustering
-      - href: info/dimensionality_reduction.qmd
-        text: Dimensionality Reduction
       - href: codes/dimensionalityreduction.ipynb
+        text: Dimensionality Reduction
+      - href: ""
         text: Decision Trees
         menu:
           - href: info/classification.qmd
