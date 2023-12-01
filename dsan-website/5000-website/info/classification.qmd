@@ -5,4 +5,4 @@ mainfont: Georgia
 theme: morph
 ---
 
-Build out your website tab for "clustering"
+Note to self to attempt this later

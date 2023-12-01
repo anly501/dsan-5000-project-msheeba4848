@@ -36,7 +36,7 @@ website:
         menu:
           - href: info/classification.qmd
             text: Classification
-          - href: info/regression.qmd
+          - href: codes/decisiontree_r.ipynb
             text: Regression
       - href: info/conclusion.qmd
         text: Conclusion
