@@ -4608,6 +4608,7 @@ vertical-align: -.125em;
   <li><a href="#the-tabular-representation-of-the-metrics-1" id="toc-the-tabular-representation-of-the-metrics-1" class="nav-link" data-scroll-target="#the-tabular-representation-of-the-metrics-1">The Tabular Representation of the Metrics</a></li>
   <li><a href="#discussion-1" id="toc-discussion-1" class="nav-link" data-scroll-target="#discussion-1">Discussion</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
@@ -5366,6 +5367,11 @@ Best Score: 0.8735751920102682</code></pre>
 <h3 class="anchored" data-anchor-id="discussion-1">Discussion</h3>
 <p>In accordance to the performance, that there is still overfitting of the data in terms of the RMSE from the training and testing data for both baseline Random Forest and the one that is tuned by GridSearchCV, however, we see that out of all the models, the GridSearchCV with Random Forest works the best.</p>
 </section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, I can say that hyperparameter tuning actually helps with the model and random forest performs the best in comparison the decision tree model. When we look in terms of Decision Tree, hyperparameter tuning with RandomisedSearchCV performs the best in reducing the overfitting and in terms of Random Forest, hyperparameter tuning with GridSearchCV performs the best and overall as well.</p>
+<p>However, there is still a lot of overfitting. If time permits, I would look into the nature of the data and explore it in terms of the time series perspective to reduce autocorrelation and look into more overfitting techniques like L1 and L2 regularization techniques.</p>
 </section>
 </section>
 <section id="sources" class="level1">

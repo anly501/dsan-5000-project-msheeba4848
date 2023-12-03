@@ -4641,7 +4641,7 @@ vertical-align: -.125em;
 <p>This is particularly true when working with big amounts of data. PCA accomplishes this by transforming the data into a new set of variables known as principal components, which contain the data’s most significant variations. Most researchers and people into data analysis can use PCA to focus on the most important features of data, making it easier to understand and work with.</p>
 <p>Since I have worked with PCA before, the sklearn library is a wonderful tool for this.</p>
 <p>For PCA, one of the important things is to get rid of any labels within the data. Hence, there is only a set of numerical variables. For this dataset, the highly correlated variables have already been removed to reduce multicollinearity of the dataset as much as possible.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Libraries </span></span>
@@ -4656,14 +4656,14 @@ vertical-align: -.125em;
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>stackeddf<span class="op">=</span> pd.read_csv(<span class="st">&quot;../data/stackeddf.csv&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>stackeddf.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -4876,7 +4876,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>Here, we see that the data has both numerical and categorical variables which have already been normalised using the standard scalar. It is preprocessing technique that uses the z-score normalisation method to ensure the features are all on a comparible scale, with a mean of zero and a standard deviation of 1. Hemce, we separate the data into ‘x’ and ‘y’ variables.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> stackeddf[<span class="st">&#39;labels&#39;</span>]</span>
@@ -4887,7 +4887,7 @@ vertical-align: -.125em;
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pca1 <span class="op">=</span> PCA()</span>
@@ -4912,7 +4912,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>But, we need to find the optimal components of the data that best describes the data through the explained variance ratio, hence, we use the explained variance ratio and define our own threshold and see.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="5">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>evr<span class="op">=</span> pca1.explained_variance_ratio_</span>
@@ -4937,7 +4937,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>This shows me that the optimal number of components are 4 that attempts to explain at least 75% of the data. I have used ‘Scree Plot’ which visually showcases for a threshold of 0.75. Since we know the optimal components of the data, we can calculate the PCA</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pca2 <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">4</span>)</span>
@@ -4962,13 +4962,13 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>The following are the first few values of the pca.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pcadf <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>pca_optimal2, index<span class="op">=</span>x.index, columns<span class="op">=</span> [<span class="st">&#39;PC1&#39;</span>,<span class="st">&#39;PC2&#39;</span>, <span class="st">&#39;PC3&#39;</span>,<span class="st">&#39;PC4&#39;</span>])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pcadf.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -5059,7 +5059,7 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -5098,7 +5098,7 @@ Average Silhouette Score for PCA: -0.09704378289382186</code></pre>
 </div>
 </div>
 <p>As we have put in our threshold of 0.75, we see that the overall explained variance ratio, which talks about the proportion of variance captured by the dataset is 82%. You see even for each component, there are few points that perform better than the other.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -5115,7 +5115,7 @@ Average Silhouette Score for PCA: -0.09704378289382186</code></pre>
 </div>
 </div>
 <p>Here, we see that the the optimal performance was for 4. As the components keep increasing, so did the explained cumulative values.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -5135,7 +5135,7 @@ Average Silhouette Score for PCA: -0.09704378289382186</code></pre>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_95707/3805980677.py:5: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
+<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_53278/3805980677.py:5: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
   plt.scatter(pca_optimal2[indices, 0], pca_optimal2[indices, 1], label=label_value, alpha=0.5, cmap=&#39;viridis&#39;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -5147,7 +5147,7 @@ Average Silhouette Score for PCA: -0.09704378289382186</code></pre>
 <section id="t-distributed-stochastic-neighbor-embedding-t-sne" class="level2">
 <h2 class="anchored" data-anchor-id="t-distributed-stochastic-neighbor-embedding-t-sne">T-distributed Stochastic Neighbor Embedding (t-SNE)</h2>
 <p>The T-distributed Stochastic Neighbor Embedding, also called as t-SNE is another dimensionality reduction technique that focuses on data separation when the data cannot be linearly separated or rather, by a straight line. It helps us understand how the data is arranged and to understand the underlying patterns in the dataset. As t-SNE uses probability distribution to map similar data points, and keep the dissimilar ones apart; it does using the Kullback-Leibler divergence between the low and high dimensional embedding. However, t-SNE with different initialisations can get us different results, due to which although preserves the structure of the original data, we still need to aware of our initial value.</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>perplex_values <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">100</span>]</span>
@@ -5180,7 +5180,7 @@ Perplexity 60: Silhouette Score = -0.08441784232854843
 Perplexity 100: Silhouette Score = -0.0959368422627449</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">50</span>, <span class="dv">100</span>]</span>
@@ -5208,7 +5208,7 @@ Perplexity 100: Silhouette Score = -0.0959368422627449</code></pre>
 <p>The hyperparameter choice is perplexity in t-SNE, that controls the balance in preserving both local and glocal structure in a low-dimensional embedding. A higher perplexity value usually focuses on the global structure and lower perplexity on the local structure. As the choice of perplexity can really affect the choice of the output, it is often important to choose the optimal perplexity value which the code above attempts to achieve.</p>
 <p>All values of perplexity are negative in nature, and shows that all the clusters are going to overlap each other. This suggests poor separation between the clusters. This showcases the importance of the nature of the dataset, maybe due to the inherent structure of the data or due to the fact that there are outliers which cannot be removed when it comes to economic data.</p>
 <p>But here, it shows, perplexity value of 2 is closer to one so we will choose that.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">3</span>, perplexity<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -5226,7 +5226,7 @@ Perplexity 100: Silhouette Score = -0.0959368422627449</code></pre>
 Average Silhouette Score for t-SNE: -0.06379585713148117</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -5245,7 +5245,7 @@ Average Silhouette Score for t-SNE: -0.06379585713148117</code></pre>
 <p>Here, we see that t-SNE has done an extremely bad job in predicting the clusters as there is no relation of each other with one another.</p>
 <section id="pca-vs-t-sne" class="level3">
 <h3 class="anchored" data-anchor-id="pca-vs-t-sne">PCA vs t-SNE</h3>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
@@ -5279,9 +5279,9 @@ Average Silhouette Score for t-SNE: -0.06379585713148117</code></pre>
 <span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_95707/957010861.py:7: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
+<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_53278/957010861.py:7: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
   plt.scatter(pca_optimal2[indices, 0], pca_optimal2[indices, 1], label=label_value, alpha=0.5, cmap=&#39;viridis&#39;)
-/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_95707/957010861.py:18: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
+/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_53278/957010861.py:18: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
   plt.scatter(X_tsne[indices, 0], X_tsne[indices, 1], label=label_value, alpha=0.5, cmap=&#39;viridis&#39;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -5293,7 +5293,7 @@ Average Silhouette Score for t-SNE: -0.06379585713148117</code></pre>
 <h3 class="anchored" data-anchor-id="pca-vs-t-sne--the-curse-of-dimensionality-continued">PCA vs t-SNE- the curse of dimensionality continued?</h3>
 <p>Keeping in mind the fact that dimensionality can improve the model, there are often instances when utilising dimensionality techniques as a feature extraction method does not help the data in itself. This fundamentally showcases the importance of having a good dataset and choosing the feature selection/extraction methods on basis of your dataset’s requirements.</p>
 <p>However, if you look at both PCA and t-SNE, in terms of effectiveness, PCA’s CMV or cumulative explained variance ratio is around 82%. One of the problems with t-SNE through my research is that there is no proper metric in my current range of understanding that numerically quanitfies t-SNE well. But, in terms of the silhoute score, either we should calculate for each point and then do the sum of it, or play around with the data. But in terms of the calculation, what I had done for both of them was looking at ‘y’, which is the label value and essentially find out silhoutte scores for each component of the transformed variable and then you find the average of it.</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Average Silhouette Score for t-SNE: </span><span class="sc">{</span>avg_tsne_score<span class="sc">}</span><span class="ss">&quot;</span>)</span>
@@ -5307,7 +5307,7 @@ Average Silhouette Score for PCA: -0.09704378289382186</code></pre>
 <p>If you look at the silhoutte scores, we see that t-SNE actually seems to perform better than PCA but visualisation wise, I see more clustering for PCA than t-SNE.</p>
 <p>In terms of the quality of the cluster-separation, we see that both do a bad job at that since all the clusters are overlapping each other. Although PCA is effective for linear relationships and t-SNE is powerful in capturing the non-linear relationships of the data, both do not do a good job with clustering of my economic data. The reason being is in my opinion, the dataset is not that huge and most of the data is correlated to one another.</p>
 <p>As PCA is suiltable for larger datasets and t-SNE is suitable for smaller datasets, I wanted to attempt the combined approach</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a></span>

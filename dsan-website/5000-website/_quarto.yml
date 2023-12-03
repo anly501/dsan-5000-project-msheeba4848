@@ -45,7 +45,7 @@ website:
     body-footer: footer.qmd
 format:
   html:
-    theme: morph
+    theme: [morph, theme.scss]
     toc: true
 
 
