@@ -4557,7 +4557,7 @@ vertical-align: -.125em;
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-decision-trees">    
         <li>
-    <a class="dropdown-item" href="../info/classification.html" rel target>
+    <a class="dropdown-item" href="../codes/decisiontree_c.html" rel target>
  <span class="dropdown-text">Classification</span></a>
   </li>  
         <li>
@@ -4592,7 +4592,7 @@ vertical-align: -.125em;
   <li><a href="#baseline-decision-tree-regressor" id="toc-baseline-decision-tree-regressor" class="nav-link" data-scroll-target="#baseline-decision-tree-regressor">Baseline Decision Tree Regressor</a></li>
   <li><a href="#decision-tree-regressor-gridsearchcv" id="toc-decision-tree-regressor-gridsearchcv" class="nav-link" data-scroll-target="#decision-tree-regressor-gridsearchcv">Decision Tree Regressor : GridSearchCV</a></li>
   </ul></li>
-  <li><a href="#decision-tree-randomisedsearchcv" id="toc-decision-tree-randomisedsearchcv" class="nav-link" data-scroll-target="#decision-tree-randomisedsearchcv">Decision Tree : RandomisedSearchCV</a>
+  <li><a href="#decision-tree-regressor-randomisedsearchcv" id="toc-decision-tree-regressor-randomisedsearchcv" class="nav-link" data-scroll-target="#decision-tree-regressor-randomisedsearchcv">Decision Tree Regressor : RandomisedSearchCV</a>
   <ul class="collapse">
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
@@ -4994,8 +4994,8 @@ Name: count, dtype: int64</code></pre>
 <p>Looking into the performance after Gridsearch CV, the model as usual performs really well on train but not that way on test or validation suggesting to explore more aspects of hyperparameter tuning. As decision tree is very sensitive to features, Standard Scaler was used in the initial data cleaning and preprocessing technique.</p>
 </section>
 </section>
-<section id="decision-tree-randomisedsearchcv" class="level1">
-<h1>Decision Tree : RandomisedSearchCV</h1>
+<section id="decision-tree-regressor-randomisedsearchcv" class="level1">
+<h1>Decision Tree Regressor : RandomisedSearchCV</h1>
 <div class="cell" data-execution_count="94">
 <details>
 <summary>Code</summary>
