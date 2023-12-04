@@ -3,9 +3,12 @@ project:
 
 website:
   title: "DSAN-5000: Project"
+
   navbar:
     left:
       - href: index.qmd
+        text: About Me
+      - href: index1.html
         text: Home
       - href: info/introduction.qmd
         text: Introduction
@@ -45,9 +48,9 @@ website:
     body-footer: footer.qmd
 format:
   html:
-    theme: [morph, theme.scss]
+    theme: journal
+    css:  theme.scss
     toc: true
-
 
 
 

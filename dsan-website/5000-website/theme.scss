@@ -1,0 +1,86 @@
+/*-- scss:defaults --*/
+// Here you can define default values, variables, etc.
+
+/*-- scss:mixins --*/
+// Here you can define your SCSS mixins.
+
+/*-- scss:functions --*/
+// Here you can define your SCSS functions.
+
+/*-- scss:rules --*/
+/*-- scss:rules --*/
+figure-caption {
+    display: block;
+    font-style: italic;
+    color: #336699;
+    text-align: center;
+  }
+.tbl-caption {
+    font-style: italic;
+    color: #336699;
+    text-align: center;
+  }
+  
+  h1 {
+    font-weight: bold;
+    font-size: 24pt;
+    // font-variant: small-caps;
+    // text-align: center;
+    color: #24496d;
+    // font-family: serif;
+  }
+  
+  h2, h3, h4, h5 {
+    font-family: inherit;
+    color: #24496d;
+  }
+  
+  h2 {
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.5em; // Adjust as needed
+  }
+  
+  h3 {
+    font-weight: bold;
+    font-style: italic;
+    text-align: left;
+    font-size: 1.4em; // Adjust as needed
+    text-indent: 0em;
+  }
+  
+  h4 {
+    font-weight: bold;
+    font-style: italic;
+    text-align: left;
+    font-size: 1.3em; // Adjust as needed
+    text-indent: 1em;
+  }
+  
+  h5 {
+    font-style: italic;
+    text-align: left;
+    font-size: 1.2em; // Adjust as needed
+    text-indent: 1em;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+  
+  
+  /*-- scss:uses --*/
+  // If you are using any external SCSS files or modules, you can include or use them here.
+  

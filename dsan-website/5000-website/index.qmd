@@ -1,7 +1,6 @@
 ---
 title: "About Me"
 backgroundcolor: white
-mainfont: Georgia
 theme: morph
 about:
   template: jolla
@@ -15,7 +14,7 @@ about:
       href: mailto:sm3924@georgetown.edu   
 --- 
 
-I hope you're having a great day today! I'm Moghal Sheeba, a 23-year old woman from Hyderabad, India. I love animals, beaches and hiking. I'm currently a full-time Master's student from Georgetown University's Masters in Data Science and Analytics.
+I hope you're having a great day today! I'm Moghal Sheeba, a 23-year old from Hyderabad, India. I love animals, beaches and hiking. I'm currently a full-time Masters student from Georgetown University's Masters in Data Science and Analytics.
 
 As a graduate in Economics, I loved the questions that data made me ask the efficent methods I learnt in my undergradate classes, especially the Python class. Economics, especially International Economics made me appreciate data science and it's ability to understand humans and the science of harnessing data driven insights. I wish to find myself working in that bracket one day!
 
@@ -25,12 +24,45 @@ As a graduate in Economics, I loved the questions that data made me ask the effi
 Georgetown University | Washington DC
 Masters in Data Science and Analytics | Aug 2023 - May 2025
 
-
 Indira Gandhi National Open University | Hyderabad
 Post Graduate Diploma in Applied Statistics | June 2022 - June 2023
 
 SRM University- AP | Amaravati
 B.A in Economics | July 2018 - June 2021
 
-## 
+## Growing up
+
+Growing up, the three most things I loved doing the most was gardening, reading and writing. From Don Quixote's Miguel de Cervantes to the Brontë sister's work, I have read more than 500 books in my whole life and have collected more than 1900 books. More than author's craft in their enunciation of words, I fell in love with the story they try to weave about the political and socio-economic atmosphere. In addition to that, I have loved gardening all my life to an extent that my room has 15 little plants that I love with all my heart! 
+
+![Chilling with the plants](images/plants.png)
+
+In addition to these, I have also been a volunteer at Blue Cross, an animal welfare organisation since the past seven years and I also run an adoptions page called @adoptionsforhyd on instagram. This is Laila, one of my favourite dogs we've rescued. Her leg was amputated due to severe abuse from her owner but she's the sweetest little baby you will ever see. She loves peanut better and stealing hairties from your hair. 
+
+![Our little Laila!](images/laila.png)
+
+
+My favourite animals are ducks and pandas. This is me fistbumping a panda! 
+
+![say hi!](images/panda.png)
+
+I also love photography and these are the most recent pictures I have taken! 
+
+![Since I work closer to Downtown](images/downtown.png)
+
+![Clouds](images/clouds.png)
+
+A few from back home
+
+![This is one secret passageway from the 4th and abandoned Golconda gate that almost nobody knows how to access. Well, almost nobody except me!](images/golconda.png)
+
+![This is Osamania University, the infamous place where George Reddy died! He's one of my icons](images/osmania.png)
+
+
+
+
+
+
+
+
+
 

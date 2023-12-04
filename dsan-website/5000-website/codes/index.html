@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        /* Optional: Add additional styles for your content */
+        #content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="background-video" autoplay loop muted poster="images/poster.jpg">
+        <source src="/Users/sheebamoghal/Desktop/DSAN5000/dsan-5000-project-msheeba4848/dsan-website/5000-website/images/video1.mp4" type="video/mp4">
+    </video>
+
+    <div id="content">
+        <h1>BRICS Blitz</h1>
+        <p> Common Ground for the Multi-Polar World! </p>
+    </div>
+
+</body>
+</html>
