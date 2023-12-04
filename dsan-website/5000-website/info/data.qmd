@@ -1,5 +1,49 @@
 ---
 title: "Data"
+backgroundcolor: white
+theme: morph
 ---
 
-Build out your website tab for "clustering". hi
+The following is the description of all the economic variables which have been used. It is seen that the data consists of 33 variables, that contains data of Fiscal and Macroeconomic variables. Since I was also interested to look into the life expectency and Military Expenditure, these two were added too. The data was similarly collected for Brazil, Russia, China, South Africa and India.
+
+| S.No | Indicator | Description  |
+|:--:|:-------:|:---------------:|
+| 1    | Adjusted net national income (annual % growth)  | Annual percentage change in adjusted net national income.|
+| 2    | Adjusted net national income (constant 2015 US$) | Adjusted net national income measured in constant 2015 US dollars.|
+| 3    | Adjusted net national income per capita (annual % growth) | Annual percentage change in adjusted net national income per capita.|
+| 4    | Adjusted savings: consumption of fixed capital (% of GNI) | Percentage of GNI consumed by fixed capital.|
+| 5    | Adjusted savings: education expenditure (% of GNI) | Percentage of GNI spent on education.|
+| 6    | Adjusted savings: gross savings (% of GNI)| Percentage of GNI saved after adjusting for depreciation.|
+| 7    | Adjusted savings: net national savings (% of GNI) | Percentage of GNI saved after adjusting for consumption and capital depletion.|
+| 8    | Current account balance (% of GDP) | Percentage of GDP representing the balance of trade and income.|
+| 9    | Exports of goods and services (% of GDP) | Percentage of GDP generated from exports. |
+| 10   | Exports of goods and services (annual % growth) | Annual percentage change in exports of goods and services.|
+| 11   | External debt stocks (% of GNI) | Percentage of GNI representing external debt stocks. |
+| 12   | Final consumption expenditure (% of GDP) | Percentage of GDP spent on final consumption.|
+| 13   | Final consumption expenditure (annual % growth) | Annual percentage change in final consumption expenditure.|
+| 14   | Foreign direct investment, net inflows (% of GDP) | Percentage of GDP representing net inflows of foreign direct investment.|
+| 15   | Foreign direct investment, net outflows (% of GDP) | Percentage of GDP representing net outflows of foreign direct investment.|
+| 16   | GDP growth (annual %) | Annual percentage change in Gross Domestic Product.|
+| 17   | GDP per capita growth (annual %) | Annual percentage change in GDP per capita.|
+| 18   | General government final consumption expenditure (% of GDP) | Percentage of GDP spent by the general government on final consumption.|
+| 19   | General government final consumption expenditure (annual % growth) | Annual percentage change in general government final consumption expenditure.|
+| 20   | GNI growth (annual %) | Annual percentage change in Gross National Income.|
+
+|  |  |   |
+|:--:|:-------:|:---------------:|
+| 21   | Goods exports (BoP, current US$) | Value of goods exported in current US dollars. |
+| 22   | Imports of goods and services (% of GDP)        | Percentage of GDP representing imports of goods and services.      |
+| 23   | Imports of goods and services (annual % growth) | Annual percentage change in imports of goods and services.         |
+| 24   | Services, value added (% of GDP)                | Percentage of GDP generated from value-added services.             |
+| 25   | Services, value added (annual % growth)         | Annual percentage change in value-added services.                  |
+| 26   | Short-term debt (% of total reserves)           | Percentage of total reserves represented by short-term debt.      |
+| 27   | Trade (% of GDP)                                | Percentage of GDP representing total trade.                        |
+| 28   | Consumer price index (2010 = 100)               | Consumer price index based on the year 2010 as the reference period.|
+| 29   | Inflation, consumer prices (annual %)           | Annual percentage change in consumer prices inflation.             |
+| 30   | Real interest rate (%)                          | The interest rate adjusted for inflation, indicating the real return on investments. |
+| 31   | Life expectancy at birth, total (years)         | The average number of years a newborn is expected to live.         |
+| 32   | Military expenditure (% of GDP)                | Percentage of GDP spent on military expenses.                      |
+
+|  |  |   |
+|:--:|:-------:|:---------------:|
+| 33 | Goods imports (BoP, current US$) | Value of goods imported in current US dollars.  |

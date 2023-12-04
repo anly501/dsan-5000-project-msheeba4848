@@ -1,21 +1,18 @@
 ---
 title: "Introduction"
 backgroundcolor: white
-mainfont: Georgia
 theme: morph
 ---
 
 ## Problem Statement 
 
-As an economics student, international economics and geopolitics has been an area of interest to me. The book by "Silk Roads" by Franklin Frankopan is one of the most interesting books I've read. Researchers K. Laug and S. Rance argued that the introduction of the Silk Road drove countries to seek similar interests as a result of European countries' lack of collaboration. Fascism's growth mirrored a shift in the economic balance of power. Frankopan correctly identifies the limitations of liberal democracy in the changing economic and political structures of Western countries. (cite: https://reinventionjournal.org/index.php/reinvention/article/view/617/481)
+International economics and geopolitics have always piqued my interest as an economics student. "Silk Roads" by Franklin Frankopan is one of the most intriguing books I've ever read. According to researchers K. Laug and S. Rance [1], the Silk Road's establishment prompted countries to pursue comparable interests as a result of European countries' lack of collaboration. According to them, the rise of Fascism matched a shift in the economic balance of power. Frankopan rightly sees the constraints of liberal democracy in Western countries' shifting economic and political institutions. 
 
- This led me to explore and think about the complex dynamics of gepolitics and the powerplay of the hegemonic nations. The hegemonic nations are defined as those with the strongest military, greatest superpower and is a developed economy. Yet, the emerging nations have always been a threat to the global superpowers, due to their rapidly increasing growth, increase in exports and an increased in the overall quality of life. For instance, India was not like how it was 15 years ago. Frankopan's proclamation is a perceptive and comprehensive examination of global power dynamics and economics that is conspicuously absent from mainstream Western discourses and media landscapes.
+This prompted me to investigate and reflect on the intricate processes of geopolitics and the power struggles of the hegemonic states. Hegemonic nations are those having the most powerful military, the greatest superpower, and a developed economy. Nonetheless, developing nations have always posed a danger to global superpowers due to their rapid expansion, higher exports, and improved overall quality of life. For example, India was not what it was 15 years ago. Frankopan's declaration is an astute and comprehensive assessment of global power dynamics and economics that is glaringly lacking in mainstream Western discourses and media landscapes.
 
-The term BRICS was first coined by a Goldman Chief Economist named Jim O'Neill in a research paper that underlined the growth potential of Brazil, Russia, India and China. (cite: https://www.reuters.com/world/what-is-brics-who-are-its-members-2023-08-21/). The bloc was founded as an informal club in 2009 to challenge the hegemonic domination of the US and it's western allies. The leaders of the governments and states of the member countries meet once a year, with each country having a one-year alternating presidency of the group.
+The term BRICS was first coined by a Goldman Chief Economist named Jim O'Neill in a research paper that underlined the growth potential of Brazil, Russia, India and China [2]. The bloc was founded as an informal club in 2009 to challenge the hegemonic domination of the US and it's western allies. The leaders of the governments and states of the member countries meet once a year, with each country having a one-year alternating presidency of the group.
 
-This got me interested to understand the cross-country comparison of BRICS in terms it's fiscal and macroeconomic policies. 
-
-{mention the reserach}
+This got me interested to understand the cross-country comparison of BRICS in terms it's fiscal and macroeconomic policies. According to [3], one of the important factors to boost the economcs is consistent international trade, especially considering China as a manufacturing nation i.e with a comparitive advantage industrially. Another interesting assumption that O’Neil [4] argues about is the growth potential ofthe BRICS countries and how it can only be unleashed if certain macroeconomic policies are adopted in a well-coordinated manner that will promote economic  growth  and development. But one of the other relevant literature highlights on the importance that due to different cultural, financial and political backgrounds, few BRICS nations gain a comparitive advantage whilst few again an absolute disadvantage. However, it is interesting for me to look into few questions and initially explore so that down the line, an actual exploration can be done to answer an interesting question.
 
 ## Research Questions
 
@@ -59,7 +56,14 @@ This got me interested to understand the cross-country comparison of BRICS in te
 
 20. How do each of the BRICS countries manage their foreign debt, and what strategies do they employ to ensure debt sustainability?
 
+## References
 
+[1] Laug, K., &amp; Rance, S. (n.d.). The New Silk Road. Reinvention: an International Journal of Undergraduate Research . https://reinventionjournal.org/index.php/reinvention/article/view/617 
 
+[2] Thomson Reuters. (2023, August 21). What is BRICS, which countries want to join and why?. Reuters. https://www.reuters.com/world/what-is-brics-who-are-its-members-2023-08-21/ 
+
+[3] Siddiqui, K. (2016). Will the growth of the BRICs cause a shift in the global balance of economic power in the 21st century?. International Journal of Political Economy, 45(4), 315-338.
+
+[4] O’NEILL, J.(2001).Building  Better  Global  Economic  BRICs.  Goldman  Sachs  Global  Economic  Paper  No.                66
 
 
