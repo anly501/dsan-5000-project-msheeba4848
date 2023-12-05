@@ -23,6 +23,8 @@ website:
           - text: Data Gathering - R 
           - href: codes/data_gathering_p.ipynb
           - text: Data Gathering - P 
+          - href: codes/record_data.ipynb
+            text: Record Data
       - href: info/data_cleaning.qmd
         text: Data Cleaning 
       - href: ""
