@@ -275,6 +275,8 @@ pprint(sentiment_df.head())
 
 For the record data, using the world bank data bank, the data was retrieved. There is a lot of cleaning that was supposed to be done. The entire data as seen under data_gathering section was transposed and had 152 columns. I had to individually transpose. Below, a similar method was imposed to clean all the 5 individual datasets.
 
+
+
 ```{python}
 
 import pandas as pd
@@ -282,7 +284,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #pip install xlrd
-df=pd.read_excel('../data/india.xlsx')
+df=pd.read_excel('../data/excel_files/india.xlsx')
 df.head(10)
 
 ```
