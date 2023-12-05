@@ -6,10 +6,10 @@ website:
 
   navbar:
     left:
+      - href: codes/index1.html
+        text: Home
       - href: index.qmd
         text: About Me
-      - href: index1.html
-        text: Home
       - href: info/introduction.qmd
         text: Introduction
       - href: https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website

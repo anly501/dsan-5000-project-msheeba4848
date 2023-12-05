@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICS Blitz</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            margin-top: 20vh; /* Adjust the margin based on your content */
+        }
+    </style>
+</head>
+<body>
+
+    <video id="background-video" autoplay loop muted poster="images/poster.jpg">
+        <source src="../images/video2.mp4" type="video/mp4">
+    </video>
+
+    <div id="content">
+        <h1>BRICS Blitz</h1>
+        <p>Common Ground for the Multi-Polar World!</p>
+    </div>
+
+</body>
+</html>
