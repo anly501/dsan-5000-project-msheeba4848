@@ -127,26 +127,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../info/introduction.html" rel="" target=""><i class="bi bi-Introduction" role="img">
-</i> 
+    <a class="nav-link" href="../../info/introduction.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../info/code.html" rel="" target="">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website" rel="" target="">
  <span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../info/data.html" rel="" target="">
  <span class="menu-text">Data</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../info/introduction.html" rel="" target="">
- <span class="menu-text">Introduction</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-gathering" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Gathering</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-gathering">    
+        <li>
+    <a class="dropdown-item" href="../../codes/data_gathering_r.html" rel="" target="">
+ <span class="dropdown-text">Data Gathering - R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../info/data_gathering.html" rel="" target="">
- <span class="menu-text">Data Gathering</span></a>
+        <li class="dropdown-header">Data Gathering - R</li>
+        <li>
+    <a class="dropdown-item" href="../../codes/data_gathering_p.html" rel="" target="">
+ <span class="dropdown-text">data_gathering_p.html</span></a>
   </li>  
+        <li class="dropdown-header">Data Gathering - P</li>
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../info/data_cleaning.html" rel="" target="">
  <span class="menu-text">Data Cleaning</span></a>
@@ -3699,10 +3707,8 @@ memory usage: 7.6 KB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>csv_file<span class="op">=</span><span class="st">'../data/russia.csv'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(csv_file, index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#csv_file='../data/russia.csv'</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#df.to_csv(csv_file, index=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

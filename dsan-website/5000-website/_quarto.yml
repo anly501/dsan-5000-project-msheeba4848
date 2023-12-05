@@ -12,15 +12,17 @@ website:
         text: Home
       - href: info/introduction.qmd
         text: Introduction
-        icon: Introduction
-      - href: info/code.qmd
+      - href: https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website
         text: Code
       - href: info/data.qmd
         text: Data
-      - href: info/introduction.qmd
-        text: Introduction
-      - href: info/data_gathering.qmd
-        text: Data Gathering 
+      - href: ""
+        text: Data Gathering
+        menu: 
+          - href: codes/data_gathering_r.ipynb
+          - text: Data Gathering - R 
+          - href: codes/data_gathering_p.ipynb
+          - text: Data Gathering - P 
       - href: info/data_cleaning.qmd
         text: Data Cleaning 
       - href: ""
