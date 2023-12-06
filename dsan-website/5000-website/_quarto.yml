@@ -25,8 +25,15 @@ website:
           - text: Data Gathering - P 
           - href: codes/record_data.ipynb
             text: Record Data
-      - href: info/data_cleaning.qmd
+      - href: ""
         text: Data Cleaning 
+        menu:
+          - href: codes/data_cleaning_r.ipynb
+          - text: Data Cleaning - R
+          - href: codes/data_cleaning_p.ipynb
+          - text: Data Cleaning - Python
+          - href: codes/data_cleaning_record.ipynb
+          - text: Data Cleaning - Record Data
       - href: ""
         text: Data Exploration
         menu:

@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>BRICS - Quantitative Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../theme.scss">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">BRICS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../codes/index1.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/introduction.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-msheeba4848/tree/main/dsan-website/5000-website" rel="" target="">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info/data.html" rel="" target="">
+ <span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-gathering" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Gathering</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-gathering">    
+        <li>
+    <a class="dropdown-item" href="../codes/data_gathering_r.html" rel="" target="">
+ <span class="dropdown-text">Data Gathering - R</span></a>
+  </li>  
+        <li class="dropdown-header">Data Gathering - R</li>
+        <li>
+    <a class="dropdown-item" href="../codes/data_gathering_p.html" rel="" target="">
+ <span class="dropdown-text">Data Gathering - Python</span></a>
+  </li>  
+        <li class="dropdown-header">Data Gathering - P</li>
+        <li>
+    <a class="dropdown-item" href="../codes/record_data.html" rel="" target="">
+ <span class="dropdown-text">Record Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-cleaning" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Cleaning</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-cleaning">    
+        <li>
+    <a class="dropdown-item" href="../codes/data_cleaning_r.html" rel="" target="">
+ <span class="dropdown-text">Quantitative Data</span></a>
+  </li>  
+        <li class="dropdown-header">Data Cleaning - R</li>
+        <li>
+    <a class="dropdown-item" href="../codes/data_cleaning_p.html" rel="" target="">
+ <span class="dropdown-text">Quantitative Data</span></a>
+  </li>  
+        <li class="dropdown-header">Data Cleaning - Python</li>
+        <li>
+    <a class="dropdown-item" href="../codes/data_cleaning_record.html" rel="" target="">
+ <span class="dropdown-text">Data Gathering - Record Data</span></a>
+  </li>  
+        <li class="dropdown-header">Data Cleaning - Record Data</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-exploration" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Exploration</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-exploration">    
+        <li>
+    <a class="dropdown-item" href="../codes/EDA.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../codes/naivebayes.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../codes/clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../codes/dimensionalityreduction.html" rel="" target="">
+ <span class="menu-text">Dimensionality Reduction</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decision-trees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Decision Trees</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-decision-trees">    
+        <li>
+    <a class="dropdown-item" href="../codes/decisiontree_c.html" rel="" target="">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../codes/decisiontree_r.html" rel="" target="">
+ <span class="dropdown-text">Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../info/conclusion.html" rel="" target="">
+ <span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#textual-data" id="toc-textual-data" class="nav-link active" data-scroll-target="#textual-data">Textual Data</a></li>
+  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Quantitative Data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<p>title: “Data Cleaning - Python” author: “Sheeba Moghal” format: html: embed-resources: true code-fold: true execute: echo: true jupyter: python3</p>
+<p>The cleaning of both textual and quantitative as no simple solution as each dataset has to be treated separately. Hence, the data will be tackled separately.</p>
+<p>For quantitative data, data cleaning is essential to guaranteeing the dependability and correctness of analytical findings. We can receive imprecise statistical analyses from errors, outliers, and missing values, which might result in incorrect interpretations and decisions. Extensive data cleaning improves the quality of the data by identifying and fixing errors, managing outliers, and addressing inconsistent or missing information.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># libraries to import</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fredapi <span class="im">import</span> Fred</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fred <span class="op">=</span> Fred(api_key<span class="op">=</span><span class="st">'10fbe66f8f62ad7f44097cca867bf01f'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>series_id_1 <span class="op">=</span> <span class="st">'GDP'</span> <span class="co"># for GDP US</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>series_id_2<span class="op">=</span><span class="st">'GDPC1'</span> <span class="co"># for Real Gross GDP</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>series_id_3<span class="op">=</span><span class="st">'W207RC1Q156SBEA'</span> <span class="co"># Adjusted Saving (% of GNI)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>series_id_4<span class="op">=</span><span class="st">'USAB6BLTT02STSAQ'</span> <span class="co"># Current account balance (% of GDP)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>series_id_5<span class="op">=</span><span class="st">'A019RE1Q156NBEA'</span> <span class="co"># Export of Goods and Services as percentage of GDP</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>series_id_6<span class="op">=</span><span class="st">'MKTGNIUSA646NWDB'</span> <span class="co"># GNI</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the start and end dates where I need data from 1990 to 2023</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> <span class="st">'1973'</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>end_date <span class="op">=</span> <span class="st">'2023'</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch the data</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>gdp_u <span class="op">=</span> fred.get_series(series_id_1, start_date, end_date)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>realgdp_u <span class="op">=</span> fred.get_series(series_id_2, start_date, end_date)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>adjsavings_u <span class="op">=</span> fred.get_series(series_id_3, start_date, end_date)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>currentaccbalance_u <span class="op">=</span> fred.get_series(series_id_4, start_date, end_date)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>exportsofgoods_u <span class="op">=</span> fred.get_series(series_id_5, start_date, end_date)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>gni_u<span class="op">=</span> fred.get_series(series_id_6, start_date, end_date)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># for GDP</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>df1<span class="op">=</span> gdp_u.to_frame(name<span class="op">=</span>(<span class="st">'GDP'</span>))</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>annual_gdp_u <span class="op">=</span> df1.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>annual_gdp_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_gdp_u.index.year</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>annual_gdp_u<span class="op">=</span>annual_gdp_u[[<span class="st">'Year'</span>, <span class="st">'GDP'</span>]]</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>annual_gdp_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(annual_gdp_u.head(<span class="dv">5</span>))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Real GDP</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span> realgdp_u.to_frame(name<span class="op">=</span>(<span class="st">'Real GDP'</span>))</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u <span class="op">=</span> df2.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_realgdp_u.index.year</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>annual_realgdp_u.head(<span class="dv">16</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjusted Savings</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>df3<span class="op">=</span> adjsavings_u.to_frame(name<span class="op">=</span>(<span class="st">'Adjusted Savings'</span>))</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u <span class="op">=</span> df3.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_adjsavings_u.index.year</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>annual_adjsavings_u.head(<span class="dv">2</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Current Account Balance % of GDP</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>df4<span class="op">=</span> currentaccbalance_u.to_frame(name<span class="op">=</span>(<span class="st">'Current Account Balance'</span>))</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u <span class="op">=</span> df4.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_currentaccbalance_u.index.year</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>annual_currentaccbalance_u.head(<span class="dv">2</span>)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Current Account Balance % of GDP</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>df5<span class="op">=</span> exportsofgoods_u.to_frame(name<span class="op">=</span>(<span class="st">'Exports of Goods and Services'</span>))</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u <span class="op">=</span> df5.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_exportsofgoods_u.index.year</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>annual_exportsofgoods_u.head(<span class="dv">2</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co"># GNI</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>df6<span class="op">=</span> gni_u.to_frame(name<span class="op">=</span>(<span class="st">'GNI'</span>))</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>annual_gni_u <span class="op">=</span> df6.resample(<span class="st">'A'</span>).mean()</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>annual_gni_u[<span class="st">'Year'</span>] <span class="op">=</span> annual_gni_u.index.year</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>annual_gni_u.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>annual_gni_u.head(<span class="dv">10</span>)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(annual_gdp_u, annual_realgdp_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_adjsavings_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span>)</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_currentaccbalance_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_exportsofgoods_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_gni_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="co"># join them</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(annual_gdp_u, annual_realgdp_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_adjsavings_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span>)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_currentaccbalance_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_exportsofgoods_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>merged_df<span class="op">=</span> pd.merge(merged_df, annual_gni_u, how<span class="op">=</span> <span class="st">'outer'</span>, on<span class="op">=</span> <span class="st">'Year'</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Year        GDP
+0  1973  1425.3760
+1  1974  1545.2425
+2  1975  1684.9050
+3  1976  1873.4125
+4  1977  2081.8250</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>merged_df.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>Year                             0
+GDP                              0
+Real GDP                         0
+Adjusted Savings                 0
+Current Account Balance          0
+Exports of Goods and Services    0
+GNI                              1
+dtype: int64</code></pre>
+</div>
+</div>
+<p>Here, we see that there is only one missing value. Usually, imputing missing values for economic data isn’t a good choice since you’re changing the effect of that specific value by computing the mean average of the value. However, for this project since data without missing values is a requirement for further modelling, mean value imputation is used.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>merged_df[<span class="st">'GNI'</span>] <span class="op">=</span> merged_df[<span class="st">'GNI'</span>].fillna(merged_df[<span class="st">'GNI'</span>].mean())</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>merged_df.isna().<span class="bu">sum</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>merged_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">GDP</th>
+<th data-quarto-table-cell-role="th">Real GDP</th>
+<th data-quarto-table-cell-role="th">Adjusted Savings</th>
+<th data-quarto-table-cell-role="th">Current Account Balance</th>
+<th data-quarto-table-cell-role="th">Exports of Goods and Services</th>
+<th data-quarto-table-cell-role="th">GNI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1973</td>
+<td>1425.37600</td>
+<td>6106.37050</td>
+<td>10.925</td>
+<td>0.492313</td>
+<td>0.275</td>
+<td>1.431848e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1974</td>
+<td>1545.24250</td>
+<td>6073.36275</td>
+<td>9.200</td>
+<td>0.129574</td>
+<td>-0.050</td>
+<td>1.553300e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1975</td>
+<td>1684.90500</td>
+<td>6060.87525</td>
+<td>6.500</td>
+<td>1.075657</td>
+<td>0.950</td>
+<td>1.684554e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1976</td>
+<td>1873.41250</td>
+<td>6387.43650</td>
+<td>7.450</td>
+<td>0.233895</td>
+<td>-0.050</td>
+<td>1.869603e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1977</td>
+<td>2081.82500</td>
+<td>6682.80450</td>
+<td>8.125</td>
+<td>-0.683540</td>
+<td>-1.125</td>
+<td>2.082670e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1978</td>
+<td>2351.59875</td>
+<td>7052.71125</td>
+<td>9.375</td>
+<td>-0.661201</td>
+<td>-1.125</td>
+<td>2.349856e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>1979</td>
+<td>2627.32625</td>
+<td>7275.99925</td>
+<td>9.200</td>
+<td>-0.012445</td>
+<td>-0.875</td>
+<td>2.614202e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>1980</td>
+<td>2857.30850</td>
+<td>7257.31650</td>
+<td>7.050</td>
+<td>0.073883</td>
+<td>-0.450</td>
+<td>2.847055e+12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>1981</td>
+<td>3207.04125</td>
+<td>7441.48500</td>
+<td>8.000</td>
+<td>0.156610</td>
+<td>-0.375</td>
+<td>3.201886e+12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>1982</td>
+<td>3343.78925</td>
+<td>7307.31400</td>
+<td>5.625</td>
+<td>-0.161860</td>
+<td>-0.600</td>
+<td>3.371448e+12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>This is how the final dataframe looks like for the US data.</p>
+<section id="textual-data" class="level2">
+<h2 class="anchored" data-anchor-id="textual-data">Textual Data</h2>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.sentiment <span class="im">import</span> SentimentIntensityAnalyzer <span class="im">as</span> SIA</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span>  numpy <span class="im">as</span> np</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> pd.read_csv(<span class="st">'../data/csv_files_textual/sentiment_raw.csv'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#nltk.download('punkt')</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#nltk.download('stopwords')</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_string(text):</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># lowercase the text</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> text.lower()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># replace with regular quotations, added this since there were few texts that weren't cleaned</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> text.replace(<span class="st">'’'</span>, <span class="st">"'"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remove emojis, saw a list of them online so just added them.</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    emoji_pattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="st">"["</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F600</span><span class="st">-</span><span class="ch">\U0001F64F</span><span class="st">"</span>  <span class="co"># emoticons</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F300</span><span class="st">-</span><span class="ch">\U0001F5FF</span><span class="st">"</span>  <span class="co"># symbols &amp; pictographs</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F680</span><span class="st">-</span><span class="ch">\U0001F6FF</span><span class="st">"</span>  <span class="co"># transport &amp; map symbols</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F700</span><span class="st">-</span><span class="ch">\U0001F77F</span><span class="st">"</span>  <span class="co"># alchemical symbols</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F780</span><span class="st">-</span><span class="ch">\U0001F7FF</span><span class="st">"</span>  <span class="co"># Geometric Shapes Extended</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F800</span><span class="st">-</span><span class="ch">\U0001F8FF</span><span class="st">"</span>  <span class="co"># Supplemental Arrows-C</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F900</span><span class="st">-</span><span class="ch">\U0001F9FF</span><span class="st">"</span>  <span class="co"># Supplemental Symbols and Pictographs</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001FA00</span><span class="st">-</span><span class="ch">\U0001FA6F</span><span class="st">"</span>  <span class="co"># Chess Symbols</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001FA70</span><span class="st">-</span><span class="ch">\U0001FAFF</span><span class="st">"</span>  <span class="co"># Symbols and Pictographs Extended-A</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F004</span><span class="st">-</span><span class="ch">\U0001F0CF</span><span class="st">"</span>  <span class="co"># Miscellaneous Symbols and Pictographs</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F0D0</span><span class="st">-</span><span class="ch">\U0001F0FF</span><span class="st">"</span>  <span class="co"># Emoticons</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F1E0</span><span class="st">-</span><span class="ch">\U0001F1FF</span><span class="st">"</span>  <span class="co"># Regional Indicator Symbols</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                           <span class="st">u"</span><span class="ch">\U0001F200</span><span class="st">-</span><span class="ch">\U0001F251</span><span class="st">"</span>  <span class="co"># Enclosed Ideographic Supplement</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"]+"</span>, flags<span class="op">=</span>re.UNICODE)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> emoji_pattern.sub(<span class="vs">r''</span>, text)  <span class="co"># Remove emojis</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># line breaks removal</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> text.replace(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, <span class="st">' '</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  punctuation removal</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> <span class="st">''</span>.join([char <span class="cf">for</span> char <span class="kw">in</span> text <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> string.punctuation])</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  tokenize the text</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    words <span class="op">=</span> nltk.word_tokenize(text)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remove stopwords</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    words <span class="op">=</span> [word <span class="cf">for</span> word <span class="kw">in</span> words <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stopwords.words(<span class="st">'english'</span>)]</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rejoin the words into a cleaned string</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    cleaned_text <span class="op">=</span> <span class="st">' '</span>.join(words)</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cleaned_text</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="co"># into df</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cleaned_tweets'</span>] <span class="op">=</span> df[<span class="st">'body'</span>].<span class="bu">apply</span>(clean_string)</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>display(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">body</th>
+<th data-quarto-table-cell-role="th">cleaned_tweets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Burn him with his flag 🤬</td>
+<td>burn flag</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>This plan is to kill the Petro Dollar run and ...</td>
+<td>plan kill petro dollar run manipulated western...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>It’s difficult to know what’s going to come ou...</td>
+<td>difficult know whats going come summit next we...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>There is a lot to unpack as to what BRICS woul...</td>
+<td>lot unpack brics would bring table officially ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Nice that you "feel" that way. That's what BRI...</td>
+<td>nice feel way thats brics supped make feel lik...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">114</td>
+<td>Emergence of Great EURASIA Looming Against Bac...</td>
+<td>emergence great eurasia looming background dec...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">115</td>
+<td>“De-Dollarization”: Iran, Russia Planning to E...</td>
+<td>“ dedollarization ” iran russia planning estab...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">116</td>
+<td>Launch Of BRICS Bank, Alternative To IMF\n\nBy...</td>
+<td>launch brics bank alternative imf staff july 1...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">117</td>
+<td>Well. I see it’s now been 9 years. Here’s the ...</td>
+<td>well see 9 years heres latest subject httpswww...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">118</td>
+<td>BITCHES!\n\nLOL</td>
+<td>bitches lol</td>
+</tr>
+</tbody>
+</table>
+
+<p>119 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<p>Here, with the clean_string code picked from one the class notes, I have added the emoji code to it to remove the emoticons completely. Here, we can see the cleaned and uncleaned textual data.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorising the data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df[<span class="st">'cleaned_tweets'</span>]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>value <span class="op">=</span> [<span class="bu">str</span>(element) <span class="cf">for</span> element <span class="kw">in</span> df2]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>vectorizer<span class="op">=</span>CountVectorizer()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>Xs  <span class="op">=</span>  vectorizer.fit_transform(value)   </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(Xs))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"vocabulary = "</span>,vectorizer.vocabulary_)   </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"stop words ="</span>, vectorizer.stop_words)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>col_names<span class="op">=</span>vectorizer.get_feature_names_out()</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"col_names="</span>,col_names)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># performing sentimental analysis using the Sentiment Intensity Analyser</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>sia <span class="op">=</span> SIA()</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tweet <span class="kw">in</span> df[<span class="st">'cleaned_tweets'</span>]:  </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    polarity <span class="op">=</span> sia.polarity_scores(tweet)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    polarity[<span class="st">'cleaned_tweets'</span>] <span class="op">=</span> tweet </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    results.append(polarity)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>sentiment_df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>display(sentiment_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'scipy.sparse._csr.csr_matrix'&gt;
+vocabulary =  {'burn': 350, 'flag': 889, 'plan': 1664, 'kill': 1260, 'petro': 1647, 'dollar': 680, 'run': 1936, 'manipulated': 1382, 'western': 2465, 'central': 388, 'banks': 244, 'controlled': 499, 'cabal': 357, 'brics': 328, 'replaced': 1859, 'fiat': 866, 'currency': 564, 'gold': 993, 'tangible': 2221, 'asset': 202, 'value': 2401, 'supposedly': 2196, 'quantum': 1791, 'financial': 877, 'system': 2210, 'qfs': 1789, 'line': 1328, 'also': 130, 'backed': 227, 'banking': 243, 'setting': 2021, 'mankind': 1385, 'free': 928, 'slavery': 2076, 'control': 498, 'difficult': 657, 'know': 1269, 'whats': 2469, 'going': 992, 'come': 444, 'summit': 2188, 'next': 1512, 'week': 2458, 'first': 886, 'announced': 149, 'introduction': 1200, 'goldback': 994, 'intended': 1183, 'compete': 461, 'us': 2385, 'said': 1954, 'goldlinked': 996, 'trade': 2297, 'settlement': 2023, 'course': 534, 'would': 2499, 'dedollarization': 603, 'effect': 720, 'theyre': 2257, 'saying': 1968, 'wont': 2488, 'discussion': 666, 'new': 1509, 'sort': 2101, 'wanting': 2434, 'conduct': 478, 'local': 1346, 'currencies': 563, 'trolling': 2327, 'west': 2463, 'talk': 2218, 'time': 2276, 'tell': 2233, 'saudi': 1963, 'arabia': 176, 'admitted': 83, 'begin': 264, 'selling': 2000, 'oil': 1561, 'yuan': 2522, 'depart': 631, 'petrodollar': 1650, 'discussed': 665, 'speculated': 2115, 'happens': 1033, 'that': 2247, 'speculation': 2116, 'lot': 1360, 'unpack': 2374, 'bring': 332, 'table': 2212, 'officially': 1558, 'declares': 599, 'trading': 2304, 'inducts': 1153, 'gamechanger': 958, 'countries': 529, 'big': 279, 'either': 727, 'resources': 1875, 'fast': 851, 'growing': 1016, 'economies': 716, 'world': 2493, 'order': 1582, 'talks': 2220, 'yet': 2515, 'core': 512, 'anything': 164, 'serious': 2013, 'credibly': 545, 'accomplishment': 62, 'date': 583, 'development': 650, 'bank': 241, 'funding': 948, 'projects': 1753, 'across': 66, 'global': 987, 'south': 2105, 'see': 1991, 'like': 1324, 'eu': 779, 'nato': 1492, 'dont': 691, 'common': 453, 'hegemonic': 1047, 'design': 641, 'simply': 2061, 'bunch': 347, 'eager': 704, 'investors': 1206, 'utilize': 2397, 'newfound': 1510, 'wealth': 2454, 'capitalize': 373, 'lowbasehighgrowth': 1363, 'developing': 649, 'expand': 816, 'clout': 431, 'current': 566, 'member': 1422, 'list': 1335, 'four': 922, 'powers': 1703, 'unless': 2371, 'join': 1241, 'align': 119, 'seriously': 2014, 'vision': 2415, 'things': 2260, 'easy': 711, 'nice': 1514, 'feel': 862, 'way': 2450, 'thats': 2249, 'supped': 2191, 'make': 1375, 'another': 153, 'important': 1131, 'power': 1702, 'reality': 1813, 'doesnt': 678, 'even': 792, 'mechanism': 1413, 'formally': 910, 'decisions': 598, 'seems': 1995, 'well': 2461, 'ahead': 103, 'schedule': 1975, 'already': 129, '50': 40, 'percent': 1639, 'gdp': 965, 'members': 1423, '2023': 25, 'yeah': 2509, 'precisely': 1708, 'fully': 945, 'explained': 826, 'today': 2279, 'family': 849, 'people': 1635, 'acknowledge': 65, 'single': 2066, 'person': 1641, 'past': 1623, 'aware': 222, 'information': 1165, 'one': 1566, 'social': 2086, 'media': 1415, 'go': 989, 'looking': 1353, 'extraordinarily': 834, 'significant': 2054, 'could': 520, 'everything': 798, 'feels': 863, '01': 0, 'qanon': 1788, 'weirdos': 2459, 'traders': 2303, 'actually': 74, 'watched': 2443, 'lecture': 1308, 'school': 1977, 'predicted': 1710, 'equal': 766, 'north': 1527, '2050': 27, 'forget': 908, 'dude': 697, 'speaking': 2111, 'incubator': 1144, 'meetings': 1417, 'happening': 1032, 'lets': 1317, 'encourage': 747, 'every': 797, 'country': 530, 'seat': 1984, 'think': 2261, 'hope': 1073, 'sooner': 2098, 'rather': 1806, 'later': 1288, 'live': 1339, 'fed': 859, 'affecting': 89, 'daily': 574, 'lives': 1340, 'weaponised': 2456, 'basically': 252, 'force': 902, 'bidding': 278, 'politicians': 1684, 'spend': 2121, 'brownnosing': 340, 'whitehouse': 2474, 'improving': 1136, 'living': 1341, 'supposed': 2195, 'happen': 1030, 'hold': 1066, 'boys': 313, 'cant': 367, 'agree': 99, 'manage': 1379, 'update': 2379, 'never': 1508, 'successfully': 2185, 'launched': 1293, 'august': 218, 'good': 997, 'phase': 1652, 'public': 1774, 'project': 1752, 'pay': 1626, 'take': 2213, 'look': 1352, 'httpsyoutubelwx2igleskehttpsyoutubelwx2igleske': 1087, 'solution': 2093, 'exchange': 809, 'andor': 146, 'sale': 1955, 'commodities': 450, 'services': 2017, 'best': 274, 'forward': 916, 'concrete': 475, 'difference': 655, 'unlikely': 2372, 'probably': 1735, 'true': 2329, 'g7': 953, 'dedollarisation': 602, 'occur': 1549, 'thousand': 2266, 'cuts': 570, 'conversation': 502, 'peoples': 1636, 'heads': 1042, 'work': 2491, 'firm': 884, 'something': 2096, 'limited': 1327, 'tools': 2287, 'understand': 2355, 'economic': 712, 'degree': 618, 'max': 1404, 'keiser': 1251, 'gregory': 1011, 'mannarino': 1387, 'zerohedge': 2523, 'putin': 1786, 'david': 585, 'icke': 1103, 'understanding': 2356, 'rough': 1920, 'idea': 1105, 'competency': 462, 'intentions': 1186, 'actors': 73, 'within': 2484, 'additional': 78, 'fraudulent': 927, 'systems': 2211, 'add': 76, 'politics': 1686, 'de': 589, 'blow': 296, 'waiting': 2429, 'river': 1911, 'slowly': 2079, 'eroding': 769, 'starts': 2140, 'flowing': 891, 'process': 1738, 'happened': 1031, 'reflected': 1828, 'data': 582, 'tectonic': 2230, 'shift': 2035, 'side': 2048, 'china': 410, 'indonesia': 1152, 'thailand': 2246, 'india': 1147, 'uae': 2342, 'egypt': 726, 'malaysia': 1378, 'russia': 1942, 'etc': 777, 'brazil': 316, 'started': 2138, 'wants': 2435, 'argentina': 179, 'given': 983, 'geopolitical': 970, 'storm': 2160, 'kicking': 1258, 'africa': 92, 'several': 2025, 'jump': 1247, 'bandwagon': 238, 'real': 1812, 'far': 850, 'credible': 544, 'say': 1967, 'currently': 567, 'runs': 1937, 'approved': 174, 'passing': 1622, 'loans': 1343, 'native': 1491, 'tanzania': 2223, 'loan': 1342, 'import': 1129, 'cargo': 377, 'trains': 2306, 'mind': 1442, 'taking': 2216, 'use': 2391, 'ask': 197, 'indians': 1149, 'send': 2002, 'goes': 991, 'nigers': 1517, 'nuclear': 1534, 'plant': 1667, 'rosatom': 1917, 'easily': 709, 'give': 982, 'rubles': 1930, 'via': 2405, 'two': 2340, 'worth': 2498, '35billion': 37, 'combined': 442, 'imagine': 1116, 'replicating': 1860, '100x': 3, 'valuation': 2400, 'years': 2512, 'multiple': 1479, 'times': 2277, 'bro': 336, 'tldr': 2278, 'usa': 2386, 'making': 1377, 'noise': 1520, 'last': 1287, 'gasp': 961, 'fu': 939, 'emerging': 739, 'save': 1965, 'lost': 1359, 'america': 136, 'done': 690, 'gain': 954, 'wanted': 2433, 'admissions': 81, 'taken': 2214, 'leaders': 1300, 'inserted': 1172, 'favorable': 856, 'political': 1683, 'views': 2411, 'second': 1985, 'believe': 269, 'sit': 2069, 'back': 225, 'onto': 1567, 'long': 1350, 'possible': 1694, 'httpsatthewatersedgeorg20230917thedollardethroned': 1082, 'couldnt': 521, 'care': 375, 'less': 1315, 'delusional': 623, 'imports': 1132, '97': 47, 'lithium': 1337, 'trying': 2334, 'get': 977, 'ev': 791, 'cars': 380, 'market': 1395, 'spending': 2122, 'reduces': 1826, 'mean': 1407, 'vital': 2418, 'earth': 707, 'material': 1401, 'httpswwwstatistacomstatistics280129usrareearthimportdistributionbyproducttextthe20united20states20imports20of2doxide20reo20equivalent': 1085, 'im': 1112, 'sure': 2197, 'exactly': 804, 'want': 2432, 'changing': 400, 'commodity': 451, 'intl': 1199, 'reserve': 1870, 'instead': 1176, 'unstable': 2378, 'puts': 1787, 'dollars': 682, 'circulation': 420, 'problem': 1736, 'drop': 696, 'coin': 434, 'monetary': 1461, 'policy': 1682, 'propers': 1759, 'artificially': 191, 'keeping': 1250, 'low': 1362, 'boost': 305, 'exports': 830, 'else': 735, 'based': 250, 'basket': 253, 'anyone': 163, 'participate': 1615, 'swapping': 2203, 'step': 2151, 'wait': 2428, 'least': 1305, 'comes': 445, 'apply': 169, 'become': 261, 'ndb': 1494, 'uruguay': 2384, 'bangladesh': 240, 'replace': 1858, 'renminbi': 1855, 'rupee': 1938, 'ruble': 1929, 'rand': 1802, 'supplement': 2192, 'international': 1193, 'likely': 1325, 'stable': 2128, 'hands': 1029, 'since': 2063, 'rivals': 1910, 'competitors': 464, 'sits': 2071, 'cartel': 381, 'euus': 790, 'buy': 354, 'convert': 504, 'price': 1727, 'volatility': 2422, 'settled': 2022, 'euro': 782, 'yen': 2513, 'bitcoin': 290, 'scared': 1971, 'thing': 2259, 'imma': 1118, 'costco': 517, 'fill': 871, 'food': 899, 'pantry': 1605, 'months': 1465, 'nothing': 1530, 'nonwestern': 1525, 'might': 1439, 'choose': 418, 'still': 2153, 'major': 1374, 'dominant': 686, 'impact': 1125, 'americas': 138, 'ability': 51, 'print': 1731, 'endless': 750, 'meaning': 1408, 'defense': 610, 'budget': 341, 'deflate': 613, 'bit': 288, 'much': 1476, 'maybe': 1406, 'half': 1024, '800': 46, 'billion': 284, 'keep': 1249, 'mainstream': 1373, 'interests': 1189, 'threat': 2267, 'collective': 438, 'report': 1861, 'positive': 1691, 'developments': 651, 'organization': 1584, 'improve': 1135, 'view': 2410, 'create': 541, 'everworsening': 796, 'visit': 2416, 'zerohedgecom': 2524, 'rtcom': 1927, 'search': 1983, 'youll': 2518, 'plenty': 1672, 'info': 1164, 'tried': 2322, 'post': 1696, 'reddit': 1824, 'bot': 311, 'glad': 985, 'someone': 2095, 'posting': 1697, 'due': 698, 'little': 1338, 'chance': 396, 'adopted': 84, 'high': 1057, 'hopes': 1074, 'struggling': 2175, 'yes': 2514, 'concerning': 474, 'agenda': 96, 'reporting': 1863, 'arrest': 186, 'trump': 2330, 'banning': 245, 'tik': 2274, 'tok': 2282, 'word': 2490, 'wise': 2483, 'silver': 2059, 'crypto': 557, 'xrpxlm': 2507, 'xdc': 2502, 'got': 1002, 'hand': 1027, 'bets': 275, 'losing': 1358, 'stop': 2156, 'using': 2394, 'ill': 1109, 'dispose': 669, 'properly': 1758, 'lack': 1282, 'news': 1511, 'coverage': 535, 'definitely': 612, 'clear': 425, 'sign': 2051, 'chaos': 403, 'ensue': 759, 'silence': 2055, 'defeaning': 609, 'proper': 1757, 'none': 1522, 'peerscolleaguesfamily': 1633, 'cause': 386, 'interested': 1188, 'topic': 2289, 'scary': 1972, 'phrasing': 1655, 'pushing': 1784, 'pursuing': 1781, 'safer': 1953, 'approach': 171, 'lulas': 1367, 'succeed': 2182, 'fucking': 942, 'broke': 338, 'corrupt': 515, 'ass': 199, 'backwards': 230, 'leadership': 1301, 'alao': 115, 'lights': 1323, 'heading': 1040, 'friends': 931, 'overtake': 1596, 'seeing': 1992, 'talking': 2219, 'devalue': 646, 'american': 137, 'money': 1462, 'products': 1744, '55': 42, 'dollarsi': 683, '100': 2, 'though': 2264, 'styled': 2178, 'rival': 1909, 'mandate': 1381, 'mentioned': 1426, 'day': 586, 'leader': 1299, 'except': 805, 'transition': 2312, 'peaceful': 1632, 'although': 132, 'history': 1065, 'tells': 2234, 'otherwise': 1590, 'uncharted': 2353, 'territory': 2242, 'knows': 1271, 'safe': 1950, 'stacking': 2129, 'lil': 1326, 'fail': 844, 'miserably': 1452, 'change': 397, 'often': 1560, 'healthy': 1043, 'called': 361, 'r5': 1794, 'isnt': 1219, 'implemented': 1127, 'brollar': 339, 'bric': 325, 'xrp': 2506, 'sarcastic': 1960, 'answer': 154, 'df': 652, 'fucker': 941, 'cc': 387, 'currencycents': 565, 'exists': 815, 'premium': 1717, 'mention': 1425, 'trademarked': 2301, 'brand': 314, 'name': 1485, 'imagehttpscdn11bigcommercecomsjube9x0sekimagesstencil1280x1280products235647newmasterbuilderpic177991635808019jpgc1': 1114, 'nonaffiliated': 1521, 'link': 1330, 'producthttpswwwmonarchpreciousmetalscom120oz999finesilverqty1201ozbuildingblockbarsthemasterbuilderutmsourcefindbullionpricescom': 1741, 'brick': 326, 'eg': 725, 'water': 2445, 'cashier': 384, 'thatll': 2248, 'bricks': 327, 'texas': 2245, 'try': 2333, 'standard': 2133, 'dump': 699, '20': 15, 'trillion': 2324, 'economy': 718, 'hyperinflation': 1101, 'fails': 846, 'war': 2436, 'expanded': 817, 'ties': 2272, 'resume': 1885, 'programs': 1749, 'venezuela': 2403, 'proven': 1765, 'reserves': 1871, 'cut': 569, 'sanctions': 1958, 'strength': 2168, 'relationship': 1842, 'coherent': 433, 'alliance': 120, 'indian': 1148, 'chinese': 415, 'soldiers': 2091, 'killing': 1261, 'border': 307, 'invading': 1202, 'sovereign': 2106, 'allies': 122, 'beat': 259, 'plus': 1676, 'always': 133, 'creating': 543, 'amero': 139, 'reaction': 1809, 'minehttpsyoutubecomwatchvbzfyripw3wyfeatureshare8': 1443, 'restated': 1880, 'fracture': 923, 'video': 2408, 'pramit': 1707, 'pal': 1602, 'chaudhuris': 406, 'piece': 1660, 'intelligence': 1182, 'gis': 981, 'france': 925, 'germany': 975, 'confirm': 480, 'joining': 1243, 'chinas': 414, 'aiib': 105, 'usled': 2395, 'rothschild': 1918, 'march': 1392, '17': 10, '2015': 21, 'photo': 1654, 'president': 1722, 'xi': 2503, 'jinping': 1237, '3rd': 38, 'meets': 1418, 'guests': 1020, 'asian': 195, 'infrastructure': 1167, 'investment': 1204, 'launch': 1292, 'ceremony': 390, 'great': 1007, 'hall': 1025, 'beijing': 268, 'europeans': 786, 'defy': 614, 'chinaled': 413, 'finance': 874, 'ministries': 1448, 'confirmed': 481, 'theyll': 2256, 'italy': 1226, 'expected': 822, 'soon': 2097, 'seen': 1996, 'setback': 2020, 'obama': 1541, 'administration': 80, 'ministry': 1449, 'french': 930, 'le': 1297, 'figaro': 868, 'reported': 1862, 'tuesday': 2337, 'germanys': 976, 'bbc': 256, 'says': 1969, 'earlier': 705, 'ft': 938, 'move': 1472, 'imf': 1117, 'aims': 109, 'rewrite': 1894, 'rules': 1935, 'block': 294, 'rothschilds': 1919, 'computer': 471, 'generated': 968, 'ponzi': 1687, 'bailout': 233, 'scheme': 1976, 'issuances': 1222, 'decision': 597, 'britain': 334, 'became': 260, 'founding': 921, 'reports': 1864, 'uk': 2344, 'government': 1004, 'countrys': 531, 'national': 1488, 'interest': 1187, 'negative': 1501, 'united': 2364, 'states': 2145, 'challenge': 393, 'washingtonbased': 2440, 'aka': 114, 'increasing': 1142, 'pressure': 1725, 'institution': 1177, 'concern': 473, 'standards': 2134, 'governance': 1003, 'environmental': 764, 'safeguards': 1952, 'british': 335, 'operative': 1575, 'billionaire': 285, 'convicted': 505, 'felon': 864, 'george': 972, 'soros': 2099, 'warns': 2437, 'citizens': 422, 'resisting': 1873, 'nwo': 1538, 'nicknamed': 1515, 'open': 1568, 'society': 2088, 'httpswwwyoutubecomwatchvtojckjwqb0a': 1086, 'backdoor': 226, 'dominance': 685, 'experts': 825, 'competition': 463, 'messaging': 1430, 'consistently': 487, 'welcome': 2460, 'seek': 1993, 'unmistakable': 2373, 'evidence': 799, 'takes': 2215, 'starting': 2139, 'point': 1680, 'watermark': 2447, 'multilateral': 1477, 'terms': 2241, 'regional': 1839, 'assistant': 205, 'secretary': 1987, 'state': 2141, 'daniel': 579, 'russel': 1941, 'seoul': 2006, 'microsoft': 1437, 'google': 1000, 'dogs': 679, 'wall': 2430, 'street': 2167, 'nervous': 1504, 'coming': 446, 'iran': 1211, 'execute': 812, 'bankers': 242, 'fraud': 926, 'charges': 405, 'flushing': 894, 'old': 1564, 'flushed': 893, 'existence': 813, 'existing': 814, 'structures': 2174, 'un': 2349, 'security': 1990, 'council': 522, 'adb': 75, 'essentially': 772, 'established': 774, '1945': 13, 'europe': 784, 'predominant': 1711, 'recent': 1816, 'efforts': 724, 'remake': 1850, 'worlds': 2494, 'institutions': 1179, 'image': 1113, 'partnership': 1620, 'set': 2019, 'known': 1270, 'year': 2510, 'led': 1309, 'shanghai': 2027, 'cooperation': 507, 'fund': 947, 'help': 1053, 'cushion': 568, 'crises': 548, 'shocks': 2040, 'washington': 2439, 'lobbying': 1344, 'official': 1557, 'quoted': 1793, 'anonymously': 152, 'accused': 64, 'trend': 2321, 'constant': 488, 'accommodation': 61, 'engage': 754, 'rising': 1908, 'forbes': 901, 'meanwhile': 1411, 'officials': 1559, 'aiibs': 106, 'operation': 1573, 'transparent': 2315, 'inclusive': 1140, 'responsible': 1879, 'draw': 693, 'experience': 823, 'avoid': 221, 'detours': 645, 'costeffective': 518, 'efficient': 722, 'foreign': 906, 'spokesman': 2124, 'hong': 1071, 'lei': 1312, 'cited': 421, 'xinhua': 2505, 'agency': 95, 'added': 77, 'complement': 465, 'support': 2193, 'asia': 194, 'three': 2269, 'able': 52, 'cope': 510, 'tremendous': 2320, 'amount': 143, 'needs': 1500, 'advisor': 86, 'motley': 1471, 'fool': 900, 'kuo': 1278, 'told': 2283, 'rt': 1926, 'shouldnt': 2046, 'politicize': 1685, 'right': 1901, 'communication': 454, 'uninterrupted': 2361, 'parts': 1621, 'many': 1390, 'crying': 556, 'certain': 391, 'suggests': 2186, 'offer': 1553, 'expertise': 824, 'korea': 1274, 'switzerland': 2207, 'luxembourg': 1368, 'considering': 486, 'australian': 219, 'prime': 1729, 'minister': 1445, 'tony': 2284, 'abbott': 49, 'final': 872, 'membership': 1424, 'discussions': 667, 'participation': 1616, 'main': 1371, 'japan': 1232, 'month': 1464, 'including': 1138, '31': 34, 'decide': 596, 'becoming': 263, 'whether': 2472, 'japans': 1234, 'lou': 1361, 'jiwei': 1239, 'according': 63, 'nearly': 1496, '30': 33, 'aimed': 108, 'helping': 1054, '2014': 20, 'tool': 2286, 'broader': 337, 'push': 1782, 'significance': 2053, 'httppoliticalvelcraftorg20150317francegermanyconfirmjoiningchinasaiibbankarivaltousledrothschildworldbank': 1080, 'ripple': 1905, 'thishttpimgurcomogrcmrl': 2263, 'snafu': 2084, 'space': 2108, 'criteria': 551, 'leaving': 1307, 'progress': 1750, 'released': 1844, 'papers': 1606, 'full': 944, 'podcasts': 1679, 'yt': 2521, 'channels': 402, 'articles': 190, 'follow': 898, 'mostly': 1469, 'anticapitalist': 156, 'antiimperial': 158, 'skeptical': 2074, 'ive': 1228, 'hearing': 1045, 'winner': 2480, 'argentinas': 180, 'general': 966, 'election': 730, 'rightleaning': 1902, 'opposed': 1581, 'makes': 1376, 'anyway': 165, 'nutbag': 1536, 'asshole': 204, 'sense': 2004, 'dumped': 700, 'overnight': 1595, 'without': 2485, 'sheer': 2032, 'volume': 2423, 'overhaul': 1593, 'required': 1867, 'accommodate': 60, 'parallel': 1607, 'swift': 2205, 'bilateral': 282, 'usage': 2387, 'top': 2288, 'partner': 1618, 'others': 1589, 'enough': 758, 'prefer': 1712, 'english': 755, 'wheelhouse': 2470, 'but': 353, 'elites': 734, 'event': 793, 'eyes': 838, 'ripplesec': 1906, 'lawsuite': 1295, 'dates': 584, 'coincide': 435, 'events': 794, 'future': 951, 'sounds': 2103, 'goodit': 998, 'allow': 123, 'participant': 1614, 'benefit': 272, 'term': 2240, 'business': 351, 'employment': 743, 'opportunitiesand': 1579, 'themby': 2250, 'issues': 1224, 'refusing': 1833, 'speak': 2110, 'obvious': 1546, 'left': 1310, 'weaker': 2452, 'came': 364, 'cheap': 407, 'relevance': 1846, 'practical': 1705, 'used': 2392, 'negotiating': 1502, 'platform': 1668, 'saudis': 1964, 'matter': 1402, 'matters': 1403, 'announces': 150, 'idly': 1106, 'hoping': 1075, 'waged': 2426, 'albeit': 117, 'fought': 917, 'battlefield': 255, 'picking': 1658, 'steam': 2149, 'sco': 1979, 'bri': 324, 'eaeu': 703, 'coordinating': 509, 'possibly': 1695, 'combining': 443, 'form': 909, 'largest': 1286, 'granted': 1006, 'refuses': 1832, 'honor': 1072, 'commitment': 449, 'switching': 2206, 'petroyuan': 1651, 'game': 957, 'changer': 398, 'indeed': 1145, 'it': 1225, 'personal': 1642, 'resolute': 1874, 'opinion': 1578, 'itll': 1227, 'universal': 2366, 'amongst': 142, 'moved': 1473, 'digitally': 658, 'era': 767, 'moving': 1475, 'player': 1671, '2030': 26, 'imo': 1124, 'crumbling': 555, 'rubbles': 1928, 'destroy': 644, 'operate': 1571, 'fixed': 888, 'rate': 1804, 'better': 276, 'holding': 1067, 'rupees': 1939, 'disasters': 663, 'sa': 1949, 'rus': 1940, 'park': 1610, 'assets': 203, 'includes': 1137, 'backing': 229, 'buying': 355, 'need': 1498, 'trust': 2332, 'tyrants': 2341, 'doea': 677, 'pdf': 1630, 'different': 656, 'kitchen': 1268, 'really': 1814, 'read': 1810, 'book': 303, 'available': 220, 'deserve': 640, 'chief': 408, 'guest': 1019, 'indias': 1150, 'republic': 1865, 'dayhe': 587, 'allowed': 124, 'race': 1795, 'attack': 211, 'successful': 2184, 'origin': 1586, 'fault': 853, 'sherr': 2033, 'jealousy': 1235, 'hard': 1036, 'working': 2492, 'nations': 1490, 'kick': 1257, 'pepe': 1637, 'escobar': 771, '23': 30, 'may': 1405, 'reuters': 1890, 'sergio': 2011, 'moraes': 1466, 'russias': 1946, 'vladimir': 2419, 'cristina': 550, 'fernandez': 865, 'kirchner': 1265, 'arrive': 187, 'session': 2018, 'april': 175, 'rash': 1803, 'deals': 592, 'kirchners': 1266, 'moscow': 1468, 'continues': 494, '53': 41, 'bang': 239, 'premier': 1715, 'li': 1319, 'keqiang': 1253, 'visits': 2417, 'commercial': 448, 'offensive': 1552, 'complete': 467, 'sweet': 2204, 'metaphor': 1433, 'riding': 1898, 'made': 1369, 'subway': 2181, 'train': 2305, 'ply': 1677, 'metro': 1434, 'rio': 1904, 'janeiro': 1230, '2016': 22, 'olympics': 1565, 'nowhere': 1532, 'inexorably': 1159, 'smaller': 2081, 'measure': 1412, 'restructuring': 1882, 'commerce': 447, 'latin': 1290, 'countless': 528, 'missions': 1456, 'plying': 1678, 'shores': 2043, 'nonstop': 1524, 'ii': 1108, 'key': 1255, 'meeting': 1416, 'january': 1231, 'promised': 1754, 'channel': 401, '250': 31, '10': 1, 'financed': 875, 'capital': 369, 'mariel': 1393, 'port': 1689, 'cuba': 558, 'whose': 2477, 'financing': 881, 'brazils': 319, 'bndes': 297, 'managed': 1380, 'singaporean': 2064, 'operator': 1576, 'psa': 1771, 'pte': 1773, 'ltd': 1365, 'construction': 490, 'nicaragua': 1513, 'canal': 365, 'bigger': 280, 'wider': 2478, 'deeper': 606, 'panamas': 1603, 'kong': 1273, 'finished': 883, '2019': 24, 'part': 1612, 'clinched': 428, '47': 39, 'deal': 590, 'hydroelectric': 1100, 'dams': 577, 'patagonia': 1624, 'among': 141, '35': 35, 'lis': 1333, 'giant': 979, 'petrobras': 1648, '22': 29, 'brazilian': 318, 'embraer': 737, 'jets': 1236, 'sold': 2090, 'tianjin': 2270, 'airlines': 112, '13': 5, 'raft': 1796, 'agreements': 101, 'involving': 1209, 'iron': 1216, 'ore': 1583, 'producer': 1739, 'vale': 2399, 'overhauling': 1594, 'appalling': 167, 'network': 1506, 'roads': 1913, 'railways': 1798, 'ports': 1690, 'airports': 113, 'slightly': 2077, 'condition': 476, 'upgrades': 2381, 'prior': 1732, 'cup': 561, 'star': 2136, 'whole': 2476, 'show': 2047, 'undoubtedly': 2357, 'proposed': 1761, '3500': 36, 'kilometerlong': 1262, 'atlanticpacific': 210, 'megarailway': 1420, 'slated': 2075, 'santos': 1959, 'peruvian': 1645, 'pacific': 1599, 'ilo': 1111, 'amazonia': 134, 'logistically': 1348, 'must': 1483, 'offering': 1554, 'gateway': 962, 'winners': 2481, 'inevitably': 1157, 'producers': 1740, 'soya': 2107, 'beans': 257, 'exporting': 829, 'railway': 1797, 'extremely': 836, 'complex': 469, 'land': 1283, 'rights': 1903, 'crucially': 554, 'preference': 1713, 'firms': 885, 'deliberate': 622, 'extending': 831, 'lines': 1329, 'credit': 546, 'usual': 2396, 'suspects': 2200, 'worried': 2495, 'watch': 2442, 'geopolitics': 971, 'lula': 1366, 'attract': 216, '2009': 17, 'production': 1742, 'moves': 1474, 'stage': 2131, 'technology': 2229, 'transfer': 2308, 'picture': 1659, 'massive': 1398, 'tradecommerce': 2298, 'interplay': 1194, 'intersecting': 1195, 'quite': 1792, 'convoluted': 506, 'mercosur': 1427, 'facing': 841, 'repeated': 1857, 'destabilization': 642, 'attempts': 213, 'routinely': 1925, 'denounce': 630, 'presidents': 1724, 'dilma': 659, 'rousseff': 1924, 'nicolas': 1516, 'maduro': 1370, 'yearn': 2511, 'ol': 1563, 'days': 588, 'dependent': 633, 'degrees': 619, 'complexity': 470, 'internal': 1192, 'strife': 2172, 'brasilia': 315, 'buenos': 342, 'aires': 111, 'caracas': 374, 'simultaneously': 2062, 'plots': 1674, 'institutional': 1178, 'dissimulate': 671, 'near': 1495, 'total': 2291, 'diplomatic': 661, 'distance': 672, 'considered': 485, 'qualify': 1790, 'bad': 232, 'joke': 1245, 'relentless': 1845, 'assault': 200, 'vulture': 2424, 'funds': 949, 'targeting': 2224, 'relations': 1841, 'practically': 1706, 'frozen': 935, 'september': 2009, '2013': 19, 'suspended': 2201, 'response': 1877, 'nsa': 1533, 'spying': 2126, 'personally': 1643, 'leads': 1302, 'crucial': 553, 'geostrategic': 973, 'issue': 1223, 'unresolved': 2376, 'leaked': 1303, 'sensitive': 2005, 'purpose': 1779, 'destabilize': 643, 'case': 382, 'exploration': 827, 'deposits': 637, 'presalt': 1718, 'found': 918, 'young': 2519, '21st': 28, 'century': 389, 'unraveling': 2375, 'secondbiggest': 1986, 'biggest': 281, 'hosts': 1077, 'former': 911, 'overtaken': 1597, 'corporation': 513, 'energy': 753, 'giants': 980, 'hardcore': 1037, 'shareholders': 2030, 'act': 67, 'proverbial': 1766, 'vultures': 2425, 'bent': 273, 'bleeding': 292, 'company': 458, 'profit': 1747, 'allied': 121, 'lobbyists': 1345, 'abhor': 50, 'petrobrass': 1649, 'status': 2148, 'priority': 1733, 'explorer': 828, 'nutshell': 1537, 'frontier': 933, 'unbounded': 2351, 'domination': 688, 'empire': 742, 'annoyed': 151, 'ride': 1897, 'continental': 491, 'wave': 2448, 'constantly': 489, 'evolving': 802, 'strategic': 2162, 'met': 1431, 'circles': 419, 'incredulity': 1143, 'fear': 857, 'virtually': 2413, 'impossible': 1134, 'damage': 575, 'easier': 708, 'comparatively': 459, 'washingtons': 2441, 'wrath': 2500, 'targets': 2225, 'dared': 581, 'backyard': 231, 'strategy': 2164, 'russian': 1944, 'calm': 363, 'carry': 379, 'winwin': 2482, 'profile': 1746, 'february': 858, 'speculators': 2118, 'unleash': 2369, 'argentine': 181, 'peso': 1646, 'theres': 2255, 'needless': 1499, 'boom': 304, 'minerals': 1444, 'timber': 2275, 'colombia': 440, 'sells': 2001, 'peru': 1644, 'chile': 409, 'copper': 511, 'bolivia': 299, 'highvalueadded': 1062, 'manufactured': 1389, 'immediate': 1119, 'transul': 2316, 'conference': 479, 'boils': 298, 'brazilchina': 317, 'linking': 1332, 'industrial': 1154, 'partial': 1613, 'outsourcing': 1592, 'metals': 1432, 'increase': 1141, 'demand': 624, 'building': 344, 'megalopolises': 1419, 'sinobrazilian': 2067, 'companies': 457, 'finally': 873, 'seal': 1982, 'approval': 173, 'longterm': 1351, 'remains': 1849, 'inexorable': 1158, 'converge': 501, 'unasur': 2350, 'union': 2362, 'betting': 277, 'multipolar': 1481, 'independence': 1146, 'oceans': 1550, 'away': 223, 'monroe': 1463, 'doctrine': 676, 'httpwwwsottnetarticle296803bricsnationstokickwashingtonoutofsouthamerica': 1091, 'regime': 1837, 'embracing': 736, 'worst': 2497, 'abuses': 55, 'human': 1098, 'israel': 1221, 'afghanistan': 91, 'abused': 54, 'invaded': 1201, 'vietnam': 2409, 'syria': 2209, 'freedom': 929, 'lol': 1349, 'wester': 2464, 'interfere': 1190, 'problems': 1737, 'treatment': 2318, 'women': 2486, 'worries': 2496, 'recipe': 1819, 'disaster': 662, 'start': 2137, 'getting': 978, 'terrorism': 2243, 'fucked': 940, 'inclusion': 1139, 'model': 1457, 'potential': 1699, 'founders': 920, 'youre': 2520, 'democracy': 627, 'communist': 455, 'monarchy': 1460, 'clearly': 426, 'occasions': 1548, 'group': 1012, 'completely': 468, 'geoeconomicsbased': 969, 'focused': 896, 'boosting': 306, 'continue': 493, 'grow': 1015, 'parameter': 1608, 'democracies': 626, 'recently': 1817, 'joined': 1242, 'labeling': 1280, 'extreme': 835, 'label': 1279, 'talibanrun': 2217, 'crazy': 540, 'kimrun': 1263, 'reflects': 1829, 'societies': 2087, 'substantial': 2180, 'sum': 2187, 'tied': 2271, 'islamic': 1218, 'bonds': 301, 'spread': 2125, 'id': 1104, 'curious': 562, 'investments': 1205, 'affected': 88, 'devaluing': 647, 'usd': 2389, 'deleted': 621, 'failed': 845, 'parroted': 1611, 'edgelords': 719, 'economics': 715, 'failure': 847, 'evident': 800, 'attend': 214, 'literally': 1336, 'concept': 472, 'build': 343, 'hui': 1096, 'research': 1869, 'aug': 217, '29': 32, '2017': 23, 'httpglobalresearchus11listmanagecomtrackclicku2cc48fb30f331d97157a65aa2iddb955d6a89e8c306a1a59': 1079, 'casting': 385, 'xiamen': 2504, 'coastal': 432, 'city': 423, 'fujian': 943, 'province': 1769, 'host': 1076, 'ninth': 1519, 'themed': 2252, 'deepening': 605, 'opening': 1569, 'brighter': 330, 'early': 706, 'birth': 286, 'evolved': 801, 'cooperative': 508, 'guided': 1021, 'regular': 1840, 'five': 887, 'markets': 1396, 'involves': 1208, 'series': 2012, 'exchanges': 811, 'dialogue': 653, 'activities': 72, 'ministerial': 1446, 'forums': 915, 'thinktank': 2262, 'decade': 595, 'bloc': 293, 'transformed': 2311, 'entity': 763, 'strengthening': 2169, 'establishing': 775, 'contingent': 492, 'arrangement': 185, 'cra': 536, 'result': 1883, 'contributed': 497, 'stimulating': 2154, 'growth': 1017, 'reforming': 1831, 'democratization': 629, 'enjoy': 756, 'enormous': 757, 'similar': 2060, 'share': 2028, 'historical': 1064, 'objectives': 1543, 'large': 1285, 'population': 1688, 'huge': 1095, 'highly': 1061, 'complementary': 466, 'closer': 430, 'community': 456, 'shared': 2029, 'belt': 270, 'road': 1912, 'initiative': 1170, 'recognized': 1820, 'supported': 2194, 'number': 1535, 'active': 70, 'counterpart': 526, 'signed': 2052, 'joint': 1244, 'statement': 2143, 'docking': 675, 'silk': 2056, 'eurasian': 781, 'moreover': 1467, 'partners': 1619, 'strategies': 2163, 'plans': 1666, 'external': 832, 'capacity': 368, 'tighten': 2273, 'giving': 984, 'industry': 1156, 'upgrade': 2380, 'actions': 69, 'influential': 1163, 'region': 1838, 'located': 1347, 'strong': 2173, 'responsibility': 1878, 'promote': 1755, 'establishment': 776, 'framework': 924, 'reflect': 1827, 'arena': 178, 'principles': 1730, 'multipolarity': 1482, 'agendas': 97, 'vindicate': 2412, 'uns': 2377, 'affairs': 87, 'safeguard': 1951, 'peace': 1631, 'raising': 1801, 'voice': 2421, 'influence': 1162, 'sending': 2003, 'unified': 2359, 'message': 1429, 'played': 1670, 'role': 1916, 'multilateralism': 1478, 'built': 345, 'todays': 2280, 'faced': 840, 'protectionism': 1764, 'hegemonism': 1048, 'duty': 702, 'climatic': 427, 'reform': 1830, 'counterterrorism': 527, 'transnational': 2314, 'crime': 547, 'stakeholders': 2132, 'providing': 1768, 'rational': 1808, 'solutions': 2094, 'address': 79, 'challenges': 394, 'goods': 999, 'premise': 1716, 'handling': 1028, 'domestic': 684, 'ambassador': 135, 'article': 189, 'translated': 2313, 'originally': 1587, 'published': 1775, 'ultimate': 2347, 'lethal': 1316, 'weapon': 2455, 'mar': 1391, '18': 11, 'ich': 1102, 'classic': 424, 'anton': 160, 'siluanov': 2058, 'drawing': 694, 'liberal': 1320, 'favor': 855, 'present': 1719, 'proposals': 1760, 'kremlin': 1276, 'end': 748, 'spectacular': 2113, 'ago': 98, 'kommersant': 1272, 'asked': 198, 'presidential': 1723, 'aide': 104, 'sergei': 2010, 'glazyev': 986, 'separate': 2007, 'presented': 1720, 'novelty': 1531, 'small': 2080, 'groups': 1014, 'assessment': 201, 'nikolai': 1518, 'patrushev': 1625, 'head': 1039, 'federal': 860, 'service': 2016, 'wavelength': 2449, 'heres': 1055, 'plot': 1673, 'thickens': 2258, 'brilliant': 331, 'economist': 717, 'nationalist': 1489, 'sanctioned': 1957, 'arguably': 182, 'holds': 1068, 'barred': 247, 'barring': 249, 'taxing': 2227, 'conversion': 503, 'depending': 634, 'smoking': 2082, 'gun': 1022, 'requiring': 1868, 'default': 607, 'predictably': 1709, 'sectors': 1989, 'tankland': 2222, 'went': 2462, 'bonkers': 302, 'stating': 2146, 'utmost': 2398, 'certainty': 392, 'sector': 1988, 'find': 882, 'connections': 483, 'nonsense': 1523, 'japanese': 1233, 'korean': 1275, 'sources': 2104, 'whatever': 2468, 'attention': 215, 'inside': 1173, 'episode': 765, 'means': 1410, 'harbors': 1035, 'illusions': 1110, 'regarding': 1835, 'exceptionalists': 807, 'candidates': 366, 'el': 728, 'trumpissimo': 2331, 'hillarator': 1063, 'deputy': 638, 'ryabkov': 1947, 'put': 1785, 'expect': 821, 'toughening': 2293, 'absolutely': 53, 'bend': 271, 'pacify': 1600, 'neotsarism': 1503, 'tempted': 2235, 'return': 1888, 'tsarist': 2335, 'selfsufficiency': 1998, 'cutting': 571, 'assuming': 208, 'version': 2404, 'turn': 2338, 'recover': 1823, 'defaulting': 608, 'debt': 594, '700': 45, 'raised': 1800, 'extra': 833, 'punitive': 1777, 'costs': 519, 'repayment': 1856, 'payback': 1627, 'twin': 2339, 'manipulation': 1384, 'prices': 1728, 'involved': 1207, 'unleashing': 2370, 'million': 1441, 'barrels': 248, 'excess': 808, 'held': 1051, 'derivative': 639, 'nymex': 1540, 'crashing': 539, 'crashed': 538, 'almost': 127, 'blocked': 295, 'natural': 1493, 'gas': 960, 'remained': 1848, 'balance': 235, 'surplus': 2199, 'factor': 843, 'yakunin': 2508, 'reshuffle': 1872, 'ap': 166, 'uncertain': 2352, 'aim': 107, 'economically': 713, 'coupled': 533, 'pushed': 1783, 'recession': 1818, 'economicbusiness': 714, 'elite': 733, 'troubles': 2328, 'shortterm': 2044, 'contribute': 496, 'crisis': 549, '1998': 14, 'remember': 1851, 'shook': 2041, 'entire': 762, 'object': 1542, 'consideration': 484, 'highest': 1059, 'fsb': 936, 'svr': 2202, 'gru': 1018, 'specter': 2114, 'mother': 1470, 'fatal': 852, 'loot': 1355, 'enter': 761, 'lifting': 1322, 'ultimately': 2348, 'dossier': 692, 'pipelineistan': 1661, 'wet': 2467, 'dream': 695, 'analyst': 144, '200': 16, 'gazprom': 963, 'fight': 869, 'formidable': 912, 'weapons': 2457, 'arsenal': 188, 'yorklondon': 2517, 'axis': 224, 'anticipate': 157, 'bow': 312, 'accept': 56, 'demands': 625, 'lay': 1296, 'ukraine': 2345, 'ukraines': 2346, 'agricultural': 102, 'lands': 1284, 'obviously': 1547, 'didnt': 654, 'learn': 1304, 'stopped': 2157, 'looting': 1356, 'sorrowful': 2100, 'kiev': 1259, 'infinite': 1161, 'expansion': 819, 'gambit': 956, 'attempt': 212, 'preventing': 1726, 'reconfiguration': 1821, 'deepened': 604, 'mutual': 1484, 'accessories': 59, 'invulnerable': 1210, 'whereas': 2471, 'separately': 2008, 'fall': 848, 'victim': 2407, 'trademark': 2300, 'divide': 674, 'rule': 1933, 'counternato': 525, 'angle': 147, 'remilitarize': 1852, 'focusing': 897, 'defensive': 611, 'missiles': 1454, 'obsolete': 1544, 'aircraft': 110, 'carriers': 378, 'stateoftheart': 2144, 's500': 1948, 'topol': 2290, 'ten': 2236, 'mirvs': 1451, 'neutralize': 1507, 'pentagon': 1634, 'store': 2159, 'masters': 1400, 'universe': 2367, 'allying': 126, 'rigged': 1900, 'stock': 2155, 'crash': 537, 'proxies': 1770, 'manipulating': 1383, 'cash': 383, 'mechanisms': 1414, 'raise': 1799, 'shares': 2031, 'reversing': 1891, 'rig': 1899, 'wonder': 2487, 'massively': 1399, 'intervened': 1198, 'actively': 71, 'studying': 2177, 'carefully': 376, 'reviewing': 1893, 'records': 1822, 'operators': 1577, 'round': 1922, 'kremlins': 1277, 'kept': 1252, 'rates': 1805, 'forcing': 904, 'operations': 1574, 'thereby': 2254, 'plunging': 1675, 'trap': 2317, 'financier': 879, 'disobey': 668, 'call': 360, 'bis': 287, 'gang': 959, 'setup': 2024, 'democratic': 628, 'operated': 1572, 'sounder': 2102, 'lent': 1314, 'wests': 2466, 'linked': 1331, 'productive': 1743, 'modus': 1458, 'operandi': 1570, 'totally': 2292, 'financiers': 880, 'speculative': 2117, 'scams': 1970, 'michael': 1436, 'hudson': 1094, 'serves': 2015, 'rulers': 1934, 'damn': 576, 'progressively': 1751, 'shifted': 2036, 'colonies': 441, 'vassals': 2402, 'thought': 2265, 'reasons': 1815, 'alarmed': 116, 'ante': 155, 'higher': 1058, 'scenario': 1973, 'spells': 2120, 'east': 710, 'extricate': 837, 'architecture': 177, 'merger': 1428, 'chinadriven': 412, 'russialed': 1943, 'slow': 2078, 'pitfalls': 1662, 'irreversible': 1217, 'invest': 1203, 'develop': 648, 'paneurasian': 1604, 'emporium': 744, 'iranian': 1212, 'eurasia': 780, 'triple': 2326, 'fifteen': 867, 'deindustrialize': 620, 'discuss': 664, 'york': 2516, 'exceptionalist': 806, 'bear': 258, 'abate': 48, 'pays': 1629, 'storage': 2158, 'httpwwwinformationclearinghouseinfoarticle44466htm': 1089, 'counterbalance': 523, 'hegemony': 1049, 'pic': 1656, 'allowing': 125, 'advantage': 85, 'shifting': 2037, 'organizations': 1585, 'prospect': 1762, 'alternative': 131, 'stratfor': 2165, 'nwos': 1539, 'forecasting': 905, 'calling': 362, 'goons': 1001, 'crony': 552, 'capitalist': 371, 'keynesian': 1256, 'enable': 745, 'individual': 1151, 'countering': 524, 'stratfors': 2166, 'analysts': 145, 'pointed': 1681, 'stressed': 2171, 'steered': 2150, 'toward': 2295, 'grouping': 1013, 'highlighted': 1060, 'greater': 1008, 'furthermore': 950, 'pakistan': 1601, 'theoretically': 2253, 'diminishing': 660, 'leverage': 1318, 'namely': 1486, 'dollardominated': 681, 'opportunity': 1580, 'viable': 2406, 'noted': 1529, 'regardless': 1836, 'obstacles': 1545, 'heard': 1044, 'ends': 751, 'kissinger': 1267, 'sole': 2092, 'payments': 1628, 'eurozone': 789, 'instability': 1175, 'disputes': 670, 'sea': 1981, 'erode': 768, 'respective': 1876, 'strengths': 2170, 'stated': 2142, 'fact': 842, 'initial': 1168, 'capitalization': 372, 'sees': 1997, 'along': 128, 'pick': 1657, 'usdominated': 2390, 'relatively': 1843, 'isolated': 1220, 'imperative': 1126, 'elaborated': 729, 'ending': 749, 'military': 1440, 'expansionism': 820, 'admit': 82, 'latest': 1289, 'ufa': 2343, 'marked': 1394, 'transformation': 2310, 'bolstered': 300, 'created': 542, 'bretton': 323, 'woods': 2489, '1944': 12, 'cynthia': 573, 'roberts': 1915, 'associate': 206, 'professor': 1745, 'science': 1978, 'hunter': 1099, 'college': 439, 'cuny': 560, 'university': 2368, 'anxiously': 161, 'watching': 2444, 'gradual': 1005, 'meaningful': 1409, 'sinorussian': 2068, 'eliminating': 732, 'remnants': 1854, 'distrust': 673, 'chinaderivatives': 411, 'httppoliticalvelcraftorg20150713russiachinacounterbalancerothschildsusfederalreservehegemony': 1081, 'forex': 907, 'etf': 778, 'weak': 2451, 'eventually': 795, 'becomes': 262, 'ok': 1562, 'trader': 2302, 'convenience': 500, 'perhaps': 1640, 'immediately': 1120, 'euros': 788, 'gbp': 964, 'mainly': 1372, 'walmart': 2431, 'bananas': 237, 'sell': 1999, 'dealings': 591, 'tax': 2226, 'offices': 1556, 'exchangeable': 810, 'place': 1663, 'per': 1638, 'wine': 2479, 'office': 1555, 'figure': 870, 'owe': 1598, 'correlation': 514, 'flexibility': 890, 'access': 58, 'german': 974, 'function': 946, 'strange': 2161, 'beholden': 267, 'whoever': 2475, 'choice': 416, 'threaten': 2268, 'behaving': 265, 'preferences': 1714, 'tourism': 2294, 'immigration': 1122, 'moment': 1459, 'financially': 878, 'immigrating': 1121, 'businesses': 352, 'appetite': 168, 'labour': 1281, 'satisfied': 1961, 'industries': 1155, 'collapse': 437, 'silly': 2057, 'hello': 1052, 'generally': 967, 'acceptedthen': 57, 'insignificant': 1174, 'commodityis': 452, 'useless': 2393, '55is': 43, 'pound': 1700, 'reliance': 1847, 'shit': 2039, 'screwed': 1980, 'httpsforeignpolicycom20230622bricssummitbrazilrussiaindiachinasouthafricaputinnonalignmentglobalsouthhttpsforeignpolicycom20230622bricssummitbrazilrussiaindiachinasouthafricaputinnonalignmentglobalsouth': 1083, 'couple': 532, '15th': 9, 'russians': 1945, 'break': 320, 'cycle': 572, 'capitalism': 370, 'ruining': 1931, 'globe': 988, 'emergence': 738, 'looming': 1354, 'background': 228, 'declining': 601, 'nesterov': 1505, 'saturday': 1962, 'july': 1246, '11': 4, 'superpower': 2190, 'dominated': 687, 'front': 932, 'decline': 600, 'wto': 2501, 'european': 785, 'mired': 1450, 'degrading': 617, 'osce': 1588, 'intense': 1184, 'shooting': 2042, 'breeze': 322, 'heyday': 1056, 'breathing': 321, 'neck': 1497, 'surpassed': 2198, 'purchasing': 1778, 'parity': 1609, 'ppp': 1704, 'rise': 1907, 'expanding': 818, 'greece': 1010, 'homeland': 1070, 'weakest': 2453, 'emphasize': 740, 'degeneration': 615, 'samesex': 1956, 'marriages': 1397, 'shaky': 2026, 'foundations': 919, 'battle': 254, 'ship': 2038, 'hole': 1069, 'hull': 1097, 'waterline': 2446, 'visible': 2414, 'guns': 1023, 'enemy': 752, 'speed': 2119, 'melting': 1421, 'pot': 1698, 'spoken': 2123, 'bill': 283, 'clintons': 429, 'tenure': 2239, 'effective': 721, 'anymore': 162, 'nation': 1487, 'approaches': 172, 'anglosaxons': 148, 'shoulder': 2045, 'white': 2473, 'mans': 1388, 'burden': 348, 'latinos': 1291, 'culture': 559, 'goals': 990, 'pursue': 1780, 'retreating': 1887, 'leave': 1306, 'behind': 266, 'hotbeds': 1078, 'tension': 2237, 'unfinished': 2358, 'wars': 2438, 'armed': 183, 'conflict': 482, 'middle': 1438, 'iraq': 1215, 'ruins': 1932, 'retreat': 1886, 'results': 1884, 'degradation': 616, 'applying': 170, 'transatlantic': 2307, 'ttip': 2336, 'bringing': 333, 'together': 2281, 'golden': 995, 'bullion': 346, 'gaining': 955, 'insert': 1171, 'changes': 399, 'unite': 2363, 'lisbon': 1334, 'vladivostok': 2420, 'federation': 861, 'shies': 2034, 'cold': 436, 'regard': 1834, 'psychological': 1772, 'informational': 1166, 'standoff': 2135, 'waging': 2427, 'fronts': 934, 'affirmation': 90, 'returning': 1889, 'army': 184, 'units': 2365, 'stationing': 2147, 'forces': 903, 'borders': 308, 'deploying': 636, 'missile': 1453, 'elements': 731, 'launching': 1294, 'debates': 593, 'review': 1892, 'intermediaterange': 1191, 'treaty': 2319, 'inf': 1160, 'philip': 1653, 'hammond': 1026, 'june': 1248, 'kingdom': 1264, 'site': 2070, 'soil': 2089, 'amid': 140, 'heightened': 1050, 'tensions': 2238, 'sight': 2050, 'smouldering': 2083, 'restore': 1881, 'normandy': 1526, 'mission': 1455, 'danger': 578, 'sparking': 2109, 'stepping': 2152, 'savior': 1966, 'deployed': 635, 'baltics': 236, 'black': 291, 'imminent': 1123, 'situation': 2072, 'exacerbate': 803, 'europes': 787, 'action': 68, 'atlantic': 209, 'possibility': 1693, 'dare': 580, 'pull': 1776, 'trigger': 2323, 'trip': 2325, 'john': 1240, 'kerry': 1254, 'sochi': 2085, 'testifies': 2244, 'ready': 1811, 'uncontrolled': 2354, 'escalation': 770, 'antirussian': 159, 'contrary': 495, 'happy': 1034, 'lift': 1321, 'face': 839, 'reduce': 1825, 'donbass': 689, 'emphasizes': 741, 'importance': 1130, 'interstate': 1196, 'associations': 207, 'special': 2112, 'play': 1669, 'integration': 1181, 'lead': 1298, 'enclaves': 746, 'euroatlantic': 783, 'agreed': 100, 'integrate': 1180, 'success': 2183, 'summits': 2189, 'greatly': 1009, 'scf': 1974, 'httpwwwstrategiccultureorgnews20150711emergencegreateurasialoomingagainstbackgrounddecliningwesthtml': 1092, 'planning': 1665, 'establish': 773, 'october': 1551, 'fsu': 937, 'theme': 2251, 'g20': 952, 'ministers': 1447, 'effort': 723, 'multiply': 1480, 'bypass': 356, 'republics': 1866, 'iranrussia': 1213, 'chamber': 395, 'asadollah': 192, 'asgaroladi': 193, 'tehran': 2231, 'possibilities': 1692, 'chapter': 404, 'implications': 1128, 'private': 1734, 'sides': 2049, 'rials': 1895, 'aside': 196, 'pounds': 1701, 'unilateral': 2360, 'imposed': 1133, 'irans': 1214, 'tehrans': 2232, 'program': 1748, 'bans': 246, 'prompted': 1756, 'hassan': 1038, 'rouhani': 1921, 'took': 2285, 'prosperity': 1763, '150': 8, 'transferred': 2309, 'ali': 118, 'tayyebnia': 2228, 'traded': 2299, 'httpwwwglobalresearchcadedollarizationiranrussiaplanningtoestablishjointbank5407736': 1088, 'staff': 2130, '13th': 6, 'roussef': 1923, 'manmohan': 1386, 'singh': 2065, 'hu': 1093, 'jintao': 1238, 'african': 93, 'jacob': 1229, 'zuma': 2525, 'bricss': 329, 'los': 1357, 'cabos': 358, 'baja': 234, 'california': 359, 'mexico': 1435, '2012': 18, 'roberto': 1914, 'stuckertafpgetty': 2176, 'images': 1115, '15': 7, 'fortaleza': 913, '5th': 44, 'durban': 701, 'forthcoming': 914, 'northern': 1528, 'ratified': 1807, 'legislatures': 1311, 'lending': 1313, 'seeking': 1994, 'faults': 854, 'ie': 1107, 'rich': 1896, 'conditions': 477, 'upon': 2382, 'borrower': 309, 'ought': 1591, 'choked': 417, 'heavy': 1046, 'bureaucracy': 349, 'ensure': 760, 'stability': 2127, 'fluctuate': 892, 'symbolize': 2208, 'particular': 1617, 'agencies': 94, 'presents': 1721, 'dependence': 632, 'uscentered': 2388, 'finances': 876, 'borrowers': 310, 'intention': 1185, 'intervene': 1197, 'basic': 251, 'provide': 1767, 'lower': 1364, 'cost': 516, 'headquarters': 1041, 'focus': 895, 'upsanddowns': 2383, 'initially': 1169, 'comparing': 460, 'size': 2073, 'reminder': 1853, 'towards': 2296, 'httpwwwpopularresistanceorglaunchofbricsbankalternativetoimf': 1090, 'subject': 2179, 'httpswwwforbescomsitesnathanlewis20230716thebricsgoforgold': 1084, 'bitches': 289}
+stop words = None
+col_names= ['01' '10' '100' ... 'zerohedge' 'zerohedgecom' 'zuma']</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">neg</th>
+<th data-quarto-table-cell-role="th">neu</th>
+<th data-quarto-table-cell-role="th">pos</th>
+<th data-quarto-table-cell-role="th">compound</th>
+<th data-quarto-table-cell-role="th">cleaned_tweets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.000</td>
+<td>1.000</td>
+<td>0.000</td>
+<td>0.0000</td>
+<td>burn flag</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.289</td>
+<td>0.551</td>
+<td>0.160</td>
+<td>-0.8885</td>
+<td>plan kill petro dollar run manipulated western...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.039</td>
+<td>0.939</td>
+<td>0.022</td>
+<td>-0.2732</td>
+<td>difficult know whats going come summit next we...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.058</td>
+<td>0.765</td>
+<td>0.177</td>
+<td>0.8748</td>
+<td>lot unpack brics would bring table officially ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.000</td>
+<td>0.705</td>
+<td>0.295</td>
+<td>0.7269</td>
+<td>nice feel way thats brics supped make feel lik...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>One tool intended for sentiment analysis is the SentimentIntensityAnalyzer found in the Natural Language Toolkit (NLTK). Text is given polarity scores that represent a positive, negative, or neutral mood. The analyzer here has evaluated the tone of Reddit posts within the context of textual data from the Reddit API. The SentimentIntensityAnalyzer is used to parse the text, and the resultant compound score summarises the sentiment in general. This score helps determine the general mood of Reddit discussions and offers insightful information about the community’s emotional tone. This information is useful for examining user viewpoints, trends, or attitudes regarding different topics.</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>]<span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>] <span class="op">=</span> np.where(sentiment_df[<span class="st">'compound'</span>] <span class="op">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, sentiment_df[<span class="st">'label'</span>])  <span class="co"># Set 'label' to 1 where 'compound' &gt; 0.2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>] <span class="op">=</span> np.where(sentiment_df[<span class="st">'compound'</span>] <span class="op">&lt;</span> <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, sentiment_df[<span class="st">'label'</span>])  <span class="co"># Set 'label' to -1 where 'compound' &lt; -0.2</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sentiment_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, any compound value less than zero is negative with a value of ‘-1’, any compound value greater than 0 is positive denoted by ‘1’.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>sentiment_df[[<span class="st">'cleaned_tweets'</span>, <span class="st">'label'</span>]]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>pd.DataFrame(finaldf)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>display(finaldf.head(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">cleaned_tweets</th>
+<th data-quarto-table-cell-role="th">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>burn flag</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>plan kill petro dollar run manipulated western...</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>difficult know whats going come summit next we...</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>lot unpack brics would bring table officially ...</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>nice feel way thats brics supped make feel lik...</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>seems like well ahead schedule already 50 perc...</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>yeah precisely fully explained today family me...</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>watched lecture school predicted global south ...</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>think hope happens sooner rather later live eu...</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>supposed happen week hold boys</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>This is how the final cleaned textual dataset looks like.</p>
+</section>
+<section id="source" class="level2">
+<h2 class="anchored" data-anchor-id="source">Source</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

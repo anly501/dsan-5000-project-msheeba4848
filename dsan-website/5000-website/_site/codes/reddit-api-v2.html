@@ -159,10 +159,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../info/data_cleaning.html" rel="" target="">
- <span class="menu-text">Data Cleaning</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-cleaning" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Cleaning</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-cleaning">    
+        <li>
+    <a class="dropdown-item" href="../codes/data_cleaning_r.html" rel="" target="">
+ <span class="dropdown-text">Quantitative Data</span></a>
   </li>  
+        <li class="dropdown-header">Data Cleaning - R</li>
+        <li>
+    <a class="dropdown-item" href="../codes/data_cleaning_p.html" rel="" target="">
+ <span class="dropdown-text">Quantitative Data</span></a>
+  </li>  
+        <li class="dropdown-header">Data Cleaning - Python</li>
+        <li>
+    <a class="dropdown-item" href="../codes/data_cleaning_record.html" rel="" target="">
+ <span class="dropdown-text">Data Gathering - Record Data</span></a>
+  </li>  
+        <li class="dropdown-header">Data Cleaning - Record Data</li>
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-exploration" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Exploration</span>
@@ -737,8 +755,8 @@ col_names= ['01' '10' '100' ... 'zerohedge' 'zerohedgecom' 'zuma']</code></pre>
 <div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>pd.DataFrame(finaldf)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>csv_file<span class="op">=</span><span class="st">'../data/sentiment.csv'</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>finaldf.to_csv(csv_file, index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#csv_file='../data/sentiment.csv'</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#finaldf.to_csv(csv_file, index=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>finaldf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -930,10 +948,10 @@ F1 Score: 63.541666666666664</code></pre>
 <pre><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x158909480&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="reddit-api-v2_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+<p><img src="reddit-api-v2_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="reddit-api-v2_files/figure-html/cell-27-output-3.png" class="img-fluid"></p>
+<p><img src="reddit-api-v2_files/figure-html/cell-25-output-3.png" class="img-fluid"></p>
 </div>
 </div>
 
