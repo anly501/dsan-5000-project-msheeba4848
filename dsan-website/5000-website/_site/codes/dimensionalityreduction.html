@@ -4628,6 +4628,7 @@ vertical-align: -.125em;
   <li><a href="#pca-vs-t-sne" id="toc-pca-vs-t-sne" class="nav-link" data-scroll-target="#pca-vs-t-sne">PCA vs t-SNE</a></li>
   <li><a href="#pca-vs-t-sne--the-curse-of-dimensionality-continued" id="toc-pca-vs-t-sne--the-curse-of-dimensionality-continued" class="nav-link" data-scroll-target="#pca-vs-t-sne--the-curse-of-dimensionality-continued">PCA vs t-SNE- the curse of dimensionality continued?</a></li>
   </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources:</a></li>
   </ul>
 </nav>
     </div>
@@ -5388,30 +5389,34 @@ Average Silhouette Score for PCA: -0.09704378289382186</code></pre>
 </div>
 <p>We can see that, using the combined approach really just messed the data within itself that that pca by itself is the best option to go with.</p>
 <p>To summarise, the decision between PCA and t-SNE is influenced by the type of the data, the size of the dataset, and the specific goals of the research. Both strategies yield useful insights, and a well-considered mix of both methods can provide a more comprehensive knowledge of complex datasets. Yet, for mine, neither worked.</p>
-<p>The instances when one technique may outperform any other is understanding the situations when it is usually used. PCA is generally a linear technique that usually works well when the data is linear but t-SNE on the other hand adheres to capturing the complex and non-linear datasets. Additionally, PCAs are effective at preserving the global structure of the data and t-SNE at preserving the local structure of the dataset. However, when you try to understand it through visualisation, usually for t-SNE, since it is more suitable for lower-dimensional data, is better for the same. PCA is computationally efficient but cannot capture the intricate aspects of the data. One thing that I have witnessed personally whilst work on both PCA and t-SNE is that for t-SNE, it is more affected by the choice of the perplexity values. In conclusion, for my data, PCA performed better although the feature set is higher, attuning to the fact that I had already dropped the highly correlated variables from the dataset, thus contributing to better performance of PCA.</p>
-<p>Sources:</p>
-<p>Dimensionality Reduction</p>
-<ol type="1">
-<li>https://www.geeksforgeeks.org/dimensionality-reduction/</li>
-</ol>
-<p>PCA:</p>
-<ol type="1">
-<li><p>https://jfh.georgetown.domains/dsan5000/slides-and-labs/_site/content/slides/dimensionality-reduction/notes.html</p></li>
-<li><p>https://www.stat.cmu.edu/~larry/=sml/dimension_reduction.pdf</p></li>
-<li><p>https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html</p></li>
-<li><p>https://stats.stackexchange.com/questions/376981/cumulative-sum-of-pca-explained-variance-greater-than-1</p></li>
-<li><p>https://github.com/scikit-learn/scikit-learn/issues/22974</p></li>
-<li><p>https://jakevdp.github.io/PythonDataScienceHandbook/05.09-principal-component-analysis.html</p></li>
-<li><p>https://www.researchgate.net/figure/A-scree-plot-for-explained-variance-and-eigenvalues-for-the-ten-Principal-Components_fig1_338833359</p></li>
-</ol>
-<p>TSNE:</p>
-<ol type="1">
-<li><p>https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html</p></li>
-<li><p>https://jfh.georgetown.domains/dsan5000/slides-and-labs/_site/content/slides/dimensionality-reduction/notes.html#t-distributed-stochastic-neighbor-embedding.</p></li>
-</ol>
-
-
+<p>The instances when one technique may outperform any other is understanding the situations when it is usually used. PCA is generally a linear technique that usually works well when the data is linear but t-SNE on the other hand adheres to capturing the complex and non-linear datasets. Additionally, PCAs are effective at preserving the global structure of the data and t-SNE at preserving the local structure of the dataset. However, when you try to understand it through visualisation, usually for t-SNE, since it is more suitable for lower-dimensional data, is better for the same. PCA is computationally efficient but cannot capture the intricate aspects of the data. One thing that I have witnessed personally whilst work on both PCA and t-SNE is that for t-SNE, it is more affected by the choice of the perplexity values.</p>
+<p>Another aspect to be discussed is how PCA and t-SNE both in combination to one another do not really work well, which is why visually the entire data points are scattered. However, I’d like to explore more about this later. But the original PCA does a good job.</p>
 </section>
+</section>
+<section id="sources" class="level1">
+<h1>Sources:</h1>
+<ol type="1">
+<li>Dimensionality Reduction:</li>
+</ol>
+<ul>
+<li><p>GeeksforGeeks. (n.d.). Dimensionality Reduction. Retrieved from https://www.geeksforgeeks.org/dimensionality-reduction/ PCA:</p></li>
+<li><p>Hickman, J. (n.d.). DSAN 5000 - Dimensionality Reduction. Retrieved from https://jfh.georgetown.domains/dsan5000/slides-and-labs/_site/content/slides/dimensionality-reduction/notes.html</p></li>
+<li><p>Roweis, S. (1997). EM algorithms for PCA and SPCA. Technical Report, University of Toronto. Retrieved from https://www.stat.cmu.edu/~larry/=sml/dimension_reduction.pdf</p></li>
+<li><p>scikit-learn. (n.d.). sklearn.decomposition.PCA. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html</p></li>
+<li><p>Stack Exchange. (2019). Cumulative sum of PCA explained variance greater than 1. Retrieved from https://stats.stackexchange.com/questions/376981/cumulative-sum-of-pca-explained-variance-greater-than-1</p></li>
+<li><p>scikit-learn GitHub. (2021). Issue 22974: Cumulative sum of PCA explained variance greater than 1. Retrieved from https://github.com/scikit-learn/scikit-learn/issues/22974</p></li>
+<li><p>VanderPlas, J. (2016). Principal Component Analysis. In Python Data Science Handbook. Retrieved from https://jakevdp.github.io/PythonDataScienceHandbook/05.09-principal-component-analysis.html</p></li>
+<li><p>ResearchGate. (2019). A scree plot for explained variance and eigenvalues for the ten Principal Components. Retrieved from https://www.researchgate.net/figure/A-scree-plot-for-explained-variance-and-eigenvalues-for-the-ten-Principal-Components_fig1_338833359</p></li>
+</ul>
+<ol start="2" type="1">
+<li>t-SNE</li>
+</ol>
+<ul>
+<li><p>scikit-learn. (n.d.). sklearn.manifold.TSNE. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html</p></li>
+<li><p>Hickman, J. (n.d.). DSAN 5000 - Dimensionality Reduction. Retrieved from https://jfh.georgetown.domains/dsan5000/slides-and-labs/_site/content/slides/dimensionality-reduction/notes.html#t-distributed-stochastic-neighbor-embedding</p></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
