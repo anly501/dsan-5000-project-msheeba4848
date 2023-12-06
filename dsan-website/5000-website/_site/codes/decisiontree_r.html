@@ -4573,7 +4573,7 @@ vertical-align: -.125em;
  <span class="dropdown-text">Exploratory Data Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../codes/naivebayes.html" rel target>
+    <a class="dropdown-item" href="../codes/naive_bayes.html" rel target>
  <span class="dropdown-text">Naive Bayes</span></a>
   </li>  
     </ul>
@@ -5333,7 +5333,7 @@ Best Score: 0.8735751920102682</code></pre>
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> [<span class="st">&quot;Metric&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;Grid Search&quot;</span>]</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> [<span class="st">&quot;Metric&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;GridSearchCV&quot;</span>]</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># training set</span></span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>metrics_training2 <span class="op">=</span> [</span>
@@ -5400,7 +5400,10 @@ Best Score: 0.8735751920102682</code></pre>
 </section>
 <section id="discussion-1" class="level3">
 <h3 class="anchored" data-anchor-id="discussion-1">Discussion</h3>
-<p>In accordance to the performance, that there is still overfitting of the data in terms of the RMSE from the training and testing data for both baseline Random Forest and the one that is tuned by GridSearchCV, however, we see that out of all the models, the GridSearchCV with Random Forest works the best.</p>
+<p>Decision Tree:</p>
+<p>On training, testing, and validation sets, the decision tree model’s performance is assessed using a variety of metrics, such as Root Mean Squared Error (RMSE), R2 Score, Mean Squared Error (MSE), and Explained Variance. The decision tree shows remarkable results when compared to the baseline model; it achieves almost zero RMSE on the training set, indicating a very good fit. The training data exhibits a high degree of explained variance, as indicated by an R2 Score that is nearly 100%. On the other hand, the model shows somewhat higher RMSE values and lower R2 Scores on the testing and validation sets, suggesting a moderate decline in performance on unseen data. Hyperparameter tuning techniques for GridSearchCV and RandomisedSearchCV show slight improvements over the initial version, with RandomisedSearchCV outperforming GridSearchCV.</p>
+<p>Random Forest:</p>
+<p>Across training, testing, and validation sets, the Random Forest model’s performance is assessed using important metrics such as Root Mean Squared Error (RMSE), R2 Score, Mean Squared Error (MSE), and Explained Variance.The Random Forest model shows significant improvements over the baseline model, with lower RMSE values, higher R2 Scores, and reduced MSE. These results suggest improved predictive accuracy and better fit to the data. The high R2 Score and low RMSE of the training set results demonstrate the model’s ability to capture the underlying patterns.The model’s ability to generalise is demonstrated by these encouraging trends, which hold true for the testing and validation sets. All metrics show slight improvements from the baseline when Grid Search hyperparameters are tuned. For this regression task, the Random Forest model is a dependable option due to its overall strong predictive performance.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
@@ -5412,18 +5415,17 @@ Best Score: 0.8735751920102682</code></pre>
 <section id="sources" class="level1">
 <h1>Sources</h1>
 <ol type="1">
-<li>https://samanemami.medium.com/evaluate-the-decision-regressor-tree-d8394d753ae7</li>
-<li>https://insidelearningmachines.com/tune_hyperparameters_in_decision_trees/</li>
-<li>https://www.kaggle.com/code/carloscliment/random-forest-regressor-and-gridsearch</li>
-<li>https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html<br>
-</li>
-<li>https://stackoverflow.com/questions/53782169/random-forest-tuning-with-randomizedsearchcv</li>
-<li>https://www.analyticsvidhya.com/blog/2022/11/hyperparameter-tuning-using-randomized-search/</li>
-<li>https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html</li>
-<li>https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html</li>
-<li>https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html</li>
-<li>https://pypi.org/project/tabulate/</li>
-<li>https://pypi.org/project/treeplot/</li>
+<li>Maverick, AL. (2021). Evaluate the Decision Regressor Tree. Medium. https://samanemami.medium.com/evaluate-the-decision-regressor-tree-d8394d753ae7</li>
+<li>Inside Learning Machines. (n.d.). Tune Hyperparameters in Decision Trees. https://insidelearningmachines.com/tune_hyperparameters_in_decision_trees/</li>
+<li>Climent, C. (n.d.). Random Forest Regressor and GridSearch. Kaggle. https://www.kaggle.com/code/carloscliment/random-forest-regressor-and-gridsearch</li>
+<li>scikit-learn. (n.d.). RandomizedSearchCV. https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html</li>
+<li>Stack Overflow. (2018). Random Forest tuning with RandomizedSearchCV. https://stackoverflow.com/questions/53782169/random-forest-tuning-with-randomizedsearchcv</li>
+<li>Banerjee, A. (2022). Hyperparameter Tuning using Randomized Search. https://www.analyticsvidhya.com/blog/2022/11/hyperparameter-tuning-using-randomized-search/</li>
+<li>scikit-learn. (n.d.). GridSearchCV. https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html</li>
+<li>scikit-learn. (n.d.). RandomForestRegressor. https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html</li>
+<li>scikit-learn. (n.d.). DecisionTreeRegressor. https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html</li>
+<li>PyPI. (n.d.). tabulate. https://pypi.org/project/tabulate/</li>
+<li>PyPI. (n.d.). treeplot. https://pypi.org/project/treeplot/</li>
 </ol>
 
 

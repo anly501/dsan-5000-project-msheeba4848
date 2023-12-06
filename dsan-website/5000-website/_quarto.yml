@@ -39,7 +39,7 @@ website:
         menu:
           - href: codes/EDA.ipynb
             text: Exploratory Data Analysis
-          - href: codes/naivebayes.ipynb
+          - href: codes/naive_bayes.ipynb
             text: Naive Bayes
       - href: codes/clustering.ipynb
         text: Clustering
