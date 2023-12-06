@@ -4631,6 +4631,7 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#python-api" id="toc-python-api" class="nav-link" data-scroll-target="#python-api">Python API</a></li>
   </ul></li>
+  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -4661,12 +4662,11 @@ vertical-align: -.125em;
 
 </header>
 
-<p>Since my major question focuses on gathering data from the BRICS nations, one of the initial problems faced was trying to find reliable sources to same basal columns for the five countries of Brazil, India, China, South Africa and Russia.</p>
-<p>Whilst finding the data for similar columns, one of the issues I had faced for, for instance, if China had information about Education, which was also one of the parameters I wanted to explore, South Africa’s education did not have cut offs in data collection for primary, secondary and tertiary schools. If Adjusted National was calculated for Brazil, India’s Net National Income wasn’t properly adjusted. Hence, usage of API was indeed the best step forward as it helped calculated all the data points on an equal scale.</p>
+<p>Since my major question focuses on gathering data from the BRICS nations, one of the initial problems faced was trying to find reliable sources to same basal columns for the five countries of Brazil, India, China, South Africa and Russia, in addition to the US, hence, usage of API helped.</p>
 <section id="data-source" class="level1">
 <h1>Data Source</h1>
-<p>Since the data is that is majorly required is numerical data. I am retrieving data through API’s and by downloading data from World Bank.</p>
-<div class="cell" data-execution_count="22">
+<p>Since the data is that is majorly required is numerical data. I am retrieving data through API’s and by downloading data from FRED-API.</p>
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from fred api</span></span>
@@ -4675,11 +4675,10 @@ vertical-align: -.125em;
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="quantitative-data" class="level2">
@@ -4690,7 +4689,7 @@ vertical-align: -.125em;
 <p>The Python API used for this project is the FRED API. The FRED-API is a web service that allows developers to create programmes and construct apps that retrieve statistical information about the economy from the FRED and ALFRED websites hosted by the Federal Reserve Bank of St. Louis’ Economic Research Division using Python.</p>
 <p>Since we are using data of the 5 countries, it can be interesting to compare it with a hegemonic and the most powerful country in the world, The United States of America so using the FRED-API, you can clone few macroeconomic indicators from here.</p>
 <p>The FRED API has been called and the series IDs have been added to the data.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="7">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -4701,7 +4700,7 @@ vertical-align: -.125em;
 </details>
 </div>
 <p>Trying to retrive the second part of the US data which is useful during the exploratory data analysis</p>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="8">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># series required</span></span>
@@ -4721,24 +4720,24 @@ vertical-align: -.125em;
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>gni_u<span class="op">=</span> fred.get_series(series_id_6, start_date, end_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gni_u.head(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>1973-01-01    1.43e+12
-1974-01-01    1.55e+12
-1975-01-01    1.68e+12
-1976-01-01    1.87e+12
+<pre><code>1973-01-01    1.431848e+12
+1974-01-01    1.553300e+12
+1975-01-01    1.684554e+12
+1976-01-01    1.869603e+12
 dtype: float64</code></pre>
 </div>
 </div>
-<p>Since the data has been fetched like this using the ‘get_series’ function, the data was on basis of quarterly collected which is again regrouped and after pre-processing, this is how the data looks like.</p>
-<div class="cell" data-execution_count="21">
+<p>Since the data has been fetched like this using the ‘get_series’ function, the data was on basis of quarterly collected which is again regrouped and after pre-processing, this is how the data looks like. For more code understanding, refer to the <code>Codes</code> part of the tab but the following is how the final dataset looks like.</p>
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> pd.read_csv(<span class="st">&#39;../data/raw_fred_data_us.csv&#39;</span>)</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> pd.read_csv(<span class="st">&#39;../data/csv_files_api/raw_fred_data_us.csv&#39;</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>display(df.head(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -4765,166 +4764,166 @@ dtype: float64</code></pre>
 <td data-quarto-table-cell-role="th">0</td>
 <td>0</td>
 <td>1973</td>
-<td>1425.38</td>
-<td>6106.37</td>
-<td>10.93</td>
-<td>0.49</td>
-<td>0.28</td>
-<td>1.43e+12</td>
+<td>1425.37600</td>
+<td>6106.37050</td>
+<td>10.925</td>
+<td>0.492313</td>
+<td>0.275</td>
+<td>1.431848e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>1</td>
 <td>1974</td>
-<td>1545.24</td>
-<td>6073.36</td>
-<td>9.20</td>
-<td>0.13</td>
-<td>-0.05</td>
-<td>1.55e+12</td>
+<td>1545.24250</td>
+<td>6073.36275</td>
+<td>9.200</td>
+<td>0.129574</td>
+<td>-0.050</td>
+<td>1.553300e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>2</td>
 <td>1975</td>
-<td>1684.90</td>
-<td>6060.88</td>
-<td>6.50</td>
-<td>1.08</td>
-<td>0.95</td>
-<td>1.68e+12</td>
+<td>1684.90500</td>
+<td>6060.87525</td>
+<td>6.500</td>
+<td>1.075657</td>
+<td>0.950</td>
+<td>1.684554e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>3</td>
 <td>1976</td>
-<td>1873.41</td>
-<td>6387.44</td>
-<td>7.45</td>
-<td>0.23</td>
-<td>-0.05</td>
-<td>1.87e+12</td>
+<td>1873.41250</td>
+<td>6387.43650</td>
+<td>7.450</td>
+<td>0.233895</td>
+<td>-0.050</td>
+<td>1.869603e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>4</td>
 <td>1977</td>
-<td>2081.82</td>
-<td>6682.80</td>
-<td>8.12</td>
-<td>-0.68</td>
-<td>-1.12</td>
-<td>2.08e+12</td>
+<td>2081.82500</td>
+<td>6682.80450</td>
+<td>8.125</td>
+<td>-0.683540</td>
+<td>-1.125</td>
+<td>2.082670e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>5</td>
 <td>1978</td>
-<td>2351.60</td>
-<td>7052.71</td>
-<td>9.38</td>
-<td>-0.66</td>
-<td>-1.12</td>
-<td>2.35e+12</td>
+<td>2351.59875</td>
+<td>7052.71125</td>
+<td>9.375</td>
+<td>-0.661201</td>
+<td>-1.125</td>
+<td>2.349856e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>6</td>
 <td>1979</td>
-<td>2627.33</td>
-<td>7276.00</td>
-<td>9.20</td>
-<td>-0.01</td>
-<td>-0.88</td>
-<td>2.61e+12</td>
+<td>2627.32625</td>
+<td>7275.99925</td>
+<td>9.200</td>
+<td>-0.012445</td>
+<td>-0.875</td>
+<td>2.614202e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>7</td>
 <td>1980</td>
-<td>2857.31</td>
-<td>7257.32</td>
-<td>7.05</td>
-<td>0.07</td>
-<td>-0.45</td>
-<td>2.85e+12</td>
+<td>2857.30850</td>
+<td>7257.31650</td>
+<td>7.050</td>
+<td>0.073883</td>
+<td>-0.450</td>
+<td>2.847055e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>8</td>
 <td>1981</td>
-<td>3207.04</td>
-<td>7441.48</td>
-<td>8.00</td>
-<td>0.16</td>
-<td>-0.38</td>
-<td>3.20e+12</td>
+<td>3207.04125</td>
+<td>7441.48500</td>
+<td>8.000</td>
+<td>0.156610</td>
+<td>-0.375</td>
+<td>3.201886e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
 <td>9</td>
 <td>1982</td>
-<td>3343.79</td>
-<td>7307.31</td>
-<td>5.62</td>
-<td>-0.16</td>
-<td>-0.60</td>
-<td>3.37e+12</td>
+<td>3343.78925</td>
+<td>7307.31400</td>
+<td>5.625</td>
+<td>-0.161860</td>
+<td>-0.600</td>
+<td>3.371448e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">10</td>
 <td>10</td>
 <td>1983</td>
-<td>3634.04</td>
-<td>7642.27</td>
-<td>4.28</td>
-<td>-1.05</td>
-<td>-1.43</td>
-<td>3.61e+12</td>
+<td>3634.03650</td>
+<td>7642.26550</td>
+<td>4.275</td>
+<td>-1.048021</td>
+<td>-1.425</td>
+<td>3.614168e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">11</td>
 <td>11</td>
 <td>1984</td>
-<td>4037.61</td>
-<td>8195.30</td>
-<td>7.03</td>
-<td>-2.33</td>
-<td>-2.52</td>
-<td>4.03e+12</td>
+<td>4037.61400</td>
+<td>8195.29525</td>
+<td>7.025</td>
+<td>-2.333596</td>
+<td>-2.525</td>
+<td>4.032292e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">12</td>
 <td>12</td>
 <td>1985</td>
-<td>4338.98</td>
-<td>8537.00</td>
-<td>5.60</td>
-<td>-2.72</td>
-<td>-2.65</td>
-<td>4.31e+12</td>
+<td>4338.98050</td>
+<td>8537.00375</td>
+<td>5.600</td>
+<td>-2.717181</td>
+<td>-2.650</td>
+<td>4.310074e+12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">13</td>
 <td>13</td>
 <td>1986</td>
-<td>4579.63</td>
-<td>8832.61</td>
-<td>4.00</td>
-<td>-3.21</td>
-<td>-2.88</td>
-<td>4.52e+12</td>
+<td>4579.63250</td>
+<td>8832.61125</td>
+<td>4.000</td>
+<td>-3.212077</td>
+<td>-2.875</td>
+<td>4.516535e+12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">14</td>
 <td>14</td>
 <td>1987</td>
-<td>4855.22</td>
-<td>9137.74</td>
-<td>4.53</td>
-<td>-3.31</td>
-<td>-3.00</td>
-<td>4.83e+12</td>
+<td>4855.21625</td>
+<td>9137.74475</td>
+<td>4.525</td>
+<td>-3.309330</td>
+<td>-3.000</td>
+<td>4.828878e+12</td>
 </tr>
 </tbody>
 </table>
@@ -4940,7 +4939,7 @@ dtype: float64</code></pre>
 <section id="python-api" class="level3">
 <h3 class="anchored" data-anchor-id="python-api">Python API</h3>
 <p>Understanding the perspective of people on the emergence of BRICS is just as crucial, hence we need to ensure that the public opinions have also been catered and taken into consideration. For this, the REDDIT API for the subreddits have been used. REDDIT API with limited access helps us extract the subreddits for that specific day with the ragin subreddits. The Python PRAW has been used to retrieve the data.</p>
-<div class="cell" data-execution_count="24">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> praw</span>
@@ -4962,12 +4961,12 @@ dtype: float64</code></pre>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(posts, columns<span class="op">=</span>[<span class="st">&quot;body&quot;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_25910/988797959.py:11: DeprecationWarning: Positional arguments for &#39;BaseListingMixin.top&#39; will no longer be supported in PRAW 8.
+<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_79205/988797959.py:11: DeprecationWarning: Positional arguments for &#39;BaseListingMixin.top&#39; will no longer be supported in PRAW 8.
 Call this function with &#39;time_filter&#39; as a keyword argument.
   for submission in reddit.subreddit(&quot;Brics&quot;).top(&quot;all&quot;):</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="28">
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>display(df.head(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5051,9 +5050,19 @@ Call this function with &#39;time_filter&#39; as a keyword argument.
 </div>
 </div>
 <p>Here, we can see that the data has a lot of cleaning to do, but this data in gist will help to understand the opinions of people since it has been pulled from the REDDIT API.</p>
-
-
 </section>
+</section>
+<section id="source" class="level2">
+<h2 class="anchored" data-anchor-id="source">Source</h2>
+<ol type="1">
+<li>Federal Reserve Economic Data (FRED). (n.d.). FRED API Documentation. https://fred.stlouisfed.org/docs/api/fred/</li>
+<li>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … &amp; Vanderplas, J. (2021). sklearn.feature_extraction.text.CountVectorizer. https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html</li>
+<li>PRAW Development Team. (n.d.). PRAW Documentation. https://praw.readthedocs.io/en/stable/</li>
+<li>Reddit. (n.d.). Reddit API Documentation. https://www.reddit.com/dev/api/</li>
+<li>Reddit. (n.d.). Reddit API - All Endpoints. https://www.reddit.com/dev/api/</li>
+</ol>
+
+
 </section>
 </section>
 
