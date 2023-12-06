@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>title: “Data Cleaning - Python” author: “Sheeba Moghal” format: html: embed-resources: true code-fold: true execute: echo: true jupyter: python3</p>
 <p>The cleaning of both textual and quantitative as no simple solution as each dataset has to be treated separately. Hence, the data will be tackled separately.</p>
 <p>For quantitative data, data cleaning is essential to guaranteeing the dependability and correctness of analytical findings. We can receive imprecise statistical analyses from errors, outliers, and missing values, which might result in incorrect interpretations and decisions. Extensive data cleaning improves the quality of the data by identifying and fixing errors, managing outliers, and addressing inconsistent or missing information.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># libraries to import</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fredapi <span class="im">import</span> Fred</span>
@@ -360,9 +360,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 4  1977  2081.8250</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>merged_df.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Year                             0
 GDP                              0
 Real GDP                         0
@@ -374,11 +374,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Here, we see that there is only one missing value. Usually, imputing missing values for economic data isn’t a good choice since you’re changing the effect of that specific value by computing the mean average of the value. However, for this project since data without missing values is a requirement for further modelling, mean value imputation is used.</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>merged_df[<span class="st">'GNI'</span>] <span class="op">=</span> merged_df[<span class="st">'GNI'</span>].fillna(merged_df[<span class="st">'GNI'</span>].mean())</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>merged_df.isna().<span class="bu">sum</span>()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>merged_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -505,7 +505,7 @@ dtype: int64</code></pre>
 <p>This is how the final dataframe looks like for the US data.</p>
 <section id="textual-data" class="level2">
 <h2 class="anchored" data-anchor-id="textual-data">Textual Data</h2>
-<div class="cell" data-execution_count="24">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
@@ -643,7 +643,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Here, with the clean_string code picked from one the class notes, I have added the emoji code to it to remove the emoticons completely. Here, we can see the cleaned and uncleaned textual data.</p>
-<div class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorising the data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df[<span class="st">'cleaned_tweets'</span>]</span>
@@ -738,18 +738,106 @@ col_names= ['01' '10' '100' ... 'zerohedge' 'zerohedgecom' 'zuma']</code></pre>
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>wordcloud <span class="op">=</span> WordCloud(width <span class="op">=</span> <span class="dv">800</span>, height <span class="op">=</span> <span class="dv">800</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                background_color <span class="op">=</span><span class="st">'white'</span>, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                stopwords <span class="op">=</span> vectorizer.stop_words, </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                min_font_size <span class="op">=</span> <span class="dv">10</span>).generate(<span class="st">" "</span>.join(col_names)) </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the WordCloud image                        </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">8</span>), facecolor <span class="op">=</span> <span class="va">None</span>) </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.imshow(wordcloud) </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>) </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">0</span>) </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="data_cleaning_p_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Looking into this words set, we do get a public’s opinion of what they think of BRICS. You see words like ‘agenda’, ‘aim’, ‘action’, thus revealing the key themes of the conversations from Reddit. This showcases a general and positive opinion amongst people.</p>
 <p>One tool intended for sentiment analysis is the SentimentIntensityAnalyzer found in the Natural Language Toolkit (NLTK). Text is given polarity scores that represent a positive, negative, or neutral mood. The analyzer here has evaluated the tone of Reddit posts within the context of textual data from the Reddit API. The SentimentIntensityAnalyzer is used to parse the text, and the resultant compound score summarises the sentiment in general. This score helps determine the general mood of Reddit discussions and offers insightful information about the community’s emotional tone. This information is useful for examining user viewpoints, trends, or attitudes regarding different topics.</p>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>]<span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>] <span class="op">=</span> np.where(sentiment_df[<span class="st">'compound'</span>] <span class="op">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, sentiment_df[<span class="st">'label'</span>])  <span class="co"># Set 'label' to 1 where 'compound' &gt; 0.2</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>] <span class="op">=</span> np.where(sentiment_df[<span class="st">'compound'</span>] <span class="op">&lt;</span> <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, sentiment_df[<span class="st">'label'</span>])  <span class="co"># Set 'label' to -1 where 'compound' &lt; -0.2</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sentiment_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>]<span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>] <span class="op">=</span> np.where(sentiment_df[<span class="st">'compound'</span>] <span class="op">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, sentiment_df[<span class="st">'label'</span>])  <span class="co"># Set 'label' to 1 where 'compound' &gt; 0.2</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sentiment_df[<span class="st">'label'</span>] <span class="op">=</span> np.where(sentiment_df[<span class="st">'compound'</span>] <span class="op">&lt;</span> <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, sentiment_df[<span class="st">'label'</span>])  <span class="co"># Set 'label' to -1 where 'compound' &lt; -0.2</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sentiment_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">neg</th>
+<th data-quarto-table-cell-role="th">neu</th>
+<th data-quarto-table-cell-role="th">pos</th>
+<th data-quarto-table-cell-role="th">compound</th>
+<th data-quarto-table-cell-role="th">cleaned_tweets</th>
+<th data-quarto-table-cell-role="th">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.000</td>
+<td>1.000</td>
+<td>0.000</td>
+<td>0.0000</td>
+<td>burn flag</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.289</td>
+<td>0.551</td>
+<td>0.160</td>
+<td>-0.8885</td>
+<td>plan kill petro dollar run manipulated western...</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.039</td>
+<td>0.939</td>
+<td>0.022</td>
+<td>-0.2732</td>
+<td>difficult know whats going come summit next we...</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.058</td>
+<td>0.765</td>
+<td>0.177</td>
+<td>0.8748</td>
+<td>lot unpack brics would bring table officially ...</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.000</td>
+<td>0.705</td>
+<td>0.295</td>
+<td>0.7269</td>
+<td>nice feel way thats brics supped make feel lik...</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 <p>Here, any compound value less than zero is negative with a value of ‘-1’, any compound value greater than 0 is positive denoted by ‘1’.</p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>sentiment_df[[<span class="st">'cleaned_tweets'</span>, <span class="st">'label'</span>]]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>pd.DataFrame(finaldf)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>display(finaldf.head(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>sentiment_df[[<span class="st">'cleaned_tweets'</span>, <span class="st">'label'</span>]]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>finaldf<span class="op">=</span>pd.DataFrame(finaldf)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>display(finaldf.head(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -819,6 +907,17 @@ col_names= ['01' '10' '100' ... 'zerohedge' 'zerohedgecom' 'zuma']</code></pre>
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>label_counts <span class="op">=</span> finaldf[<span class="st">'label'</span>].value_counts()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>label_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code> 1    63
+ 0    28
+-1    28
+Name: label, dtype: int64</code></pre>
+</div>
+</div>
+<p>We see that overall, in terms of the RedditAPI, there is generally a positive conversation about this. Though we need to look into it with more caution, as of now, this does tell us good things.</p>
 <p>This is how the final cleaned textual dataset looks like.</p>
 </section>
 <section id="source" class="level2">

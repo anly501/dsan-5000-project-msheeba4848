@@ -4,7 +4,7 @@ backgroundcolor: white
 theme: morph
 ---
 
-The following is the description of all the economic variables which have been used. It is seen that the data consists of 33 variables, that contains data of Fiscal and Macroeconomic variables. Since I was also interested to look into the life expectency and Military Expenditure, these two were added too. The data was similarly collected for Brazil, Russia, China, South Africa and India.
+The following is the description of all the economic variables which have been used. It is seen that the data consists of 33 variables, that contains data of Fiscal and Macroeconomic variables. Since I was also interested to look into the life expectency and Military Expenditure, these two were added too. The data was similarly collected for Brazil, Russia, China, South Africa and India. Even for US, which has been pulled from FRED API and WB STATS.
 
 | S.No | Indicator | Description  |
 |:--:|:-------:|:---------------:|
@@ -47,3 +47,14 @@ The following is the description of all the economic variables which have been u
 |  |  |   |
 |:--:|:-------:|:---------------:|
 | 33 | Goods imports (BoP, current US$) | Value of goods imported in current US dollars.  |
+
+In addition to this, Labels had also been created for the classification-based models 
+
+| S.No | Label | Description  |
+|:--:|:-------:|:---------------:|
+| 1 | Low Growth | 0- 2 %  |
+| 2 | Moderate Growth | 2-5 %  |
+| 3 | High Growth | 5-7 %  |
+| 4 | Very High Growth | > 7%  |
+
+For more details, check the `Codes` Tab

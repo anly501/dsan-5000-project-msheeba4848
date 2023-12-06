@@ -4617,7 +4617,13 @@ vertical-align: -.125em;
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sources" id="toc-sources" class="nav-link active" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -4646,7 +4652,7 @@ vertical-align: -.125em;
 </header>
 
 <p>For the record data, using the world bank data bank, the data was retrieved. There is a lot of cleaning that was supposed to be done. The entire data as seen under data_gathering section was transposed and had 152 columns. I had to individually transpose. Below, a similar method was imposed to clean all the 5 individual datasets.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -4657,7 +4663,7 @@ vertical-align: -.125em;
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_excel(<span class="st">&#39;../data/excel_files/india.xlsx&#39;</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -4937,14 +4943,14 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>You see that the data is very messy and this was the case with all the 5 individual datasets.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.T</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.iloc[<span class="dv">0</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -5104,14 +5110,14 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>The data was then transposed so that the columns become rows and rows become columns.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.iloc[<span class="dv">4</span>:]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.iloc[<span class="dv">1</span>:]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -5271,12 +5277,12 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>The unnecessary information has been removed and the missing values are checked now</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="5">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>Series Name
 Adjusted net national income (annual % growth)                 0
 Adjusted net national income (constant 2015 US$)               0
@@ -5315,7 +5321,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>In the dataset, there was a problem of the dataframe having row indexes and column indexes and hence, I worked on it drop the index and create a yearly column from scratch.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new index rather than treating it</span></span>
@@ -5328,12 +5334,12 @@ dtype: int64</code></pre>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>(43, 33)</code></pre>
 </div>
 </div>
 <p>All the columns have been renamed</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="7">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cols<span class="op">=</span> [<span class="st">&#39;adj_NNI_g&#39;</span>, <span class="st">&#39;adj_NNI_c&#39;</span>, <span class="st">&#39;adj_savings_fix_cap_GNI&#39;</span>, <span class="st">&#39;adj_savings_edu_GNI&#39;</span>, <span class="st">&#39;adj_NNS_GNI&#39;</span>,</span>
@@ -5345,7 +5351,7 @@ dtype: int64</code></pre>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> cols</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -5529,7 +5535,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Used mean value imputation for missing value imputation. As discussed, for modelling missing values have to be removed and hence, this is the reason why they’re being removed. But in general, for economic data, to prevent bias, the missing value imputation is not done at all as it introduces bias to the dataset.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="8">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>value_to_replace <span class="op">=</span> <span class="st">&quot;..&quot;</span></span>
@@ -5562,7 +5568,7 @@ dtype: int64</code></pre>
 25                           cpi                   0</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cols <span class="kw">in</span> df.columns:</span>
@@ -5608,7 +5614,7 @@ military expenditure             0
 dtype: int64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5657,14 +5663,216 @@ memory usage: 11.2 KB</code></pre>
 </div>
 </div>
 <p>We see that the entire dataset is numerical in nature.</p>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;year&#39;</span>] <span class="op">=</span> df.index <span class="co"># we make this the index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>Market-based economies now days are centred on steady growth. A collection of interconnected production and consuming activities that decide how scarce resources are distributed is called an economy. These limited resources are distributed within a market system in market-based economies, where supply and demand dictate how resources are allocated.</p>
+<p>The BRICS countries have seen a great deal of economic growth over the last few decades. China, in particular, has rapidly industrialised and grown to be the second-largest economy in the world. India has also played a significant role in this growth. These countries have diverse economies with interconnected production and consumption activities. As a group, they have significant influence on the global stage. Their trade policies, economic activities, and strategic decisions have an impact not only on their individual economies but also on the global economy as a whole. For this reason, GDP growth rate is essential in gauging the overall performance of the economy.</p>
+<p>According to various sources, the ideal growth rate for a developed economy is around 2-3% but again, for developing country, no literature has shown be a well-performing percentage for good growth rate or moderate growth rate. However, GDP though can be a good indicator for economic performance, focusing on other parameters of education, health, gender and sustained-demand have contribute for the better performance as an economy. Yet, keeping in mind the metrics seen for developed economies, the labels have been created accordingly. With 0-2% as Low Growth, 2-5% as Moderate Growth, 5-7% as ‘High Growth’ looking into the average growth rates of developing economies that are performing well and 7 and above is shown as ‘Very High Growth’. This is user-defined for the purposes of predictive modelling.</p>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="bu">float</span>(<span class="st">&#39;inf&#39;</span>)]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">&#39;Low Growth&#39;</span>, <span class="st">&#39;Moderate Growth&#39;</span>, <span class="st">&#39;High Growth&#39;</span>, <span class="st">&#39;Very High Growth&#39;</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;labels&#39;</span>] <span class="op">=</span> pd.cut(df[<span class="st">&#39;gdp_growth&#39;</span>], bins<span class="op">=</span>bins, labels<span class="op">=</span>labels)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
 
 
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">ex_debt_shocks</th>
+<th data-quarto-table-cell-role="th">final_consump_exp_gdp</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">labels</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1979</td>
+<td>11.978544</td>
+<td>2.476830e+11</td>
+<td>8.055168</td>
+<td>2.600000</td>
+<td>6.418183</td>
+<td>-0.958069</td>
+<td>6.139551</td>
+<td>5.237330</td>
+<td>11.096107</td>
+<td>87.498021</td>
+<td>...</td>
+<td>9.737409</td>
+<td>11.346073</td>
+<td>4.476508</td>
+<td>16.5</td>
+<td>53.611</td>
+<td>11.702478</td>
+<td>13.780033</td>
+<td>3.133781</td>
+<td>1979</td>
+<td>High Growth</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1980</td>
+<td>-2.572689</td>
+<td>2.413109e+11</td>
+<td>8.393346</td>
+<td>2.600000</td>
+<td>7.373027</td>
+<td>-1.394549</td>
+<td>5.936027</td>
+<td>-0.816934</td>
+<td>11.615484</td>
+<td>85.768606</td>
+<td>...</td>
+<td>11.014232</td>
+<td>13.112547</td>
+<td>5.118237</td>
+<td>16.5</td>
+<td>54.175</td>
+<td>11.376034</td>
+<td>14.073244</td>
+<td>3.186248</td>
+<td>1980</td>
+<td>High Growth</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1981</td>
+<td>1.626264</td>
+<td>2.452352e+11</td>
+<td>8.819348</td>
+<td>3.051058</td>
+<td>7.043158</td>
+<td>-1.257273</td>
+<td>5.983300</td>
+<td>6.020508</td>
+<td>13.467614</td>
+<td>85.319441</td>
+<td>...</td>
+<td>11.883336</td>
+<td>7.890743</td>
+<td>7.774707</td>
+<td>16.5</td>
+<td>54.732</td>
+<td>11.959873</td>
+<td>15.563031</td>
+<td>3.345118</td>
+<td>1981</td>
+<td>Moderate Growth</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982</td>
+<td>11.562099</td>
+<td>2.735896e+11</td>
+<td>8.419293</td>
+<td>3.153437</td>
+<td>7.024774</td>
+<td>-0.887438</td>
+<td>5.837629</td>
+<td>-0.914918</td>
+<td>14.101651</td>
+<td>85.635851</td>
+<td>...</td>
+<td>13.293660</td>
+<td>11.868081</td>
+<td>7.320987</td>
+<td>16.5</td>
+<td>55.281</td>
+<td>12.077793</td>
+<td>17.460567</td>
+<td>3.323069</td>
+<td>1982</td>
+<td>Very High Growth</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1983</td>
+<td>1.851968</td>
+<td>2.786564e+11</td>
+<td>8.784357</td>
+<td>2.700000</td>
+<td>7.097912</td>
+<td>-1.089317</td>
+<td>6.283401</td>
+<td>7.297852</td>
+<td>15.530868</td>
+<td>84.960526</td>
+<td>...</td>
+<td>14.399548</td>
+<td>8.318907</td>
+<td>7.947100</td>
+<td>16.5</td>
+<td>55.816</td>
+<td>13.142960</td>
+<td>19.011381</td>
+<td>3.416876</td>
+<td>1983</td>
+<td>Moderate Growth</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 35 columns</p>
+</div>
+</div>
+</div>
+<p>Just like India, this was done for all the countries in the same manner, which can be accessed using the code file.</p>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<p>https://policycommons.net/artifacts/1412671/best-gdp-growth-in-a-year-still-not-good-enough/2026934/</p>
+<p>https://ideas.repec.org/p/fip/fednsr/94635.html</p>
+<p>https://www.sciencedirect.com/science/article/pii/S0378437116309475?casa_token=m-i7E8n52w4AAAAA:QNYOYUv0zCTcAhLbPZ5ax3wg8dWBjSmwO-OBVa4xjSOOjX1yQ4Ydcw9IFls40ZPvsJodYTtzBpc</p>
+<p>https://corporatefinanceinstitute.com/resources/economics/economic-growth-rate/</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

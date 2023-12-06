@@ -265,24 +265,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In BRICS countries, exploratory data analysis (EDA) is a critical procedure for analysing economic data. It assists academics and policymakers in learning about economic trends, inequities, and anomalies. EDA allows for the comparison of economic indicators across different countries, assisting in the assessment of their relative economic performance. It provides vital information for informed decision-making in sectors such as trade, investment, and policy formulation by exposing hidden links and correlations. Additionally, it is critical in a dynamic economic landscape for understanding the complexities of economic data, guiding strategies, and encouraging sustainable growth and collaboration among the BRICS members.</p>
 <p>For my data, EDA is the only method to uncover the hidden insights within the dataset that will help me explore the data in comparison to all the nations at hand.</p>
-<div class="cell" data-execution_count="107">
+<div class="cell" data-execution_count="115">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span>  pandas  <span class="im">as</span>  pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> msno</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> msno</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="108">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>india<span class="op">=</span>pd.read_csv(<span class="st">'../data/india.csv'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>russia<span class="op">=</span>pd.read_csv(<span class="st">'../data/russia.csv'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>china<span class="op">=</span>pd.read_csv(<span class="st">'../data/china.csv'</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>brazil<span class="op">=</span>pd.read_csv(<span class="st">'../data/brazil.csv'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>southafrica<span class="op">=</span>pd.read_csv(<span class="st">'../data/southafrica.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="116">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>india<span class="op">=</span>pd.read_csv(<span class="st">'../data/csv_files_numerical_countries/india.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>russia<span class="op">=</span>pd.read_csv(<span class="st">'../data/csv_files_numerical_countries/russia.csv'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>china<span class="op">=</span>pd.read_csv(<span class="st">'../data/csv_files_numerical_countries/china.csv'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>brazil<span class="op">=</span>pd.read_csv(<span class="st">'../data/csv_files_numerical_countries/brazil.csv'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>southafrica<span class="op">=</span>pd.read_csv(<span class="st">'../data/csv_files_numerical_countries/southafrica.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I created and treated five separate datasets. In terms of India, you see that there is a greater variation in Exports and Imports as a % of GDP and in Trade GDP. This is due to the developing nature of India, being one of the fastest growing economies of the world.</p>
-<div class="cell" data-execution_count="109">
+<div class="cell" data-execution_count="117">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>india.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="109">
+<div class="cell-output cell-output-display" data-execution_count="117">
 <div>
 
 
@@ -513,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="110">
+<div class="cell" data-execution_count="118">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>india.info() <span class="co"># the data is in correct format except year since it will later be dropped but we need it for analysis now.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -562,9 +564,9 @@ memory usage: 12.2+ KB</code></pre>
 </div>
 </div>
 <p>For Russia, if you see, there were periods in Russia where they were in deficit to the times they in surplus showcasing their evolultion as a nature with the economic and geopolitical wars Russia engages in. In terms of the Adjusted Savings as a % of GNI, you also see the huge difference and a huge variation in the dataset. It talks a reduction in their education expenses due to which they have it as a savings in their GNI% category. Inflation, Lending Interest Rate are also shown to be extremely volatile in nature, thus showcasing their non-linear nature of spending habits and the state of their economy.</p>
-<div class="cell" data-execution_count="111">
+<div class="cell" data-execution_count="119">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>russia.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="111">
+<div class="cell-output cell-output-display" data-execution_count="119">
 <div>
 
 
@@ -795,7 +797,7 @@ memory usage: 12.2+ KB</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="112">
+<div class="cell" data-execution_count="120">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>russia.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -844,9 +846,9 @@ memory usage: 8.3+ KB</code></pre>
 </div>
 </div>
 <p>China, personally has been one of the most interesting nations to learn about as most of the data that China shares with people is also the data it “chooses” to share. The book of Silk Route has shows China in from a fascinating point of view. If you look at China, there is not much of volatile relations to be seen in China. The way they function being a manufacturing nation has been non-volatile primarily depending on their masses as it is a labour-intensive nation that is now emerging to steer towards knowledge management. One of my most favorite nations from an economics lens.</p>
-<div class="cell" data-execution_count="113">
+<div class="cell" data-execution_count="121">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>china.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="113">
+<div class="cell-output cell-output-display" data-execution_count="121">
 <div>
 
 
@@ -1077,7 +1079,7 @@ memory usage: 8.3+ KB</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="114">
+<div class="cell" data-execution_count="122">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>china.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1126,9 +1128,9 @@ memory usage: 9.7+ KB</code></pre>
 </div>
 </div>
 <p>South Africa has been a country with intense socio-political changes. Due to which the deviations seen from this nation can be quite altering. The inflation and the lending interest rates show us the economy has always been in recession most of the time, often asking for foreign aid from other developed nations. Yet, South Africa, due to this labour and natural capital is now emerging to be one of the competing nations.</p>
-<div class="cell" data-execution_count="115">
+<div class="cell" data-execution_count="123">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>southafrica.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="115">
+<div class="cell-output cell-output-display" data-execution_count="123">
 <div>
 
 
@@ -1359,7 +1361,7 @@ memory usage: 9.7+ KB</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="116">
+<div class="cell" data-execution_count="124">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>southafrica.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1408,9 +1410,9 @@ memory usage: 14.2+ KB</code></pre>
 </div>
 </div>
 <p>Brazil’s economic context various in accordance to the time, with periods of normal growth and periods of high growth, that also states the nature of it’s geo-political reign. If you look at the indicators, the Adjusted Savings for Fixed Capital and Trade GDP are interesting to look at.</p>
-<div class="cell" data-execution_count="117">
+<div class="cell" data-execution_count="125">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>brazil.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="117">
+<div class="cell-output cell-output-display" data-execution_count="125">
 <div>
 
 
@@ -1641,7 +1643,7 @@ memory usage: 14.2+ KB</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="118">
+<div class="cell" data-execution_count="126">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>brazil.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1688,177 +1690,352 @@ dtypes: float64(33), int64(1), object(1)
 memory usage: 13.8+ KB</code></pre>
 </div>
 </div>
+<p>Normalising all of the national data in exploratory data analysis (EDA) is essential for unbiased feature comparison. By guaranteeing that numerical features have a common scale, it helps to avoid biases in analysis. Effective data exploration is facilitated by normalisation, which also improves interpretability, supports the stability of optimisation algorithms, and helps with pattern recognition. Normalisation minimises the effects of different magnitudes, so during EDA, it optimises data preparation for further analyses or machine learning modelling. This lays the groundwork for trustworthy insights and well-informed judgements.</p>
+<div class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># india </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>years_keep <span class="op">=</span> india[[<span class="st">'year'</span>]]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> india[<span class="st">'labels'</span>]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>cols_nor <span class="op">=</span> india.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>cols_nor<span class="op">=</span> cols_nor.drop(columns<span class="op">=</span>[<span class="st">'year'</span>])</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>normalized_columns <span class="op">=</span> scaler.fit_transform(cols_nor)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>india <span class="op">=</span> pd.DataFrame(normalized_columns, columns<span class="op">=</span>cols_nor.columns)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>india <span class="op">=</span> pd.concat([years_keep, labels, india], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># russia </span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>years_keep1 <span class="op">=</span> russia[[<span class="st">'year'</span>]]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>labels1 <span class="op">=</span> russia[<span class="st">'labels'</span>]</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>cols_nor1 <span class="op">=</span> russia.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>])</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>cols_nor1<span class="op">=</span> cols_nor1.drop(columns<span class="op">=</span>[<span class="st">'year'</span>])</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>normalized_columns1 <span class="op">=</span> scaler.fit_transform(cols_nor1)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>russia <span class="op">=</span> pd.DataFrame(normalized_columns1, columns<span class="op">=</span>cols_nor1.columns)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>russia <span class="op">=</span> pd.concat([years_keep1, labels1, russia], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># china </span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>years_keep2 <span class="op">=</span> china[[<span class="st">'year'</span>]]</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>labels2 <span class="op">=</span> china[<span class="st">'labels'</span>]</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>cols_nor2 <span class="op">=</span> china.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>])</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>cols_nor2<span class="op">=</span> cols_nor2.drop(columns<span class="op">=</span>[<span class="st">'year'</span>])</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>normalized_columns2 <span class="op">=</span> scaler.fit_transform(cols_nor2)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>china <span class="op">=</span> pd.DataFrame(normalized_columns2, columns<span class="op">=</span>cols_nor2.columns)</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>china <span class="op">=</span> pd.concat([years_keep2, labels2, china], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># south africa </span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>years_keep3 <span class="op">=</span> southafrica[[<span class="st">'year'</span>]]</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>labels3 <span class="op">=</span> southafrica[<span class="st">'labels'</span>]</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>cols_nor3 <span class="op">=</span> southafrica.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>])</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>cols_nor3<span class="op">=</span> cols_nor3.drop(columns<span class="op">=</span>[<span class="st">'year'</span>])</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>normalized_columns3 <span class="op">=</span> scaler.fit_transform(cols_nor3)</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>southafrica <span class="op">=</span> pd.DataFrame(normalized_columns3, columns<span class="op">=</span>cols_nor3.columns)</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>southafrica <span class="op">=</span> pd.concat([years_keep3, labels3, southafrica], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a><span class="co"># brazil</span></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>years_keep4 <span class="op">=</span> brazil[[<span class="st">'year'</span>]]</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>labels4 <span class="op">=</span> brazil[<span class="st">'labels'</span>]</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>cols_nor4 <span class="op">=</span> brazil.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>])</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>cols_nor4<span class="op">=</span> cols_nor4.drop(columns<span class="op">=</span>[<span class="st">'year'</span>])</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>normalized_columns4 <span class="op">=</span> scaler.fit_transform(cols_nor4)</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>brazil <span class="op">=</span> pd.DataFrame(normalized_columns4, columns<span class="op">=</span>cols_nor4.columns)</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>brazil <span class="op">=</span> pd.concat([years_keep4, labels4, brazil], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/opt/homebrew/anaconda3/lib/python3.10/site-packages/sklearn/utils/extmath.py:1047: RuntimeWarning: invalid value encountered in divide
+  updated_mean = (last_sum + new_sum) / updated_sample_count
+/opt/homebrew/anaconda3/lib/python3.10/site-packages/sklearn/utils/extmath.py:1052: RuntimeWarning: invalid value encountered in divide
+  T = new_sum / new_sample_count
+/opt/homebrew/anaconda3/lib/python3.10/site-packages/sklearn/utils/extmath.py:1072: RuntimeWarning: invalid value encountered in divide
+  new_unnormalized_variance -= correction**2 / new_sample_count</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>display(india.head(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">labels</th>
+<th data-quarto-table-cell-role="th">adj_NNI_g</th>
+<th data-quarto-table-cell-role="th">adj_NNI_c</th>
+<th data-quarto-table-cell-role="th">adj_savings_fix_cap_GNI</th>
+<th data-quarto-table-cell-role="th">adj_savings_edu_GNI</th>
+<th data-quarto-table-cell-role="th">adj_NNS_GNI</th>
+<th data-quarto-table-cell-role="th">curr_acc_bal</th>
+<th data-quarto-table-cell-role="th">ex_imp_gdp</th>
+<th data-quarto-table-cell-role="th">ex_imp_growth</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">trade_gdp</th>
+<th data-quarto-table-cell-role="th">cpi</th>
+<th data-quarto-table-cell-role="th">inflation</th>
+<th data-quarto-table-cell-role="th">real_interest_rate</th>
+<th data-quarto-table-cell-role="th">lending_interest_rate</th>
+<th data-quarto-table-cell-role="th">life_exp_birth</th>
+<th data-quarto-table-cell-role="th">expense_gdp</th>
+<th data-quarto-table-cell-role="th">interest_payments</th>
+<th data-quarto-table-cell-role="th">military expenditure</th>
+<th data-quarto-table-cell-role="th">year.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1979</td>
+<td>High Growth</td>
+<td>1.580504</td>
+<td>-1.052491</td>
+<td>-2.806571</td>
+<td>-1.621168</td>
+<td>-1.642687</td>
+<td>0.326249</td>
+<td>-1.221735</td>
+<td>-0.441451</td>
+<td>...</td>
+<td>-1.074394</td>
+<td>-1.111207</td>
+<td>1.233173</td>
+<td>-0.454493</td>
+<td>1.107802</td>
+<td>-1.828882</td>
+<td>-2.578654</td>
+<td>-2.026537</td>
+<td>0.535410</td>
+<td>-1.692228</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1980</td>
+<td>High Growth</td>
+<td>-2.167406</td>
+<td>-1.062632</td>
+<td>-2.342460</td>
+<td>-1.621168</td>
+<td>-1.494116</td>
+<td>-0.038933</td>
+<td>-1.252155</td>
+<td>-1.077470</td>
+<td>...</td>
+<td>-1.134957</td>
+<td>-1.089037</td>
+<td>1.823580</td>
+<td>-0.202078</td>
+<td>1.107802</td>
+<td>-1.717334</td>
+<td>-2.838462</td>
+<td>-1.981865</td>
+<td>0.656334</td>
+<td>-1.611646</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1981</td>
+<td>Moderate Growth</td>
+<td>-1.085896</td>
+<td>-1.056386</td>
+<td>-1.757818</td>
+<td>-0.354753</td>
+<td>-1.545443</td>
+<td>0.075919</td>
+<td>-1.245089</td>
+<td>-0.359175</td>
+<td>...</td>
+<td>-1.161281</td>
+<td>-1.073945</td>
+<td>0.078302</td>
+<td>0.842809</td>
+<td>1.107802</td>
+<td>-1.607170</td>
+<td>-2.373800</td>
+<td>-1.754889</td>
+<td>1.022491</td>
+<td>-1.531064</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1982</td>
+<td>Very High Growth</td>
+<td>1.473242</td>
+<td>-1.011259</td>
+<td>-2.306850</td>
+<td>-0.067311</td>
+<td>-1.548303</td>
+<td>0.385343</td>
+<td>-1.266862</td>
+<td>-1.087764</td>
+<td>...</td>
+<td>-1.191333</td>
+<td>-1.049456</td>
+<td>1.407643</td>
+<td>0.664344</td>
+<td>1.107802</td>
+<td>-1.498588</td>
+<td>-2.279951</td>
+<td>-1.465790</td>
+<td>0.971674</td>
+<td>-1.450481</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1983</td>
+<td>Moderate Growth</td>
+<td>-1.027763</td>
+<td>-1.003195</td>
+<td>-1.805840</td>
+<td>-1.340403</td>
+<td>-1.536923</td>
+<td>0.216440</td>
+<td>-1.200235</td>
+<td>-0.224986</td>
+<td>...</td>
+<td>-1.169327</td>
+<td>-1.030254</td>
+<td>0.221407</td>
+<td>0.910618</td>
+<td>1.107802</td>
+<td>-1.392776</td>
+<td>-1.432214</td>
+<td>-1.229516</td>
+<td>1.187877</td>
+<td>-1.369899</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 36 columns</p>
+</div>
+</div>
+</div>
 <section id="visual-data-representation" class="level3">
 <h3 class="anchored" data-anchor-id="visual-data-representation">Visual Data Representation</h3>
 <section id="histograms" class="level4">
 <h4 class="anchored" data-anchor-id="histograms">Histograms</h4>
-<div class="cell" data-execution_count="142">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ax.hist(india[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'India'</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax.hist(southafrica[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'South Africa'</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>ax.hist(brazil[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Brazil'</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>ax.hist(russia[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Russia'</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>ax.hist(china[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'China'</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Inflation'</span>)</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Percentage'</span>)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'BRICS'</span>)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ax.hist(india[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'India'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax.hist(southafrica[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'South Africa'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>ax.hist(brazil[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Brazil'</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ax.hist(russia[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Russia'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax.hist(china[<span class="st">"inflation"</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'China'</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Inflation'</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Percentage'</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'BRICS'</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="EDA_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<p><img src="EDA_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>If you look at the inflation, you see South Africa and Brazil having higher bouts of inflation than China or India. This tells us about the nature of their economy and the role of their sustainable and geo-political contexts.</p>
 </section>
 <section id="scatterplots" class="level4">
 <h4 class="anchored" data-anchor-id="scatterplots">Scatterplots</h4>
-<div class="cell" data-execution_count="121">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">9</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Trade Analysis'</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>ax1<span class="op">=</span> fig.add_subplot(<span class="dv">331</span>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'India'</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ax1.plot(india[<span class="st">'year'</span>],</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        india[<span class="st">'trade_gdp'</span>],</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">332</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'China'</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>ax2.plot(china[<span class="st">'year'</span>],</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        china[<span class="st">'trade_gdp'</span>],</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'brown'</span>)</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>ax3<span class="op">=</span> fig.add_subplot(<span class="dv">333</span>)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">'Russia'</span>)</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>ax3.plot(russia[<span class="st">'year'</span>],</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        russia[<span class="st">'trade_gdp'</span>],</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'pink'</span>)</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>ax4<span class="op">=</span> fig.add_subplot(<span class="dv">334</span>)</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">'South Africa'</span>)</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>ax4.plot(southafrica[<span class="st">'year'</span>],</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        southafrica[<span class="st">'trade_gdp'</span>],</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'pink'</span>)</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>ax5<span class="op">=</span> fig.add_subplot(<span class="dv">335</span>)</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>ax5.set_title(<span class="st">'Brazil'</span>)</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>ax5.plot(brazil[<span class="st">'year'</span>],</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        brazil[<span class="st">'trade_gdp'</span>],</span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'orange'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="EDA_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>In terms of each countries’ Trade GDP, we see Russia performing better than Brazil and South Africa which a linear growth as it is increasing at an increasing rate. In terms of China, it’s trade % of the GDP has been positively rising. India, due to it’s economic crisis and the flush of trade borders opening emphasised on more international trade than it’s other counter-parts during that time. When you look at Brazil, Brazil’s influx of trade was more in the early 1990’s and it casually decreased. In terms of South Africa, you see it’s trade was completely closed in the 1980s due to its dependency on other natures with not have much resources to trade, but over a period of time, that changed.</p>
-<div class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Matplotlib figure and axis</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot for all numerical columns in the DataFrame</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>india.boxplot(ax<span class="op">=</span>ax)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and a title</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'India'</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="EDA_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>If you look at India’s boxplot graph, the adjusted Net National Income growth, the percentage of goods and the goods imported’s percentages are the data that has shown high variability, showcasing the importance of data bias and data normalisation. Yet,you also see vast differences in the max and min values between the blot points.</p>
-<div class="cell" data-execution_count="144">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>russia.boxplot(ax<span class="op">=</span>ax)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Russia'</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">9</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Trade Analysis'</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax1<span class="op">=</span> fig.add_subplot(<span class="dv">331</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'India'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax1.plot(india[<span class="st">'year'</span>],</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        india[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">332</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'China'</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax2.plot(china[<span class="st">'year'</span>],</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        china[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'brown'</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ax3<span class="op">=</span> fig.add_subplot(<span class="dv">333</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>ax3.plot(russia[<span class="st">'year'</span>],</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        russia[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'pink'</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>ax4<span class="op">=</span> fig.add_subplot(<span class="dv">334</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>ax4.plot(southafrica[<span class="st">'year'</span>],</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>        southafrica[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'pink'</span>)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>ax5<span class="op">=</span> fig.add_subplot(<span class="dv">335</span>)</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>ax5.set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>ax5.plot(brazil[<span class="st">'year'</span>],</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>        brazil[<span class="st">'trade_gdp'</span>],</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'orange'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>It is the same case with russia, but the services GDP % is actually high. If you see, the Imports of Goods and Servies as a % of GDP has greater variability and even the Services as a % of GDP.</p>
-<div class="cell" data-execution_count="145">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>china.boxplot(ax<span class="op">=</span>ax)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'China'</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In terms of each countries’ Trade GDP, we see Russia performing better than Brazil and South Africa which a linear growth as it is increasing at an increasing rate. In terms of China, it’s trade % of the GDP has been positively rising. India, due to it’s economic crisis and the flush of trade borders opening emphasised on more international trade than it’s other counter-parts during that time. When you look at Brazil, Brazil’s influx of trade was more in the early 1990’s and it casually decreased. In terms of South Africa, you see it’s trade was completely closed in the 1980s due to its dependency on other natures with not have much resources to trade, but over a period of time, that changed.</p>
+<div class="cell" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Matplotlib figure and axis</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot for all numerical columns in the DataFrame</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>india.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and a title</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'India'</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>In terms of, you don’t see a lot of variability in the dataset except the educational expenses, the Imports of Goods and Services as a percentage of Growth, the % of services as a GDP.</p>
-<div class="cell" data-execution_count="125">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>southafrica.boxplot(ax<span class="op">=</span>ax)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'South Africa'</span>)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you look at India’s boxplot graph, the adjusted Net National Income growth, the percentage of goods and the goods imported’s percentages are the data that has shown high variability, showcasing the importance of data bias and data normalisation. Yet,you also see vast differences in the max and min values between the blot points.</p>
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>russia.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>For South Africa, you see how the data shows the variability for similar ones highlighting the importance of data-normalisation.</p>
-<div class="cell" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>brazil.boxplot(ax<span class="op">=</span>ax)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Brazil'</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is the same case with russia, but the services GDP % is actually high. If you see, the Imports of Goods and Servies as a % of GDP has greater variability and even the Services as a % of GDP.</p>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>china.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'China'</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>But the variability is comparitively lesser for Brazil.</p>
-<div class="cell" data-execution_count="127">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> india.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In terms of, you don’t see a lot of variability in the dataset except the educational expenses, the Imports of Goods and Services as a percentage of Growth, the % of services as a GDP.</p>
+<div class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>southafrica.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>If you look at the variables that are correlated with each other, and a lot of variables that are negatively correlated with each other. For instance, Ajusted Net National Income in positively correlated with other variables and Final Consumption Expenditure is negatively correlated to the data.</p>
-<div class="cell" data-execution_count="128">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> china.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For South Africa, you see how the data shows the variability for similar ones highlighting the importance of data-normalisation.</p>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>brazil.boxplot(ax<span class="op">=</span>ax)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>For China, interest payments are negatively correlated to most of the variables, so that FDI Net Inflows, and even the General Government Final Expenditure. And majority of the variables are positively correlated to each other too.</p>
-<div class="cell" data-execution_count="129">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> russia.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="EDA_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>If you see for Russia, comparitively, most of the variables are negatively correlated to each other , few of them being Adjusted Savings for Education as a % for GNI, interest payemeets, etc.</p>
-<div class="cell" data-execution_count="130">
+<p>But the variability is comparitively lesser for Brazil.</p>
+<div class="cell" data-execution_count="135">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> southafrica.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> india.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
@@ -1866,13 +2043,13 @@ memory usage: 13.8+ KB</code></pre>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="EDA_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+<p><img src="EDA_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>For Africa to, there are a lot of variables that are highly correlated to each other and the same for Brazil as well.</p>
-<div class="cell" data-execution_count="131">
+<p>If you look at the variables that are correlated with each other, and a lot of variables that are negatively correlated with each other. For instance, Ajusted Net National Income in positively correlated with other variables and Final Consumption Expenditure is negatively correlated to the data.</p>
+<div class="cell" data-execution_count="136">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> brazil.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> china.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
@@ -1880,52 +2057,94 @@ memory usage: 13.8+ KB</code></pre>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>For China, interest payments are negatively correlated to most of the variables, so that FDI Net Inflows, and even the General Government Final Expenditure. And majority of the variables are positively correlated to each other too.</p>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> russia.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="132">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>india, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'India'</span>)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>russia, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Russia'</span>)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>china, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'China'</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>brazil, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">3</span>])</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Brazil'</span>)</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>southafrica, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">4</span>])</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">4</span>].set_title(<span class="st">'South Africa'</span>)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you see for Russia, comparitively, most of the variables are negatively correlated to each other , few of them being Adjusted Savings for Education as a % for GNI, interest payemeets, etc.</p>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> southafrica.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="EDA_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<p>For Africa to, there are a lot of variables that are highly correlated to each other and the same for Brazil as well.</p>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> brazil.corr(numeric_only<span class="op">=</span><span class="va">True</span>)  <span class="co">#Computing correlation matrix</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> np.triu(np.ones_like(corr, dtype<span class="op">=</span><span class="bu">bool</span>)) </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">230</span>, <span class="dv">20</span>, as_cmap<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>mask, cmap<span class="op">=</span>cmap, vmax<span class="op">=</span><span class="fl">.3</span>, center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, linewidths<span class="op">=</span><span class="fl">.5</span>, cbar_kws<span class="op">=</span>{<span class="st">"shrink"</span>: <span class="fl">.5</span>})</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>india, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'India'</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>russia, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>china, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'China'</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>brazil, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">3</span>])</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>southafrica, x<span class="op">=</span><span class="st">"year"</span>, y<span class="op">=</span><span class="st">"adj_NNI_g"</span>, hue<span class="op">=</span><span class="st">'cpi'</span>, ax<span class="op">=</span>axes[<span class="dv">4</span>])</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">4</span>].set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p>If you look at the scatterplot to understand the Adjusted Net National Income’s growth, Brazil, India, China and Russia almost show no correlation with the year. It shows that irrespective of the year, they’re parallel to the x axis, showcasing inelasticity.</p>
-<div class="cell" data-execution_count="136">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>india, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'India'</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>russia, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Russia'</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>china, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'China'</span>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>brazil, ax<span class="op">=</span>axes[<span class="dv">3</span>])</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Brazil'</span>)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>southafrica, ax<span class="op">=</span>axes[<span class="dv">4</span>])</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">4</span>].set_title(<span class="st">'South Africa'</span>)</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>india, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'India'</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>russia, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Russia'</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>china, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'China'</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>brazil, ax<span class="op">=</span>axes[<span class="dv">3</span>])</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Brazil'</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">"labels"</span>, y<span class="op">=</span><span class="st">"gni_growth"</span>, data<span class="op">=</span>southafrica, ax<span class="op">=</span>axes[<span class="dv">4</span>])</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">4</span>].set_title(<span class="st">'South Africa'</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_63651/980302243.py:13: UserWarning: FixedFormatter should only be used together with FixedLocator
+<pre><code>/var/folders/cm/1bq_zvw92w99j_5d1p5jq5v40000gn/T/ipykernel_75422/980302243.py:13: UserWarning: FixedFormatter should only be used together with FixedLocator
   ax.set_xticklabels(ax.get_xticklabels(), rotation=90)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="EDA_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+<p><img src="EDA_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The violin plots showcase the association of the GDP labels with the GNI growth. There is greater density and spread in Russia, Brazil and South Africa in comparison to India.</p>
