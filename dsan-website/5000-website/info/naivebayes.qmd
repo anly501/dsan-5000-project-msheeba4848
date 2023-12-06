@@ -1,7 +1,0 @@
----
-title: "Naive Bayes"
-backgroundcolor: white
-mainfont: Georgia
-theme: morph
----
-
